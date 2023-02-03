@@ -26,7 +26,7 @@ const useGameState = (initial) => {
     fetchData();
   }, []);
 
-  return [battlefield, setBattlefield];
+  return { state };
 };
 
 export default useGameState;

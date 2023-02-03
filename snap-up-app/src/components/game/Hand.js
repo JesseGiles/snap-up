@@ -1,14 +1,15 @@
 import React from "react";
 import testCard from "../../assets/test-card.webp";
-import Card from "./Card";
+import CardShow from "./CardShow";
+
 export default function Hand(props) {
   return (
     <div className="hand">
-      <Card />
+      <CardShow id={1} />
 
-      <Card />
+      <CardShow id={2} />
 
-      <Card />
+      <CardShow id={3} />
     </div>
   );
 }

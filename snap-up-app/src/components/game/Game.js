@@ -2,8 +2,13 @@ import React, { useState, useRef } from "react";
 import "../../component-styles/game.css";
 import Lane from "./Lane";
 import PlayerZone from "./PlayerZone";
+import useGameData from "../../hooks/useGameData";
 
 function Game() {
+  const { state } = useGameData();
+
+  console.log("Put in a db query here");
+
   return (
     <div className="game">
       <div className="opp-pz">
