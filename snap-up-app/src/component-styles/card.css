@@ -9,7 +9,7 @@ pusheen colors
  */
 
 
-.Card-show {
+.card-show {
   display: flex;
   --border:  #2addbc;
   --bg: #7e579c;
@@ -19,14 +19,14 @@ pusheen colors
   --bg-img: url("https://www.transparenttextures.com/patterns/black-thread-light.png");
 }
 
-.Card-empty {
+.card-empty {
   display: flex;
   height: 10em;
   width: 7.5em;
   margin: 1em;
 }
 
-.Card {
+.card {
   font-family: 'Titillium Web', sans-serif;
   background-color: var(--bg);
   background-image: var(--bg-img);
@@ -39,7 +39,7 @@ pusheen colors
   border-radius: 5% 0% 5% 5%;
 }
 
-.Card-header {
+.card-header {
   display: flex;
   justify-content: space-between;
   font-style: italic;
@@ -48,20 +48,20 @@ pusheen colors
   
 }
 
-.Card-name {
+.card-name {
   width: 70%;
   height: 100%;
   white-space: nowrap;
   
 }
 
-.Card-cost-container {
+.card-cost-container {
   
   position: relative;
   
 }
 
-.Card-cost-shape {
+.card-cost-shape {
   width: 0;
   height: 0;
   border-top: 2em solid var(--cost);
@@ -72,13 +72,13 @@ pusheen colors
   
 }
 
-.Card-cost {
+.card-cost {
   z-index: 9;
   right: .2em;
   position: absolute;
 }
 
-.Card-img {
+.card-img {
   width: 6em;
   height: 6em;
   border: .2em solid var(--img-border);
@@ -90,7 +90,7 @@ pusheen colors
   
 }
 
-.Card-power {
+.card-power {
   background-color: var(--power);
   width: 1.5em;
   height: 1.5em;

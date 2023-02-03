@@ -1,4 +1,4 @@
-.App {
+.game {
   background-color: #1f2228;
   min-height: 100vh;
   display: flex;
@@ -13,7 +13,7 @@
 
 }
 
-.PlayerZone {
+.player-zone {
   display: flex;
   flex-direction: row;
 }
@@ -28,7 +28,13 @@
   display: flex;
 
 }
-.Lane {
+
+.hand {
+  display: flex;
+  flex-direction: row;
+}
+
+.lane {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,19 +44,19 @@
 
 }
 
-.PlayerLanePower {
+.player-lane-power {
   height: 50;
   width: 50px;
   background-color: goldenrod;
 }
 
-.Location {
+.location {
   height: 100;
   width: 100px;
 }
 
 
-.Deck {
+.deck {
   display: flex;
   height: 10em;
   width: 7.5em;

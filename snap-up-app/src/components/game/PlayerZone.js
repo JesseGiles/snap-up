@@ -4,13 +4,11 @@ import Hand from "./Hand";
 //also import scss file once you style things
 
 export default function CardZone(props) {
-  
   return (
-    <div className="PlayerZone">
+    <div className="player-zone">
       <Deck />
 
       <Hand />
-     
     </div>
   );
 }

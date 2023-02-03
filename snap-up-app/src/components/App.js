@@ -1,35 +1,5 @@
-
-import React, { useState, useRef } from 'react';
-import '../component-styles/App.css';
-import Lane from './Lane';
-import PlayerZone from './PlayerZone'
-
+import React, { useState, useRef } from "react";
 
 function App() {
-  
-
-  return (
-    <div className="App">
-      <div className="opp-pz">
-      <PlayerZone
-      player="p2-opp"
-      />
-      </div>
-      <div className="battlefield">
-        <Lane 
-        position="left"
-        />
-        <Lane 
-        position="mid"
-        />
-        <Lane 
-        position="right"
-        />
-      </div>
-      <PlayerZone 
-      player="p1-self"/>
-    </div>
-  );
+  return <div className="app"></div>;
 }
-
-export default App;

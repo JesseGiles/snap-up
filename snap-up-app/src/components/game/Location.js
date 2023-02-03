@@ -1,5 +1,5 @@
 import React from "react";
-import location from "../assets/location_template.webp";
+import location from "../../assets/location_template.webp";
 //also import scss file once you style things
 
 export default function Location(props) {
