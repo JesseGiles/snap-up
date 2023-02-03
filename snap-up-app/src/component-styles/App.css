@@ -15,6 +15,7 @@
 
 .PlayerZone {
   display: flex;
+  flex-direction: row;
 }
 
 
@@ -50,17 +51,13 @@
 
 
 .Deck {
-  height: 200;
-  width: 120px;
-  padding: 1em;
+  display: flex;
+  height: 10em;
+  width: 7.5em;
+  margin: 1em;
+
   justify-self: left;
   
-}
-
-.inHand {
-  height: 200;
-  width: 120px;
-  padding: 1em
 }
 
 .opp-pz {

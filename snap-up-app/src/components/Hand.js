@@ -1,34 +1,18 @@
 import React from "react";
 import testCard from "../assets/test-card.webp"
-
+import Card from "./Card";
 export default function Hand(props) {
   
   return (
     
     <div>
-      <img 
-    className="inHand"
-    name="drone"
-    src={testCard}
-    alt="Card in Hand"
-    draggable
-    />
+     < Card />
 
-<img 
-    className="inHand"
-    name="drone"
-    src={testCard}
-    alt="Card in Hand"
-    draggable
-    />
+     < Card />
 
-<img 
-    className="inHand"
-    name="drone"
-    src={testCard}
-    alt="Card in Hand"
-    draggable
-    />
+     < Card />
+
+
     </div>
     
   );

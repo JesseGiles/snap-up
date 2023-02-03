@@ -1,5 +1,5 @@
 import React from "react";
-import cardBack from "../assets/card_back.png"
+import cardBack from "../assets/snapup_cardback.png"
 
 //placeholder for layout purposes
 export default function Deck(props) {

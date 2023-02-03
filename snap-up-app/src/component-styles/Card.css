@@ -13,16 +13,23 @@ pusheen colors
   display: flex;
   --border:  #2addbc;
   --bg: #7e579c;
-  --cost:#8e7dbe;
+  --cost: #2addbc;
   --img-border: #f2d0a9;
-  --power: #d88c9a;
-  --bg-img: 
+  --power: #b80000;
+  --bg-img: url("https://www.transparenttextures.com/patterns/black-thread-light.png");
+}
+
+.Card-empty {
+  display: flex;
+  height: 10em;
+  width: 7.5em;
+  margin: 1em;
 }
 
 .Card {
   font-family: 'Titillium Web', sans-serif;
   background-color: var(--bg);
-  background-image: url("https://www.transparenttextures.com/patterns/black-thread-light.png");
+  background-image: var(--bg-img);
   height: 10em;
   width: 7.5em;
   margin: 1em;

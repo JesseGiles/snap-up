@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "./Card";
+import CardEmpty from "./CardEmpty.js";
 
 
 export default function CardZone(props) {
@@ -7,18 +7,18 @@ export default function CardZone(props) {
   return (
     <div className="card-zone" onDragOver={(e) => e.preventDefault()}>
       <div className="card-zone-top">
-        <Card 
+        <CardEmpty 
         position="1"
         />
-        <Card 
+        <CardEmpty 
         position="2"
         />
       </div>
       <div className="card-zone-bottom">
-        <Card 
+        <CardEmpty 
         position="3"
         />
-        <Card 
+        <CardEmpty 
         position="4"
         />
       </div>
