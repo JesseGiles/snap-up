@@ -3,7 +3,7 @@ import cardBack from "../assets/empty_card_frame.png"
 import dragonsheen from "../assets/dragonsheen.jpeg"
 import jupiter from "../assets/jupiter.jpeg"
 import jason from "../assets/jason.jpeg"
-import "./Card.css";
+import "../component-styles/Card.css";
 
 
 //turn this into a folder full of components for card modes.
