@@ -1,0 +1,68 @@
+.App {
+  background-color: #1f2228;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.battlefield {
+  display: flex;
+
+}
+
+.PlayerZone {
+  display: flex;
+}
+
+
+.card-zone-top {
+  display: flex;
+
+}
+
+.card-zone-bottom {
+  display: flex;
+
+}
+.Lane {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3px solid black;
+  background-color: #85709d;
+  width: 28em;
+
+}
+
+.PlayerLanePower {
+  height: 50;
+  width: 50px;
+  background-color: goldenrod;
+}
+
+.Location {
+  height: 100;
+  width: 100px;
+}
+
+
+.Deck {
+  height: 200;
+  width: 120px;
+  padding: 1em;
+  justify-self: left;
+  
+}
+
+.inHand {
+  height: 200;
+  width: 120px;
+  padding: 1em
+}
+
+.opp-pz {
+  display: none
+}
