@@ -1,6 +1,6 @@
 
 import React, { useState, useRef } from 'react';
-import '../App.css';
+import './App.css';
 import Lane from './Lane';
 import PlayerZone from './PlayerZone'
 
