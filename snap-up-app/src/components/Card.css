@@ -1,0 +1,101 @@
+
+/* pallet: https://coolors.co/6e6466-f1e3d3-99c1b9-8e7dbe-d88c9a-dfa0ab-b83d54
+pusheen colors
+  --border:  #f1e3d3;
+  --bg: #99c1b9;
+  --cost:#8e7dbe;
+  --img-border: #f2d0a9;
+  --power: #d88c9a;
+ */
+
+
+.Card-show {
+  display: flex;
+  --border:  #2addbc;
+  --bg: #7e579c;
+  --cost:#8e7dbe;
+  --img-border: #f2d0a9;
+  --power: #d88c9a;
+  --bg-img: 
+}
+
+.Card {
+  font-family: 'Titillium Web', sans-serif;
+  background-color: var(--bg);
+  background-image: url("https://www.transparenttextures.com/patterns/black-thread-light.png");
+  height: 10em;
+  width: 7.5em;
+  margin: 1em;
+  border: .2em solid var(--border);
+  color: black;
+  position: relative;
+  border-radius: 5% 0% 5% 5%;
+}
+
+.Card-header {
+  display: flex;
+  justify-content: space-between;
+  font-style: italic;
+  width: 100%;
+  height:25%;
+  
+}
+
+.Card-name {
+  width: 70%;
+  height: 100%;
+  white-space: nowrap;
+  
+}
+
+.Card-cost-container {
+  
+  position: relative;
+  
+}
+
+.Card-cost-shape {
+  width: 0;
+  height: 0;
+  border-top: 2em solid var(--cost);
+  border-left: 2em solid transparent;
+  position: absolute;
+  right: 0
+  
+  
+}
+
+.Card-cost {
+  z-index: 9;
+  right: .2em;
+  position: absolute;
+}
+
+.Card-img {
+  width: 6em;
+  height: 6em;
+  border: .2em solid var(--img-border);
+  border-radius: 5%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+}
+
+.Card-power {
+  background-color: var(--power);
+  width: 1.5em;
+  height: 1.5em;
+  border: .1em solid var(--border);
+  border-radius: 50%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 225%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
