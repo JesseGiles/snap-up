@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Flip Test</title>
+  <link rel="stylesheet" href="cardflip.css">
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+</head>
+<body>
+
+  <div class="bothcontainer">
+  <h1>Flickity - wrapAround</h1>
+
+  <!-- Flickity HTML init -->
+  <div class="carousel"
+    data-flickity='{ "wrapAround": true, "autoPlay": true, "imagesLoaded": true, "percentPosition": false }'>
+    <a href="https://www.telus.com"><img src="https://i.imgur.com/UDsmWlt.png"></a>
+    <div class="carousel-cell"><h1>This is a cool div</h1></div>
+    <div class="carousel-cell"></div>
+    <a href="https://www.jurassicworld.com/"><img src="https://i.imgur.com/52O71gN.png"></a>
+    <div class="carousel-cell"></div>
+  </div>
+  
+
+  <div class="maincontainer">
+
+    <div class="thecard">
+
+      <div class="thefront"><h1>Front of Card</h1><p>This is the front of the card. It contains important information. Please see overleaf for more details.</p></div>
+
+      <div class="theback"><h1>Back of Card</h1><p>Your use of this site is subject to the terms and conditions governing this and all transactions.</p>
+      <button>Submit</button></div>
+
+    </div>
+  </div>
+
+</div>
+
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+</body>
+</html>
