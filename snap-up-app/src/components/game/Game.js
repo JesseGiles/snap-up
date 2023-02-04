@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "../../component-styles/game.css";
 import Lane from "./Lane";
 import PlayerZone from "./PlayerZone";
@@ -9,11 +9,10 @@ function Game() {
   const { state, setState } = useGameData();
 
   useEffect(() => {
-    console.log("game line 12: useEffect is running...");
     getInitialHand(state, setState);
   }, []);
-  console.log("game line 15 state is:", state);
 
+  // Note from Jeremy: I removed the opponent playerzone. We'd probably want a whole separate state for it and to call it something like <OpponentZone /> for rendering.
   return (
     <div className="game">
       <div className="battlefield">

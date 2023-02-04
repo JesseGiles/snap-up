@@ -1,3 +1,4 @@
+// This is only called at the start of the game
 function getInitialHand(state, setState) {
   const newDeck = [...state.deck];
   const draw = [];
@@ -11,17 +12,14 @@ function getInitialHand(state, setState) {
     turn: 1,
     energy: 1
   }));
-  console.log("selectors line 14:", draw, newDeck);
 };
 
+// This is called every time the "Next Turn" button is clicked
 function nextTurn(state, setState) {
-  console.log("selectors line 18: deck is", state.deck.length, "cards long.");
-  if (state.deck.length > 0) {
-    console.log('selectors line 19 state is:', state)
+  if (state.deck.length > 0 && state.turn < 6) {
     const newDeck = [...state.deck];
     const draw = [...state.hand];
     draw.push(newDeck.pop());
-    console.log("selectors line 23:", draw, newDeck);
     setState((prev) => ({
       ...prev,
       hand: draw,
@@ -29,11 +27,10 @@ function nextTurn(state, setState) {
       turn: prev.turn + 1,
       energy: prev.turn + 1
     }));
-    console.log("selectors line 31:", draw, newDeck);
-  } else if (state.turn === 6) {
+  } else if (state.turn >= 6) {
+    // this is where we'd call the final counts and stuff and determine the winner
     console.log("GAME OVER!")
   } else {
-      console.log('selectors line 33 state is:', state)
       setState((prev) => ({
         ...prev,
         turn: prev.turn + 1,
