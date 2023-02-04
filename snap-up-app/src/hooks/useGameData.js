@@ -10,10 +10,24 @@ const useGameData = () => {
   });
 
   useEffect(() => {
-    const fetchData = async () => {};
+    const fetchData = async () => {
+      const data = await 
+    };
     fetchData();
   }, []);
 
+  // how to handle async with useEffect from https://devtrium.com/posts/async-functions-useeffect
+  // useEffect(() => {
+  //   // declare the data fetching function
+  //   const fetchData = async () => {
+  //     const data = await fetch('https://yourapi.com');
+  //   }
+  
+  //   // call the function
+  //   fetchData()
+  //     // make sure to catch any error
+  //     .catch(console.error);
+  // }, [])
   return { state, setState };
 };
 
