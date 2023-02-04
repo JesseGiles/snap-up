@@ -1,9 +1,22 @@
 import React from "react";
+import { useDrag, DragPreviewImage } from "react-dnd";
+import { ItemTypes } from "./ItemTypes.js";
 import "../../component-styles/card.css";
+import cardBack from "../../assets/snapup_cardback.png";
 
 //turn this into a folder full of components for card modes.
 export default function CardShow(props) {
-  console.log("this is props for CardShow line 6:", props);
+  const [{ isDragging }, drag] = useDrag(
+    () => ({
+      type: ItemTypes.CARDSHOW,
+      collect: (monitor) => ({
+        isDragging: !!monitor.isDragging(),
+      }),
+    }),
+    []
+  );
+
+  //console.log("this is props for CardShow line 6:", props);
 
   const cardObj = {
     name: props.cardName,
@@ -12,27 +25,17 @@ export default function CardShow(props) {
     img: props.img,
   };
 
-  // if (props.id == 1) {
-  //   cardName = "Dragonsheen";
-  //   cost = "1";
-  //   power = "3";
-  //   img = "/cardImages/dragonsheen.jpeg";
-  // } else if (props.id == 2) {
-  //   cardName = "Sailor Jupiter";
-  //   cost = "2";
-  //   power = "5";
-  //   img = "/cardImages/jupiter.jpeg";
-  // } else {
-  //   cardName = "Jason";
-  //   cost = "3";
-  //   power = "7";
-  //   img = "/cardImages/jason.jpeg";
-  // }
-
   return (
     //show view with injected data
     <div className="card-show">
-      <div className="card">
+      {/*<DragPreviewImage connect={preview} src={cardBack} />*/}
+      <div
+        className="card"
+        ref={drag}
+        style={{
+          transform: isDragging ? "rotate(-7deg)" : "rotate(0deg)",
+        }}
+      >
         <div className="card-header">
           <div className="card-name">
             {">"}

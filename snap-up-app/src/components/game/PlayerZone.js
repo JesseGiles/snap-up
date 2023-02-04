@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Deck from "./Deck";
 import Hand from "./Hand";
 import Energy from "./Energy";
@@ -10,9 +10,14 @@ export default function PlayerZone(props) {
 
   return (
     <div className="player-zone">
-      <Turn turn={props.turn} onClick={props.onClick} state={props.state} setState={props.setState}/>
+      <Turn
+        turn={props.turn}
+        onClick={props.onClick}
+        state={props.state}
+        setState={props.setState}
+      />
 
-      <Energy energy={props.energy}/>
+      <Energy energy={props.energy} />
 
       <Deck />
 

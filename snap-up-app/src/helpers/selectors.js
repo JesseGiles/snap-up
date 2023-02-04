@@ -10,9 +10,11 @@ function getInitialHand(state, setState) {
     hand: draw,
     deck: newDeck,
     turn: 1,
-    energy: 1
+    energy: 1,
   }));
-};
+}
+
+function placeCard(card, cardzone) {}
 
 // This is called every time the "Next Turn" button is clicked
 function nextTurn(state, setState) {
@@ -25,18 +27,18 @@ function nextTurn(state, setState) {
       hand: draw,
       deck: newDeck,
       turn: prev.turn + 1,
-      energy: prev.turn + 1
+      energy: prev.turn + 1,
     }));
   } else if (state.turn >= 6) {
     // this is where we'd call the final counts and stuff and determine the winner
-    console.log("GAME OVER!")
+    console.log("GAME OVER!");
   } else {
-      setState((prev) => ({
-        ...prev,
-        turn: prev.turn + 1,
-        energy: prev.turn + 1
-      }));
+    setState((prev) => ({
+      ...prev,
+      turn: prev.turn + 1,
+      energy: prev.turn + 1,
+    }));
   }
-};
+}
 
-export {getInitialHand, nextTurn}
+export { getInitialHand, nextTurn };
