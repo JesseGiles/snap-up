@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
+const { abilities, horrorDeck } = require("../db/DeckFiles/horrorDeck.js");
 
 const useGameData = () => {
   const [state, setState] = useState({
-    deck: [],
+    deck: horrorDeck.cards,
     hand: [],
     energy: 0,
     turn: 0,

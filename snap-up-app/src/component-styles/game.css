@@ -68,3 +68,21 @@
 .opp-pz {
   display: none
 }
+
+.current-energy {
+  background-color: rgb(26, 233, 233);
+  height: 2em;
+  width: 2em;
+  margin: 1em;
+  text-align: center;
+  padding-top: 0.5em;
+}
+
+.current-turn {
+  background-color: rgb(59, 214, 35);
+  height: 2em;
+  width: 2em;
+  margin: 1em;
+  text-align: center;
+  padding-top: 0.5em;
+}
