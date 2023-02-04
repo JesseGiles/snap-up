@@ -14,7 +14,7 @@ const useGameData = () => {
     fetchData();
   }, []);
 
-  return { state };
+  return { state, setState };
 };
 
 export default useGameData;

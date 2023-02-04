@@ -3,13 +3,14 @@ import "../../component-styles/card.css";
 
 //turn this into a folder full of components for card modes.
 export default function CardShow(props) {
-  console.log("this is props.id", props.id);
-  let cardName;
-  let cost;
-  let power;
-  let img;
+  console.log("this is props for CardShow line 6:", props);
 
-  const cardObj = props.cardInfo;
+  const cardObj = {
+    name: props.cardName,
+    cost: props.cost,
+    power: props.power,
+    img: props.img,
+  };
 
   // if (props.id == 1) {
   //   cardName = "Dragonsheen";

@@ -7,15 +7,19 @@ const {
 } = require("../../db/DeckFiles/sailorMoonDeck");
 
 export default function Hand(props) {
-  const cards = sailorMoonDeck.cards;
+  console.log("props in Hand.js line 10 are:", props);
 
-  return (
-    <div className="hand">
-      <CardShow cardInfo={cards[0]} />
+  const handtoshow = props.hand;
 
-      <CardShow cardInfo={cards[1]} />
-
-      <CardShow cardInfo={cards[2]} />
-    </div>
-  );
+  const currentHand = handtoshow.map((card) => (
+    <CardShow
+      cardName={card.name}
+      cost={card.cost}
+      power={card.power}
+      img={card.img}
+      ability={card.ability}
+    />
+  ));
+  // name, cost, power, img, ability;
+  return <div className="hand">{currentHand}</div>;
 }

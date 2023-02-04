@@ -1,13 +1,18 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "../../component-styles/game.css";
 import Lane from "./Lane";
 import PlayerZone from "./PlayerZone";
 import useGameData from "../../hooks/useGameData";
+import getInitialHand from "../../helpers/selectors";
 
 function Game() {
   const { state, setState } = useGameData();
 
-  console.log("Put in a db query here");
+  useEffect(() => {
+    console.log("game line 12: useEffect is running...");
+    getInitialHand(state, setState);
+  }, []);
+  console.log("game line 15 state is:", state);
 
   return (
     <div className="game">
