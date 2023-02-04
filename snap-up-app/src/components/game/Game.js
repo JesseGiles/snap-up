@@ -3,7 +3,7 @@ import "../../component-styles/game.css";
 import Lane from "./Lane";
 import PlayerZone from "./PlayerZone";
 import useGameData from "../../hooks/useGameData";
-import getInitialHand from "../../helpers/selectors";
+import { getInitialHand, nextTurn } from "../../helpers/selectors";
 
 function Game() {
   const { state, setState } = useGameData();
@@ -16,9 +16,6 @@ function Game() {
 
   return (
     <div className="game">
-      <div className="opp-pz">
-        <PlayerZone player="p2-opp" />
-      </div>
       <div className="battlefield">
         <Lane position="left" />
         <Lane position="mid" />
@@ -30,14 +27,12 @@ function Game() {
         deck={state.deck}
         turn={state.turn}
         energy={state.energy}
-        onClick={setState}
+        onClick={nextTurn}
+        state={state}
+        setState={setState}
       />
     </div>
   );
 }
 
 export default Game;
-
-// setState((prev) => ({
-//   ...prev,
-//   days: all[0].data,

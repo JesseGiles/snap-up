@@ -12,9 +12,9 @@ export default function PlayerZone(props) {
   const energy = props.energy;
   const onClick = props.onClick;
 
-  // console.log("test our props", props);
+  console.log('props are:', props);
   console.log(
-    "test our props (playerZone line 17:)",
+    "test our props (playerZone line 16:)",
     "/nturn:",
     turn,
     "/nhand:",
@@ -27,39 +27,11 @@ export default function PlayerZone(props) {
     onClick
   );
 
-  //  currentTurn={turn} onClick={onClick}
-
-  //   //       <Hand
-  //   hand={[
-  //     {
-  //       name: "test1",
-  //       cost: 2,
-  //       ability: "something",
-  //       power: 2,
-  //       img: "img1.jpg",
-  //     },
-  //     {
-  //       name: "test2",
-  //       cost: 2,
-  //       ability: "something",
-  //       power: 2,
-  //       img: "img2.jpg",
-  //     },
-  //     {
-  //       name: "test3",
-  //       cost: 2,
-  //       ability: "something",
-  //       power: 2,
-  //       img: "img3.jpg",
-  //     },
-  //   ]}
-  // />
-
   return (
     <div className="player-zone">
-      <Turn />
+      <Turn turn={props.turn} onClick={props.onClick} state={props.state} setState={props.setState}/>
 
-      <Energy />
+      <Energy energy={energy}/>
 
       <Deck deck={deck} />
 
