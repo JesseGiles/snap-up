@@ -9,8 +9,10 @@ export default function CardShow(props) {
   const [{ isDragging }, drag] = useDrag(
     () => ({
       type: ItemTypes.CARDSHOW,
+      item: { props },
       collect: (monitor) => ({
         isDragging: !!monitor.isDragging(),
+        item: monitor.getItem(),
       }),
     }),
     []

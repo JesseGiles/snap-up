@@ -41,6 +41,8 @@ export default function CardZone(props) {
       accept: ItemTypes.CARDSHOW,
       drop: () =>
         //add function call for cardshow replaces card empty lowest position
+        //dragsource is card obj we are dragging and drop target is the array we are dropping into
+        //placeCardOnBattlefield(card, array),
         console.log("you dropped it"),
       collect: (monitor) => ({
         isOver: !!monitor.isOver(),

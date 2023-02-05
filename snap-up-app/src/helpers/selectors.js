@@ -29,7 +29,9 @@ function getInitialHand(state, setState) {
 //   }));
 // }
 
-function placeCardOnBattlefield(card, cardzone) {}
+function placeCardOnBattlefield(card, array) {
+  array.push(card);
+}
 
 // This is called every time the "Next Turn" button is clicked
 function nextTurn(state, setState) {
