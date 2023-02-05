@@ -3,6 +3,7 @@ import { useDrop } from "react-dnd";
 import CardEmpty from "./CardEmpty.js";
 import CardShow from "./CardShow.js";
 import { ItemTypes } from "./ItemTypes.js";
+import { placeCardOnBattlefield } from "../../helpers/selectors.js";
 
 export default function CardZone(props) {
   const ref = useRef(null);
@@ -28,28 +29,32 @@ export default function CardZone(props) {
           />
         );
       } else {
-        cardsDisplayed.push(<CardEmpty />);
+        cardsDisplayed.push(
+          <CardEmpty key={Math.floor(Math.random() * 1000)} />
+        );
       }
     }
     console.log(cardsDisplayed);
     return cardsDisplayed;
   };
 
-  const [{ isOver }, drop] = useDrop(
+  const [{ isOver, getItem }, drop] = useDrop(
     // Accept will make sure only these element type can be droppable on this element
     () => ({
       accept: ItemTypes.CARDSHOW,
-      drop: () =>
-        //add function call for cardshow replaces card empty lowest position
+      drop: (item, monitor) =>
         //dragsource is card obj we are dragging and drop target is the array we are dropping into
-        //placeCardOnBattlefield(card, array),
-        console.log("you dropped it"),
-      collect: (monitor) => ({
-        isOver: !!monitor.isOver(),
+        placeCardOnBattlefield(item, cardsInZone),
+
+      collect: (monitor, props) => ({
+        isOver: monitor.isOver(),
+        getItem: monitor.getItem(),
       }),
     }),
     [] //puts vars for function in an array ex. [x, y]
   );
+
+  console.log("getItem:", getItem);
 
   return (
     <div

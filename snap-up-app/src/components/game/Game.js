@@ -21,8 +21,8 @@ function Game() {
     <div className="game">
       <DndProvider backend={HTML5Backend}>
         <div className="battlefield">
-          <Lane position="left" droppedCards={state.hand} />
-          <Lane position="mid" droppedCards={state.hand} />
+          <Lane position="left" droppedCards={state.leftCardZone} />
+          <Lane position="mid" droppedCards={state.middleCardZone} />
           <Lane position="right" droppedCards={testEmptyArray} />
         </div>
         <PlayerZone

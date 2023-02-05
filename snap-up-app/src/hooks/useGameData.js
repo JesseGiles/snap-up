@@ -31,9 +31,9 @@ const useGameData = () => {
     hand: [],
     energy: 0,
     turn: 0,
-    leftLane: [],
-    middleLane: [],
-    rightLane: [],
+    leftCardZone: [],
+    middleCardZone: [],
+    rightCardZone: [],
   });
 
   return { state, setState };

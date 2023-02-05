@@ -6,19 +6,19 @@ import cardBack from "../../assets/snapup_cardback.png";
 
 //turn this into a folder full of components for card modes.
 export default function CardShow(props) {
-  const [{ isDragging }, drag] = useDrag(
+  const [collected, drag] = useDrag(
     () => ({
       type: ItemTypes.CARDSHOW,
       item: { props },
-      collect: (monitor) => ({
-        isDragging: !!monitor.isDragging(),
-        item: monitor.getItem(),
+      collect: (monitor, props) => ({
+        isDragging: monitor.isDragging(),
       }),
+      endDrag: (monitor) => {
+        console.log("drop result:", monitor.getDropResults());
+      },
     }),
     []
   );
-
-  //console.log("this is props for CardShow line 6:", props);
 
   const cardObj = {
     name: props.cardName,
@@ -35,7 +35,7 @@ export default function CardShow(props) {
         className="card"
         ref={drag}
         style={{
-          transform: isDragging ? "rotate(-7deg)" : "rotate(0deg)",
+          transform: collected.isDragging ? "rotate(-7deg)" : "rotate(0deg)",
         }}
       >
         <div className="card-header">

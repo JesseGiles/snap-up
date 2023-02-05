@@ -58,4 +58,4 @@ function nextTurn(state, setState) {
   }
 }
 
-export { getInitialHand, nextTurn };
+export { getInitialHand, nextTurn, placeCardOnBattlefield };
