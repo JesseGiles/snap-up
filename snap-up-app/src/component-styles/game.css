@@ -45,9 +45,11 @@
 }
 
 .player-lane-power {
-  height: 50;
+  height: 50px;
   width: 50px;
   background-color: goldenrod;
+  text-align: center;
+  font-weight: bolder;
 }
 
 .location {

@@ -29,9 +29,22 @@ function getInitialHand(state, setState) {
 //   }));
 // }
 
-function placeCardOnBattlefield(card, array) {
+function placeCardOnBattlefield(card, array, cardsInHand) {
   array.push(card);
+  // console.log("selectors line 34, state is:", state);
+  // const newHand = [...state.hand].filter(
+  //   (cardInArray) => cardInArray._id !== card.id
+  // );
+  // setState((prev) => ({
+  //   ...prev,
+  //   // hand: newHand,
+  // }));
 }
+// const markAsDone = _id => {
+//   const task = taskList.filter((task, i) => task.id === id);
+//   task[0].status = 'done';
+//   setTaskList(taskList.filter((task, i) => task._id !== id).concat(task[0]));
+// };
 
 // This is called every time the "Next Turn" button is clicked
 function nextTurn(state, setState) {

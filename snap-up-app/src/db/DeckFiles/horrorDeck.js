@@ -4,6 +4,7 @@ const horrorDeck = {
   name: "Horror Deck",
   cards: [
     {
+      id: 1,
       name: "Chucky",
       cost: 1,
       power: 1,
@@ -11,6 +12,7 @@ const horrorDeck = {
       ability: abilities[0],
     },
     {
+      id: 2,
       name: "Freddy Krueger",
       cost: 2,
       power: 3,
@@ -18,6 +20,7 @@ const horrorDeck = {
       ability: abilities[0],
     },
     {
+      id: 3,
       name: "Leatherface",
       cost: 3,
       power: 5,
@@ -25,6 +28,7 @@ const horrorDeck = {
       ability: abilities[0],
     },
     {
+      id: 4,
       name: "Pinhead",
       cost: 4,
       power: 7,
@@ -32,6 +36,7 @@ const horrorDeck = {
       ability: abilities[0],
     },
     {
+      id: 5,
       name: "Michael Myers",
       cost: 5,
       power: 10,
@@ -39,6 +44,7 @@ const horrorDeck = {
       ability: abilities[0],
     },
     {
+      id: 6,
       name: "Jason Voorhees",
       cost: 6,
       power: 15,

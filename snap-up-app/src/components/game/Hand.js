@@ -9,7 +9,8 @@ export default function Hand(props) {
   // map through the hand array (saved in handToShow) and display each card as an item
   const currentHand = handToShow.map((card) => (
     <CardShow
-      key={card.name}
+      key={card.id}
+      id={card.id}
       cardName={card.name}
       cost={card.cost}
       power={card.power}

@@ -4,6 +4,7 @@ const sailorMoonDeck = {
   name: "Sailor Moon Deck",
   cards: [
     {
+      id: 13,
       name: "Tuxedo Mask",
       cost: 1,
       power: 0,
@@ -11,6 +12,7 @@ const sailorMoonDeck = {
       ability: abilities[0],
     },
     {
+      id: 14,
       name: "Sailor Mercury",
       cost: 1,
       power: 3,
@@ -18,6 +20,7 @@ const sailorMoonDeck = {
       ability: abilities[0],
     },
     {
+      id: 15,
       name: "Sailor Mars",
       cost: 2,
       power: 5,
@@ -25,6 +28,7 @@ const sailorMoonDeck = {
       ability: abilities[0],
     },
     {
+      id: 16,
       name: "Sailor Jupiter",
       cost: 3,
       power: 7,
@@ -32,6 +36,7 @@ const sailorMoonDeck = {
       ability: abilities[0],
     },
     {
+      id: 17,
       name: "Sailor Venus",
       cost: 4,
       power: 10,
@@ -39,6 +44,7 @@ const sailorMoonDeck = {
       ability: abilities[0],
     },
     {
+      id: 18,
       name: "Sailor Moon",
       cost: 6,
       power: 15,

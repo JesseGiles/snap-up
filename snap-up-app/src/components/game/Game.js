@@ -23,7 +23,7 @@ function Game() {
         <div className="battlefield">
           <Lane position="left" droppedCards={state.leftCardZone} />
           <Lane position="mid" droppedCards={state.middleCardZone} />
-          <Lane position="right" droppedCards={testEmptyArray} />
+          <Lane position="right" droppedCards={state.rightCardZone} />
         </div>
         <PlayerZone
           player="p1-self"

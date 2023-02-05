@@ -18,6 +18,7 @@ export default function CardShow(props) {
   );
 
   const cardObj = {
+    id: props.id,
     name: props.cardName,
     cost: props.cost,
     power: props.power,
@@ -49,13 +50,5 @@ export default function CardShow(props) {
         <div className="card-power">{cardObj.power}</div>
       </div>
     </div>
-
-    //empty view
-    // <img
-    // className="Card-empty"
-    // mode="EMPTY"
-    // src={cardBack}
-    // alt="Card Back"
-    // />
   );
 }

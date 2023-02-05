@@ -76,6 +76,7 @@ pusheen colors
   z-index: 9;
   right: .2em;
   position: absolute;
+  font-weight: bolder;
 }
 
 .card-img {

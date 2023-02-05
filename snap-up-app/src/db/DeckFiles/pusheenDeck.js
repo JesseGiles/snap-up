@@ -4,6 +4,7 @@ const pusheenDeck = {
   name: "Pusheen Deck",
   cards: [
     {
+      id: 7,
       name: "Pip",
       cost: 1,
       power: 0,
@@ -11,6 +12,7 @@ const pusheenDeck = {
       ability: abilities[0],
     },
     {
+      id: 8,
       name: "Stormy",
       cost: 1,
       power: 3,
@@ -18,6 +20,7 @@ const pusheenDeck = {
       ability: abilities[0],
     },
     {
+      id: 9,
       name: "Pusheen",
       cost: 2,
       power: 5,
@@ -25,6 +28,7 @@ const pusheenDeck = {
       ability: abilities[0],
     },
     {
+      id: 10,
       name: "Dragonsheen",
       cost: 3,
       power: 7,
@@ -32,6 +36,7 @@ const pusheenDeck = {
       ability: abilities[0],
     },
     {
+      id: 11,
       name: "Sloth",
       cost: 4,
       power: 10,
@@ -39,6 +44,7 @@ const pusheenDeck = {
       ability: abilities[0],
     },
     {
+      id: 12,
       name: "Super Pusheenicorn",
       cost: 6,
       power: 15,

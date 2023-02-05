@@ -10,17 +10,16 @@ export default function CardZone(props) {
   //const cardsInZone = []
 
   const cardsInZone = props.cardsInZone;
-
-  console.log("cardZone cards:", props.cardsInZone);
+  console.log("props in cardZone:", props);
 
   const generateCards = () => {
     let cardsDisplayed = [];
     for (let i = 0; i < 4; i++) {
-      console.log("this is card:", i);
       if (cardsInZone.length > 0 && cardsInZone[i]) {
         cardsDisplayed.push(
           <CardShow
-            key={cardsInZone[i].cardName}
+            key={cardsInZone[i].id}
+            id={cardsInZone[i].id}
             cardName={cardsInZone[i].cardName}
             cost={cardsInZone[i].cost}
             power={cardsInZone[i].power}
@@ -30,11 +29,11 @@ export default function CardZone(props) {
         );
       } else {
         cardsDisplayed.push(
-          <CardEmpty key={Math.floor(Math.random() * 1000)} />
+          <CardEmpty key={Math.floor(Math.random() * 9000)} />
         );
       }
     }
-    console.log(cardsDisplayed);
+    //console.log("cards displayed array: ", cardsDisplayed);
     return cardsDisplayed;
   };
 
@@ -54,7 +53,7 @@ export default function CardZone(props) {
     [] //puts vars for function in an array ex. [x, y]
   );
 
-  console.log("getItem:", collected.getItem);
+  //console.log("getItem:", collected.getItem);
   // console.log("collected:", collected);
 
   return (
