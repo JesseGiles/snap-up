@@ -24,7 +24,11 @@ export default function Lane(props) {
       <PlayerLanePower player="p2-opp" /> */}
       <Location />
       <PlayerLanePower player="p1-self" totalPower={addUpPower(droppedCards)} />
-      <CardZone player="p1-self" cardsInZone={droppedCards} />
+      <CardZone
+        player="p1-self"
+        cardsInZone={droppedCards}
+        energy={props.energy}
+      />
     </div>
   );
 }

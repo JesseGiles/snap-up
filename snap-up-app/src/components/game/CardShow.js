@@ -17,6 +17,11 @@ export default function CardShow(props) {
     []
   );
 
+  let canDragYN = null;
+  if (props.energy >= props.cost) {
+    canDragYN = drag;
+  }
+
   const cardObj = {
     id: props.id,
     name: props.cardName,
@@ -31,7 +36,7 @@ export default function CardShow(props) {
       {/*<DragPreviewImage connect={preview} src={cardBack} />*/}
       <div
         className="card"
-        ref={drag}
+        ref={canDragYN}
         style={{
           transform: collected.isDragging ? "rotate(-7deg)" : "rotate(0deg)",
         }}

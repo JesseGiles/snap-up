@@ -14,16 +14,26 @@ function Game() {
     getInitialHand(state, setState);
   }, []);
 
-  const testEmptyArray = [];
-
   // Note from Jeremy: I removed the opponent playerzone. We'd probably want a whole separate state for it and to call it something like <OpponentZone /> for rendering.
   return (
     <div className="game">
       <DndProvider backend={HTML5Backend}>
         <div className="battlefield">
-          <Lane position="left" droppedCards={state.leftCardZone} />
-          <Lane position="mid" droppedCards={state.middleCardZone} />
-          <Lane position="right" droppedCards={state.rightCardZone} />
+          <Lane
+            position="left"
+            droppedCards={state.leftCardZone}
+            energy={state.energy}
+          />
+          <Lane
+            position="mid"
+            droppedCards={state.middleCardZone}
+            energy={state.energy}
+          />
+          <Lane
+            position="right"
+            droppedCards={state.rightCardZone}
+            energy={state.energy}
+          />
         </div>
         <PlayerZone
           player="p1-self"

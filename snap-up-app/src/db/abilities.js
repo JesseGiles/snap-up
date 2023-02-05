@@ -1,11 +1,12 @@
 export const abilities = {
   0: {
-    description: "I don't do anything special.",
+    description: "Give friendly cards at this location +1 power.",
   },
   1: {
-    description: "I also dont do anything special.",
+    description: "All enemy cards are -1 power at this location.",
   },
   2: {
-    description: "My mom said I was special.",
+    description:
+      "If this is the only friendly card at this location, +5 power.",
   },
 };

@@ -5,6 +5,7 @@ export default function Hand(props) {
   // receives the hand array as a prop, which contains cards
 
   const handToShow = props.hand;
+  const energy = props.energy;
 
   // map through the hand array (saved in handToShow) and display each card as an item
   const currentHand = handToShow.map((card) => (
@@ -16,6 +17,7 @@ export default function Hand(props) {
       power={card.power}
       img={card.img}
       ability={card.ability}
+      energy={energy}
     />
   ));
   // returns all the card components wrapped in a hand div component

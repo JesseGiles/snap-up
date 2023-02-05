@@ -41,7 +41,7 @@ const horrorDeck = {
       cost: 5,
       power: 10,
       img: "/cardImages/horror/michael.png",
-      ability: abilities[0],
+      ability: abilities[1],
     },
     {
       id: 6,
@@ -49,7 +49,7 @@ const horrorDeck = {
       cost: 6,
       power: 15,
       img: "/cardImages/horror/jason.png",
-      ability: abilities[0],
+      ability: abilities[2],
     },
   ],
 };

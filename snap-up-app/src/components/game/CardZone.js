@@ -3,15 +3,18 @@ import { useDrop } from "react-dnd";
 import CardEmpty from "./CardEmpty.js";
 import CardShow from "./CardShow.js";
 import { ItemTypes } from "./ItemTypes.js";
-import { placeCardOnBattlefield } from "../../helpers/selectors.js";
+
+import useGameData from "../../hooks/useGameData.js";
+import { placeCardOnBattlefield } from "../../helpers/onDrop.js";
 
 export default function CardZone(props) {
   const ref = useRef(null);
+  const { onDrop, state } = useGameData();
   //const cardsInZone = []
 
   const cardsInZone = props.cardsInZone;
   console.log("props in cardZone:", props);
-
+  console.log("props.energy is:", props.energy);
   const generateCards = () => {
     let cardsDisplayed = [];
     for (let i = 0; i < 4; i++) {
@@ -43,7 +46,7 @@ export default function CardZone(props) {
       accept: ItemTypes.CARDSHOW,
       drop: (item, monitor) =>
         //dragsource is card obj we are dragging and drop target is the array we are dropping into
-        placeCardOnBattlefield(item.props, cardsInZone),
+        onDrop(item.props, cardsInZone, props.energy),
       // console.log("item is:", item.props),
       collect: (monitor, props) => ({
         isOver: monitor.isOver(),

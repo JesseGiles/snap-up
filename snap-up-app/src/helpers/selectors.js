@@ -13,6 +13,26 @@ function getInitialHand(state, setState) {
     energy: 0,
   }));
 }
+
+function shuffle(array) {
+  let currentIndex = array.length,
+    randomIndex;
+
+  // While there remain elements to shuffle.
+  while (currentIndex != 0) {
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+
+  return array;
+}
 // function getInitialLane(state, setState) {
 //   const newLeftLane = [...state.leftLane];
 //   const newMiddleLane = [...state.middleLane];
@@ -29,17 +49,6 @@ function getInitialHand(state, setState) {
 //   }));
 // }
 
-function placeCardOnBattlefield(card, array, cardsInHand) {
-  array.push(card);
-  // console.log("selectors line 34, state is:", state);
-  // const newHand = [...state.hand].filter(
-  //   (cardInArray) => cardInArray._id !== card.id
-  // );
-  // setState((prev) => ({
-  //   ...prev,
-  //   // hand: newHand,
-  // }));
-}
 // const markAsDone = _id => {
 //   const task = taskList.filter((task, i) => task.id === id);
 //   task[0].status = 'done';
@@ -71,4 +80,4 @@ function nextTurn(state, setState) {
   }
 }
 
-export { getInitialHand, nextTurn, placeCardOnBattlefield };
+export { getInitialHand, nextTurn, shuffle };
