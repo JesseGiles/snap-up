@@ -42,7 +42,7 @@ pusheen colors
 .card-header {
   display: flex;
   justify-content: space-between;
-  font-style: italic;
+  
   width: 100%;
   height:25%;
   
@@ -52,7 +52,7 @@ pusheen colors
   width: 70%;
   height: 100%;
   white-space: nowrap;
-  
+  font-style: italic;
 }
 
 .card-cost-container {

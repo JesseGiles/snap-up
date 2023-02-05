@@ -31,6 +31,9 @@ const useGameData = () => {
     hand: [],
     energy: 0,
     turn: 0,
+    leftLane: [],
+    middleLane: [],
+    rightLane: [],
   });
 
   return { state, setState };

@@ -9,12 +9,27 @@ function getInitialHand(state, setState) {
     ...prev,
     hand: draw,
     deck: newDeck,
-    turn: 1,
-    energy: 1,
+    turn: 0,
+    energy: 0,
   }));
 }
+// function getInitialLane(state, setState) {
+//   const newLeftLane = [...state.leftLane];
+//   const newMiddleLane = [...state.middleLane];
+//   const newRightLane = [...state.rightLane];
+//   draw.push(newDeck.pop());
+//   draw.push(newDeck.pop());
+//   draw.push(newDeck.pop());
+//   setState((prev) => ({
+//     ...prev,
+//     hand: draw,
+//     deck: newDeck,
+//     turn: 0,
+//     energy: 0,
+//   }));
+// }
 
-function placeCard(card, cardzone) {}
+function placeCardOnBattlefield(card, cardzone) {}
 
 // This is called every time the "Next Turn" button is clicked
 function nextTurn(state, setState) {
@@ -29,7 +44,7 @@ function nextTurn(state, setState) {
       turn: prev.turn + 1,
       energy: prev.turn + 1,
     }));
-  } else if (state.turn >= 6) {
+  } else if (state.turn >= 0) {
     // this is where we'd call the final counts and stuff and determine the winner
     console.log("GAME OVER!");
   } else {

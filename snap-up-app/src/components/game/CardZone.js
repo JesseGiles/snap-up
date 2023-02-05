@@ -1,10 +1,39 @@
 import React, { useRef } from "react";
 import { useDrop } from "react-dnd";
 import CardEmpty from "./CardEmpty.js";
+import CardShow from "./CardShow.js";
 import { ItemTypes } from "./ItemTypes.js";
 
 export default function CardZone(props) {
   const ref = useRef(null);
+  //const cardsInZone = []
+
+  const cardsInZone = props.cardsInZone;
+
+  console.log("cardZone cards:", props.cardsInZone);
+
+  const generateCards = () => {
+    let cardsDisplayed = [];
+    for (let i = 0; i < 4; i++) {
+      console.log("this is card:", i);
+      if (cardsInZone.length > 0 && cardsInZone[i]) {
+        cardsDisplayed.push(
+          <CardShow
+            key={cardsInZone[i].name}
+            cardName={cardsInZone[i].name}
+            cost={cardsInZone[i].cost}
+            power={cardsInZone[i].power}
+            img={cardsInZone[i].img}
+            ability={cardsInZone[i].ability}
+          />
+        );
+      } else {
+        cardsDisplayed.push(<CardEmpty />);
+      }
+    }
+    console.log(cardsDisplayed);
+    return cardsDisplayed;
+  };
 
   const [{ isOver }, drop] = useDrop(
     // Accept will make sure only these element type can be droppable on this element
@@ -27,16 +56,16 @@ export default function CardZone(props) {
         backgroundColor: isOver ? "#ffffff" : "#85709d",
       }}
     >
-      <div className="card-zone">
-        <div className="card-zone-top">
-          <CardEmpty position="1" />
-          <CardEmpty position="2" />
-        </div>
-        <div className="card-zone-bottom">
-          <CardEmpty position="3" />
-          <CardEmpty position="4" />
-        </div>
-      </div>
+      <div className="card-zone">{generateCards()}</div>
     </div>
   );
 }
+
+/* <CardShow
+key={card.name}
+cardName={card.name}
+cost={card.cost}
+power={card.power}
+img={card.img}
+ability={card.ability}
+/> */
