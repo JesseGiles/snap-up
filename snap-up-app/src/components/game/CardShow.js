@@ -13,9 +13,6 @@ export default function CardShow(props) {
       collect: (monitor, props) => ({
         isDragging: monitor.isDragging(),
       }),
-      endDrag: (monitor) => {
-        console.log("drop result:", monitor.getDropResults());
-      },
     }),
     []
   );

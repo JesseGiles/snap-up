@@ -20,8 +20,8 @@ export default function CardZone(props) {
       if (cardsInZone.length > 0 && cardsInZone[i]) {
         cardsDisplayed.push(
           <CardShow
-            key={cardsInZone[i].name}
-            cardName={cardsInZone[i].name}
+            key={cardsInZone[i].cardName}
+            cardName={cardsInZone[i].cardName}
             cost={cardsInZone[i].cost}
             power={cardsInZone[i].power}
             img={cardsInZone[i].img}
@@ -38,14 +38,14 @@ export default function CardZone(props) {
     return cardsDisplayed;
   };
 
-  const [{ isOver, getItem }, drop] = useDrop(
+  const [collected, drop] = useDrop(
     // Accept will make sure only these element type can be droppable on this element
     () => ({
       accept: ItemTypes.CARDSHOW,
       drop: (item, monitor) =>
         //dragsource is card obj we are dragging and drop target is the array we are dropping into
-        placeCardOnBattlefield(item, cardsInZone),
-
+        placeCardOnBattlefield(item.props, cardsInZone),
+      // console.log("item is:", item.props),
       collect: (monitor, props) => ({
         isOver: monitor.isOver(),
         getItem: monitor.getItem(),
@@ -54,13 +54,14 @@ export default function CardZone(props) {
     [] //puts vars for function in an array ex. [x, y]
   );
 
-  console.log("getItem:", getItem);
+  console.log("getItem:", collected.getItem);
+  // console.log("collected:", collected);
 
   return (
     <div
       ref={drop}
       style={{
-        backgroundColor: isOver ? "#ffffff" : "#85709d",
+        backgroundColor: collected.isOver ? "#ffffff" : "#85709d",
       }}
     >
       <div className="card-zone">{generateCards()}</div>
