@@ -8,7 +8,8 @@ import useGameData from "../../hooks/useGameData.js";
 
 export default function CardZone(props) {
   const ref = useRef(null);
-
+  console.log("top of cardzone props.hand: ", props.hand);
+  let curHand = props.hand;
   //const [cardsInZone, setCardsInZone] = useState([]);
 
   //const cardsInZone = []
@@ -36,7 +37,6 @@ export default function CardZone(props) {
         cardsDisplayed.push(<CardEmpty key={i} />);
       }
     }
-    //console.log("cards displayed array: ", cardsDisplayed);
     return cardsDisplayed;
   };
 
@@ -46,18 +46,16 @@ export default function CardZone(props) {
       accept: ItemTypes.CARDSHOW,
       drop: (item, monitor) => {
         props.moveCardBetween(item.props, "hand", props.position);
-        console.log("item is:", item.props);
+        console.log("the test array from usedrop:", test);
+        // props.cardsInZone.push(item.props)
       },
       collect: (monitor, props) => ({
         isOver: monitor.isOver(),
         getItem: monitor.getItem(),
       }),
     }),
-    [] //puts vars for function in an array ex. [x, y]
+    [props.moveCardBetween]
   );
-  //console.log("this is after state:", state);
-  //console.log("getItem:", collected.getItem);
-  // console.log("collected:", collected);
 
   return (
     <div
@@ -73,17 +71,7 @@ export default function CardZone(props) {
         }}
       >
         {generateCards()}
-        {/* {console.log("This is generateCards:", generateCards())} */}
       </div>
     </div>
   );
 }
-
-/* <CardShow
-key={card.name}
-cardName={card.name}
-cost={card.cost}
-power={card.power}
-img={card.img}
-ability={card.ability}
-/> */

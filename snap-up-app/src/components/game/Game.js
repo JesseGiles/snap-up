@@ -19,11 +19,11 @@ function Game() {
 
   useEffect(() => {
     setGameState({ ...state });
-    console.log("GAMESTATE in game:", gameState);
   }, [state]);
 
   // Note from Jeremy: I removed the opponent playerzone. We'd probably want a whole separate state for it and to call it something like <OpponentZone /> for rendering.
-  console.log("gameStateRERENDER:", gameState);
+  console.log("gameState RERENDERED:", gameState);
+  console.log("regular state on gameRerender: ", state);
   return (
     <div className="game">
       <DndProvider backend={HTML5Backend}>
@@ -33,18 +33,21 @@ function Game() {
             droppedCards={gameState.leftCardZone}
             energy={gameState.energy}
             moveCardBetween={moveCardBetween}
+            hand={gameState.hand}
           />
           <Lane
             position="middleCardZone"
             droppedCards={gameState.middleCardZone}
             energy={gameState.energy}
             moveCardBetween={moveCardBetween}
+            hand={gameState.hand}
           />
           <Lane
             position="rightCardZone"
             droppedCards={gameState.rightCardZone}
             energy={gameState.energy}
             moveCardBetween={moveCardBetween}
+            hand={gameState.hand}
           />
         </div>
         <PlayerZone

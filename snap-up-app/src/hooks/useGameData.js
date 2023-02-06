@@ -60,18 +60,29 @@ const useGameData = () => {
     }));
   }
 
-  function moveCardBetween(card, SrcZone, targetZone) {
-    let srcArr = state[SrcZone];
-    let targetArr = state[targetZone];
-    let index = srcArr.indexOf(card);
-    console.log("index of target card for moving: ", targetArr);
+  function reduceEnergyOnDrop(energy, cost) {
+    console.log("initial energyondrop: ", energy);
+
+    energy -= cost;
+    console.log("energy after reduce:", energy);
+    return energy;
+  }
+
+  function moveCardBetween(card, srcZone, targetZone) {
+    let srcArr = state[srcZone]; //array to remove card from, ie. hand
+    let targetArr = state[targetZone]; //array to add card to, ie. cardzone
 
     targetArr.push(card);
 
+    srcArr = srcArr.filter((cardinHand) => cardinHand.id !== card.id);
+
+    const newEnergy = reduceEnergyOnDrop(state.energy, card.cost);
     setState((prev) => ({
       ...prev,
 
       [targetArr]: targetArr,
+      hand: srcArr,
+      energy: newEnergy,
     }));
   }
 

@@ -29,8 +29,8 @@ export default function Lane(props) {
         moveCardBetween={props.moveCardBetween}
         cardsInZone={props.droppedCards}
         energy={props.energy}
-        reduceEnergy={props.reduceEnergy}
         position={props.position}
+        hand={props.hand}
       />
     </div>
   );

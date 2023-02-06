@@ -10,6 +10,10 @@ export default function CardShow(props) {
     () => ({
       type: ItemTypes.CARDSHOW,
       item: { props },
+      end: (item, monitor) => {
+        monitor.getDropResult();
+        console.log("getdropresult: ", monitor.getDropResult());
+      },
       collect: (monitor, props) => ({
         isDragging: monitor.isDragging(),
       }),
