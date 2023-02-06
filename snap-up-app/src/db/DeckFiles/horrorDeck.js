@@ -10,6 +10,7 @@ const horrorDeck = {
       power: 1,
       img: "/cardImages/horror/chucky.png",
       ability: abilities[0],
+      cardPosition: "hand",
     },
     {
       id: 2,
@@ -18,6 +19,7 @@ const horrorDeck = {
       power: 3,
       img: "/cardImages/horror/freddy.png",
       ability: abilities[0],
+      cardPosition: "hand",
     },
     {
       id: 3,
@@ -26,6 +28,7 @@ const horrorDeck = {
       power: 5,
       img: "/cardImages/horror/leatherface.png",
       ability: abilities[0],
+      cardPosition: "hand",
     },
     {
       id: 4,
@@ -34,6 +37,7 @@ const horrorDeck = {
       power: 7,
       img: "/cardImages/horror/pinhead.png",
       ability: abilities[0],
+      cardPosition: "hand",
     },
     {
       id: 5,
@@ -42,6 +46,7 @@ const horrorDeck = {
       power: 10,
       img: "/cardImages/horror/michael.png",
       ability: abilities[1],
+      cardPosition: "hand",
     },
     {
       id: 6,
@@ -50,6 +55,7 @@ const horrorDeck = {
       power: 15,
       img: "/cardImages/horror/jason.png",
       ability: abilities[2],
+      cardPosition: "hand",
     },
   ],
 };

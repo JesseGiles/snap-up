@@ -57,6 +57,7 @@ function Game() {
           turn={gameState.turn}
           energy={gameState.energy}
           onClick={nextTurn}
+          moveCardBetween={moveCardBetween}
           state={state}
           setState={setState}
         />

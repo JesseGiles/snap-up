@@ -9,7 +9,7 @@ pusheen colors
  */
 
 
-.card-show {
+ .card-show {
   display: flex;
   --border:  #2addbc;
   --bg: #99c1b9;
@@ -24,6 +24,8 @@ pusheen colors
   height: 10em;
   width: 7.5em;
   margin: 1em;
+  border: .4em dotted var(--border);
+  border-radius: 5%;
 }
 
 .card {

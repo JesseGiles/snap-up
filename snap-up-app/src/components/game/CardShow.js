@@ -22,13 +22,21 @@ export default function CardShow(props) {
   );
 
   let canDragYN = null;
-  if (props.energy >= props.cost) {
+  console.log("position of ", props.name, " is ", props.cardPosition);
+  if (props.cardPosition === "hand" && props.energy >= props.cost) {
+    canDragYN = drag;
+  }
+  if (
+    props.cardPosition === "leftCardZone" ||
+    props.cardPosition === "middleCardZone" ||
+    props.cardPosition === "rightCardZone"
+  ) {
     canDragYN = drag;
   }
 
   const cardObj = {
     id: props.id,
-    name: props.cardName,
+    name: props.name,
     cost: props.cost,
     power: props.power,
     img: props.img,
@@ -36,13 +44,15 @@ export default function CardShow(props) {
 
   return (
     //show view with injected data
+
     <div className="card-show">
       {/*<DragPreviewImage connect={preview} src={cardBack} />*/}
       <div
         className="card"
         ref={canDragYN}
         style={{
-          transform: collected.isDragging ? "rotate(-7deg)" : "rotate(0deg)",
+          display: collected.isDragging ? "none" : "initial",
+          // transform: collected.isDragging ? "rotate()" : "rotate(0deg)",
         }}
       >
         <div className="card-header">

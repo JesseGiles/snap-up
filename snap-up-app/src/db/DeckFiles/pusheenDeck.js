@@ -10,6 +10,7 @@ const pusheenDeck = {
       power: 0,
       img: "/cardImages/pusheen/pip.jpeg",
       ability: abilities[0],
+      cardPosition: "hand",
     },
     {
       id: 8,
@@ -18,6 +19,7 @@ const pusheenDeck = {
       power: 3,
       img: "/cardImages/pusheen/stormy.jpeg",
       ability: abilities[0],
+      cardPosition: "hand",
     },
     {
       id: 9,
@@ -26,6 +28,7 @@ const pusheenDeck = {
       power: 5,
       img: "/cardImages/pusheen/pusheen.jpeg",
       ability: abilities[0],
+      cardPosition: "hand",
     },
     {
       id: 10,
@@ -34,6 +37,7 @@ const pusheenDeck = {
       power: 7,
       img: "/cardImages/pusheen/dragonsheen.jpeg",
       ability: abilities[0],
+      cardPosition: "hand",
     },
     {
       id: 11,
@@ -42,6 +46,7 @@ const pusheenDeck = {
       power: 10,
       img: "/cardImages/pusheen/sloth.jpeg",
       ability: abilities[0],
+      cardPosition: "hand",
     },
     {
       id: 12,
@@ -50,6 +55,7 @@ const pusheenDeck = {
       power: 15,
       img: "/cardImages/pusheen/super_pusheenicorn.jpeg",
       ability: abilities[0],
+      cardPosition: "hand",
     },
   ],
 };

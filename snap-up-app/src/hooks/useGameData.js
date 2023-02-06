@@ -68,20 +68,40 @@ const useGameData = () => {
     return energy;
   }
 
+  function addEnergyOnDrop(energy, cost) {
+    console.log("initial energyondrop: ", energy);
+
+    energy += cost;
+    console.log("energy after reduce:", energy);
+    return energy;
+  }
+
   function moveCardBetween(card, srcZone, targetZone) {
     let srcArr = state[srcZone]; //array to remove card from, ie. hand
     let targetArr = state[targetZone]; //array to add card to, ie. cardzone
+    let newEnergy;
+    let cardObj = { ...card };
+    console.log("card position before:", cardObj.cardPosition);
+    console.log("TargetZone:", targetZone);
+    cardObj["cardPosition"] = targetZone;
 
-    targetArr.push(card);
+    targetArr.push(cardObj);
 
     srcArr = srcArr.filter((cardinHand) => cardinHand.id !== card.id);
+    //changes logic based on wher you are dropping
+    if (srcZone === "hand" && targetZone !== "hand") {
+      newEnergy = reduceEnergyOnDrop(state.energy, card.cost);
+    } else if (targetZone === "hand" && srcZone !== "hand") {
+      newEnergy = addEnergyOnDrop(state.energy, card.cost);
+    } else {
+      newEnergy = state.energy;
+    }
 
-    const newEnergy = reduceEnergyOnDrop(state.energy, card.cost);
     setState((prev) => ({
       ...prev,
 
-      [targetArr]: targetArr,
-      hand: srcArr,
+      [targetZone]: targetArr,
+      [srcZone]: srcArr,
       energy: newEnergy,
     }));
   }

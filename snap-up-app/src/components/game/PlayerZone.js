@@ -21,7 +21,11 @@ export default function PlayerZone(props) {
 
       <Deck />
 
-      <Hand hand={props.hand} energy={props.energy} />
+      <Hand
+        hand={props.hand}
+        energy={props.energy}
+        moveCardBetween={props.moveCardBetween}
+      />
     </div>
   );
 }

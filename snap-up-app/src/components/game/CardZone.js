@@ -26,11 +26,12 @@ export default function CardZone(props) {
           <CardShow
             key={i}
             id={cardsInZone[i].id}
-            cardName={cardsInZone[i].cardName}
+            name={cardsInZone[i].name}
             cost={cardsInZone[i].cost}
             power={cardsInZone[i].power}
             img={cardsInZone[i].img}
             ability={cardsInZone[i].ability}
+            cardPosition={cardsInZone[i].cardPosition}
           />
         );
       } else {
@@ -45,7 +46,11 @@ export default function CardZone(props) {
     () => ({
       accept: ItemTypes.CARDSHOW,
       drop: (item, monitor) => {
-        props.moveCardBetween(item.props, "hand", props.position);
+        props.moveCardBetween(
+          item.props,
+          item.props.cardPosition,
+          props.position
+        );
         console.log("the test array from usedrop:", test);
         // props.cardsInZone.push(item.props)
       },
@@ -59,19 +64,13 @@ export default function CardZone(props) {
 
   return (
     <div
+      className="drop-card-zone"
       ref={drop}
       style={{
-        backgroundColor: collected.isOver ? "#ffffff" : "#85709d",
+        backgroundColor: collected.isOver ? "#ffffff" : "#A25664",
       }}
     >
-      <div
-        className="card-zone"
-        style={{
-          backgroundColor: collected.isOver ? "#ffffff" : "#85709d",
-        }}
-      >
-        {generateCards()}
-      </div>
+      <div className="card-zone">{generateCards()}</div>
     </div>
   );
 }

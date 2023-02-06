@@ -10,6 +10,8 @@
 
 .battlefield {
   display: flex;
+  --border:  #2addbc;
+  --lanebg: #A25664;
 
 }
 
@@ -20,12 +22,19 @@
 }
 /* add or subtract to width of player zone to change the amount of cards in hand before wrapping. */
 
+.hand {
+  border: .3em dotted #ffffff;
+}
 .card-zone {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  border-radius: 3em;
 }
 
+.drop-card-zone {
+  border-radius: 3em;
+}
 
 .hand {
   display: flex;
@@ -37,19 +46,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 3px solid black;
-  background-color: #85709d;
+  border: 3px solid var(--border);
+  border-radius: 3em;
+  background-color: var(--lanebg);
   width: 25em;
-  
-
+  margin: .5em;
 }
 
 .player-lane-power {
-  height: 50px;
-  width: 50px;
+  height: 3em;
+  width: 3em;
   background-color: goldenrod;
   text-align: center;
   font-weight: bolder;
+  border-radius: 50%;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
 }
 
 .location {
@@ -74,21 +87,26 @@
 
 .current-energy {
   background-color: rgb(26, 233, 233);
-  height: 2em;
-  width: 2em;
+  height: 3em;
+  width: 3em;
   margin: 1em;
   text-align: center;
-  padding-top: 0.5em;
   border-radius: 50%;
+  font-weight: bolder;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
 }
 
 .current-turn {
   background-color: rgb(59, 214, 35);
-  height: 2em;
-  width: 2em;
+  height: 3em;
+  width: 3em;
   margin: 1em;
   text-align: center;
-  padding-top: 0.5em;
   border-radius: 50%;
-  
+  font-weight: bolder;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
 }
