@@ -1,10 +1,6 @@
 import { useState } from "react";
 import { shuffle } from "../helpers/selectors.js";
-import {
-  placeCardOnBattlefield,
-  reduceEnergyOnDrop,
-  removeCardFromHand,
-} from "../helpers/onDrop.js";
+
 const { horrorDeck } = require("../db/DeckFiles/horrorDeck.js");
 const { sailorMoonDeck } = require("../db/DeckFiles/sailorMoonDeck.js");
 const { pusheenDeck } = require("../db/DeckFiles/pusheenDeck.js");
@@ -21,20 +17,65 @@ const useGameData = () => {
     rightCardZone: [],
   });
 
-  function onDrop(card, targetArray, energy) {
-    console.log("this is energy inside onDrop", energy);
-    //wrap in promise
-    placeCardOnBattlefield(card, targetArray);
-    let updatedEnergy = reduceEnergyOnDrop(card.cost, energy);
-    removeCardFromHand();
-
-    setState({
-      ...state,
-      energy: updatedEnergy,
-    });
+  function nextTurn(state, setState) {
+    if (state.deck.length > 0 && state.turn < 6) {
+      const newDeck = [...state.deck];
+      const draw = [...state.hand];
+      draw.push(newDeck.pop());
+      setState((prev) => ({
+        ...prev,
+        hand: draw,
+        deck: newDeck,
+        turn: prev.turn + 1,
+        energy: prev.turn + 1,
+      }));
+      console.log("after next turn, state is: ", state);
+    } else if (state.turn >= 0) {
+      // this is where we'd call the final counts and stuff and determine the winner
+      console.log("GAME OVER!");
+    } else {
+      console.log(
+        "you've hit a case where you have run out of cards in deck???"
+      );
+      setState((prev) => ({
+        ...prev,
+        turn: prev.turn + 1,
+        energy: prev.turn + 1,
+      }));
+    }
   }
 
-  return { state, setState, onDrop };
+  function getInitialHand(state, setState) {
+    const newDeck = [...state.deck];
+    const draw = [];
+    draw.push(newDeck.pop());
+    draw.push(newDeck.pop());
+    draw.push(newDeck.pop());
+    setState((prev) => ({
+      ...prev,
+      hand: draw,
+      deck: newDeck,
+      turn: 0,
+      energy: 0,
+    }));
+  }
+
+  function moveCardBetween(card, SrcZone, targetZone) {
+    let srcArr = state[SrcZone];
+    let targetArr = state[targetZone];
+    let index = srcArr.indexOf(card);
+    console.log("index of target card for moving: ", targetArr);
+
+    targetArr.push(card);
+
+    setState((prev) => ({
+      ...prev,
+
+      [targetArr]: targetArr,
+    }));
+  }
+
+  return { state, setState, moveCardBetween, nextTurn, getInitialHand };
 };
 
 export default useGameData;
