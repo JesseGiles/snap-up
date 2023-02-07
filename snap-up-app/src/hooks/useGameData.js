@@ -22,8 +22,27 @@ const useGameData = () => {
       const newDeck = [...state.deck];
       const draw = [...state.hand];
       draw.push(newDeck.pop());
+
+      // map through each of the cardzone arrays and set cardPosition = 'fixed'
+      const newLeftCardZone = [...state.leftCardZone];
+      const newMiddleCardZone = [...state.middleCardZone];
+      const newRightCardZone = [...state.rightCardZone];
+
+      newLeftCardZone.map((card) => {
+        card.cardPosition = "fixed";
+      });
+      newMiddleCardZone.map((card) => {
+        card.cardPosition = "fixed";
+      });
+      newRightCardZone.map((card) => {
+        card.cardPosition = "fixed";
+      });
+
       setState((prev) => ({
         ...prev,
+        leftCardZone: newLeftCardZone,
+        middleCardZone: newMiddleCardZone,
+        rightCardZone: newRightCardZone,
         hand: draw,
         deck: newDeck,
         turn: prev.turn + 1,
@@ -69,10 +88,9 @@ const useGameData = () => {
   }
 
   function addEnergyOnDrop(energy, cost) {
-    console.log("initial energyondrop: ", energy);
-
-    energy += cost;
-    console.log("energy after reduce:", energy);
+    if (energy + cost <= state.turn) {
+      energy += cost;
+    }
     return energy;
   }
 
@@ -84,10 +102,11 @@ const useGameData = () => {
     console.log("card position before:", cardObj.cardPosition);
     console.log("TargetZone:", targetZone);
     cardObj["cardPosition"] = targetZone;
+    if (srcZone !== targetZone) {
+      targetArr.push(cardObj);
+      srcArr = srcArr.filter((cardinHand) => cardinHand.id !== card.id);
+    }
 
-    targetArr.push(cardObj);
-
-    srcArr = srcArr.filter((cardinHand) => cardinHand.id !== card.id);
     //changes logic based on wher you are dropping
     if (srcZone === "hand" && targetZone !== "hand") {
       newEnergy = reduceEnergyOnDrop(state.energy, card.cost);

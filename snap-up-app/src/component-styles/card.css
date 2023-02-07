@@ -40,7 +40,6 @@
   height: 10em;
   width: 7.5em;
   margin: 1em;
-  border: .4em dotted var(--border);
   border-radius: 5%;
 }
 
