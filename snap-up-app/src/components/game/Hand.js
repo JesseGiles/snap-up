@@ -35,6 +35,7 @@ export default function Hand(props) {
       cost={card.cost}
       power={card.power}
       img={card.img}
+      deck={card.deck}
       ability={card.ability}
       cardPosition={card.cardPosition}
       energy={energy}

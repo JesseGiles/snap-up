@@ -1,5 +1,5 @@
 .game {
-  background-color: #1f2228;
+  background-color: #464e60;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@
 
 .battlefield {
   display: flex;
-  --border:  #2addbc;
+  --border:  #1AE9E9;
   --lanebg: #A25664;
 
 }
@@ -38,6 +38,7 @@
 
 .hand {
   display: flex;
+  background-color: transparent;
   flex-direction: row;
   flex-wrap: wrap;
 }
@@ -86,7 +87,7 @@
 }
 
 .current-energy {
-  background-color: rgb(26, 233, 233);
+  background-color: #1AE9E9;
   height: 3em;
   width: 3em;
   margin: 1em;

@@ -22,7 +22,7 @@ export default function CardShow(props) {
   );
 
   let canDragYN = null;
-  console.log("position of ", props.name, " is ", props.cardPosition);
+  // console.log("position of ", props.name, " is ", props.cardPosition);
   if (props.cardPosition === "hand" && props.energy >= props.cost) {
     canDragYN = drag;
   }
@@ -40,13 +40,14 @@ export default function CardShow(props) {
     cost: props.cost,
     power: props.power,
     img: props.img,
+    deck: props.deck
   };
-
+  
   return (
     //show view with injected data
 
-    <div className="card-show">
-      {/*<DragPreviewImage connect={preview} src={cardBack} />*/}
+    <div className={`card-show ${cardObj.deck}`}>
+      
       <div
         className="card"
         ref={canDragYN}
@@ -57,7 +58,7 @@ export default function CardShow(props) {
       >
         <div className="card-header">
           <div className="card-name">
-            {">"}
+            {" "}
             {cardObj.name}
           </div>
           <div className="card-cost-container">

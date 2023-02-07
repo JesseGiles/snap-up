@@ -11,6 +11,7 @@ const sailorMoonDeck = {
       img: "/cardImages/tuxedo_mask.jpg",
       ability: abilities[0],
       cardPosition: "hand",
+      deck: "sailor-moon"
     },
     {
       id: 14,
@@ -20,6 +21,7 @@ const sailorMoonDeck = {
       img: "/cardImages/sailor_mercury.jpg",
       ability: abilities[0],
       cardPosition: "hand",
+      deck: "sailor-moon"
     },
     {
       id: 15,
@@ -29,6 +31,7 @@ const sailorMoonDeck = {
       img: "/cardImages/sailor_mars.jpg",
       ability: abilities[0],
       cardPosition: "hand",
+      deck: "sailor-moon"
     },
     {
       id: 16,
@@ -38,6 +41,7 @@ const sailorMoonDeck = {
       img: "/cardImages/sailor/sailor_jupiter.jpg",
       ability: abilities[0],
       cardPosition: "hand",
+      deck: "sailor-moon"
     },
     {
       id: 17,
@@ -47,6 +51,7 @@ const sailorMoonDeck = {
       img: "/cardImages/sailor/sailor_venus.jpg",
       ability: abilities[0],
       cardPosition: "hand",
+      deck: "sailor-moon"
     },
     {
       id: 18,
@@ -56,6 +61,7 @@ const sailorMoonDeck = {
       img: "/cardImages/sailor/sailor_moon.jpg",
       ability: abilities[0],
       cardPosition: "hand",
+      deck: "sailor-moon"
     },
   ],
 };

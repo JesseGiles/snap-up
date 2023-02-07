@@ -1,23 +1,39 @@
 
 /* pallet: https://coolors.co/6e6466-f1e3d3-99c1b9-8e7dbe-d88c9a-dfa0ab-b83d54
-pusheen colors
-  --border:  #f1e3d3;
-  --bg: #99c1b9;
-  --cost:#8e7dbe;
-  --img-border: #f2d0a9;
-  --power: #d88c9a;
+
  */
 
-
- .card-show {
-  display: flex;
-  --border:  #2addbc;
+.pusheen {
+  --border:  #f1e3d3;
   --bg: #99c1b9;
-  --cost: #2addbc;
   --img-border: #f2d0a9;
-  --power: #b80000;
   --bg-img: url("https://www.transparenttextures.com/patterns/black-thread-light.png");
 }
+
+.horror {
+  --border:  #433e3e;
+  --bg: #510b09;
+  --img-border: #f2d0a9;
+  --bg-img: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+  --font-color: #ffffff
+}
+
+.sailor-moon {
+  --border:  #f1e3d3;
+  --bg: #b68bd1;
+  --img-border: #f2d0a9;
+  --bg-img: url("https://www.transparenttextures.com/patterns/black-thread-light.png");
+}
+
+.card-show {
+  display: flex;
+  margin: 1em;
+  background-color: transparent;
+  --cost:#1AE9E9;
+  --power: #A25664;
+  
+}
+
 
 .card-empty {
   display: flex;
@@ -34,8 +50,7 @@ pusheen colors
   background-image: var(--bg-img);
   height: 10em;
   width: 7.5em;
-  margin: 1em;
-  border: .2em solid var(--border);
+  border: .25em solid var(--border);
   color: black;
   position: relative;
   border-radius: 5% 0% 5% 5%;
@@ -55,6 +70,7 @@ pusheen colors
   height: 100%;
   white-space: nowrap;
   font-style: italic;
+  color: var(--font-color);
 }
 
 .card-cost-container {
@@ -103,7 +119,7 @@ pusheen colors
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, 225%);
+  transform: translate(-50%, 230%);
   display: flex;
   justify-content: center;
   align-items: center;

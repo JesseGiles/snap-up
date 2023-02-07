@@ -32,6 +32,7 @@ export default function CardZone(props) {
             img={cardsInZone[i].img}
             ability={cardsInZone[i].ability}
             cardPosition={cardsInZone[i].cardPosition}
+            deck={cardsInZone[i].deck}
           />
         );
       } else {
