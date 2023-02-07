@@ -12,6 +12,7 @@
   display: flex;
   --border:  #1AE9E9;
   --lanebg: #A25664;
+  --lane-bg-img: url("https://www.transparenttextures.com/patterns/always-grey.png");
 
 }
 
@@ -30,6 +31,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   border-radius: 3em;
+  background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");;
 }
 
 .drop-card-zone {
@@ -50,6 +52,7 @@
   border: 3px solid var(--border);
   border-radius: 3em;
   background-color: var(--lanebg);
+  background-image: var(--lane-bg-img);
   width: 25em;
   margin: .5em;
 }

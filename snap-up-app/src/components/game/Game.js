@@ -21,7 +21,7 @@ function Game(props) {
   const [gameState, setGameState] = useState({ ...state });
 
   useEffect(() => {
-    getInitialHand(state, setState);
+    getInitialHand(state, setState, props.deckOne, props.deckTwo);
     setGameState({ ...state });
   }, []);
 
@@ -36,7 +36,7 @@ function Game(props) {
     <div className="game">
       <DndProvider backend={HTML5Backend}>
         <header className="player-data-header">
-          <Avatar avatar={props.avatar} />
+          <Avatar avatar={props.avatarImage} />
           <h1 className="versus">
             {props.playerName} VS {props.opponentName}
           </h1>

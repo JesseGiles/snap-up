@@ -13,7 +13,7 @@ const {
 const useGameData = () => {
   const [state, setState] = useState({
     // shuffle calls the function and puts in the two 1/2 decks as one combined array of 12 cards
-    deck: shuffle(horrorDeck.cards.concat(pusheenDeck.cards)),
+    deck: [],
     hand: [],
     energy: 0,
     turn: 0,
@@ -89,8 +89,37 @@ const useGameData = () => {
     }
   }
 
-  function getInitialHand(state, setState) {
-    const newDeck = [...state.deck];
+  function getInitialHand(state, setState, deckOne, deckTwo) {
+    let startDeckOne;
+    let startDeckTwo;
+    switch (deckOne) {
+      case 1:
+        startDeckOne = horrorDeck;
+        break;
+      case 2:
+        startDeckOne = pusheenDeck;
+        break;
+      case 3:
+        startDeckOne = sailorMoonDeck;
+        break;
+      default:
+        alert("ERROR! NO VALID DECK");
+    }
+    switch (deckTwo) {
+      case 1:
+        startDeckTwo = horrorDeck;
+        break;
+      case 2:
+        startDeckTwo = pusheenDeck;
+        break;
+      case 3:
+        startDeckTwo = sailorMoonDeck;
+        break;
+      default:
+        alert("ERROR! NO VALID DECK");
+    }
+
+    const newDeck = shuffle(startDeckOne.cards.concat(startDeckTwo.cards));
     const draw = [];
     draw.push(newDeck.pop());
     draw.push(newDeck.pop());
