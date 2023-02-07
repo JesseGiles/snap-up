@@ -5,6 +5,11 @@ import "../../component-styles/game.css";
 import Lane from "./Lane";
 import PlayerZone from "./PlayerZone";
 import useGameData from "../../hooks/useGameData";
+const {
+  oppLeftCardZone,
+  oppMiddleCardZone,
+  oppRightCardZone,
+} = require("../../db/oppTestCards.js");
 
 function Game() {
   const { state, setState, getInitialHand, nextTurn, moveCardBetween } =
@@ -30,21 +35,24 @@ function Game() {
         <div className="battlefield">
           <Lane
             position="leftCardZone"
-            droppedCards={gameState.leftCardZone}
+            playerZoneCards={gameState.leftCardZone}
+            oppZoneCards={oppLeftCardZone}
             energy={gameState.energy}
             moveCardBetween={moveCardBetween}
             hand={gameState.hand}
           />
           <Lane
             position="middleCardZone"
-            droppedCards={gameState.middleCardZone}
+            playerZoneCards={gameState.middleCardZone}
+            oppZoneCards={oppMiddleCardZone}
             energy={gameState.energy}
             moveCardBetween={moveCardBetween}
             hand={gameState.hand}
           />
           <Lane
             position="rightCardZone"
-            droppedCards={gameState.rightCardZone}
+            playerZoneCards={gameState.rightCardZone}
+            oppZoneCards={oppRightCardZone}
             energy={gameState.energy}
             moveCardBetween={moveCardBetween}
             hand={gameState.hand}

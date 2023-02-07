@@ -9,7 +9,7 @@ import useGameData from "../../hooks/useGameData.js";
 export default function CardZone(props) {
   const ref = useRef(null);
   console.log("top of cardzone props.hand: ", props.hand);
-  let curHand = props.hand;
+
   //const [cardsInZone, setCardsInZone] = useState([]);
 
   //const cardsInZone = []
@@ -52,7 +52,7 @@ export default function CardZone(props) {
           item.props.cardPosition,
           props.position
         );
-        console.log("the test array from usedrop:", test);
+
         // props.cardsInZone.push(item.props)
       },
       collect: (monitor, props) => ({

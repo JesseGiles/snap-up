@@ -1,0 +1,100 @@
+const oppLeftCardZone = [
+  {
+    id: 1,
+    name: "Chucky",
+    cost: 1,
+    power: 1,
+    img: "/cardImages/horror/chucky.png",
+    // ability: abilities[0],
+    cardPosition: "hand",
+    deck: "horror",
+  },
+  {
+    id: 2,
+    name: "Freddy Krueger",
+    cost: 2,
+    power: 3,
+    img: "/cardImages/horror/freddy.png",
+    //ability: abilities[0],
+    cardPosition: "hand",
+    deck: "horror",
+  },
+  {
+    id: 3,
+    name: "Leatherface",
+    cost: 3,
+    power: 5,
+    img: "/cardImages/horror/leatherface.png",
+    //ability: abilities[0],
+    cardPosition: "hand",
+    deck: "horror",
+  },
+  {
+    id: 4,
+    name: "Pinhead",
+    cost: 4,
+    power: 7,
+    img: "/cardImages/horror/pinhead.png",
+    //ability: abilities[0],
+    cardPosition: "hand",
+    deck: "horror",
+  },
+];
+
+const oppMiddleCardZone = [
+  {
+    id: 3,
+    name: "Leatherface",
+    cost: 3,
+    power: 5,
+    img: "/cardImages/horror/leatherface.png",
+    //ability: abilities[0],
+    cardPosition: "hand",
+    deck: "horror",
+  },
+  {
+    id: 4,
+    name: "Pinhead",
+    cost: 4,
+    power: 7,
+    img: "/cardImages/horror/pinhead.png",
+    //ability: abilities[0],
+    cardPosition: "hand",
+    deck: "horror",
+  },
+];
+
+const oppRightCardZone = [
+  {
+    id: 2,
+    name: "Freddy Krueger",
+    cost: 2,
+    power: 3,
+    img: "/cardImages/horror/freddy.png",
+    //ability: abilities[0],
+    cardPosition: "hand",
+    deck: "horror",
+  },
+  {
+    id: 3,
+    name: "Leatherface",
+    cost: 3,
+    power: 5,
+    img: "/cardImages/horror/leatherface.png",
+    //ability: abilities[0],
+    cardPosition: "hand",
+    deck: "horror",
+  },
+  {
+    id: 4,
+    name: "Pinhead",
+    cost: 4,
+    power: 7,
+    img: "/cardImages/horror/pinhead.png",
+    //ability: abilities[0],
+    cardPosition: "hand",
+    deck: "horror",
+  },
+];
+
+module.exports = { oppLeftCardZone, oppRightCardZone, oppMiddleCardZone };

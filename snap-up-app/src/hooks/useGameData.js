@@ -15,6 +15,11 @@ const useGameData = () => {
     leftCardZone: [],
     middleCardZone: [],
     rightCardZone: [],
+    oppCardZone: {
+      leftCardZone: [],
+      middleCardZone: [],
+      rightCardZone: [],
+    },
   });
 
   function nextTurn(state, setState) {

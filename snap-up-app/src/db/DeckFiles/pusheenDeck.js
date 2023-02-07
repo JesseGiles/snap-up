@@ -7,11 +7,11 @@ const pusheenDeck = {
       id: 7,
       name: "Pip",
       cost: 1,
-      power: 0,
+      power: 1,
       img: "/cardImages/pusheen/pip.jpeg",
       ability: abilities[0],
       cardPosition: "hand",
-      deck: 'pusheen'
+      deck: "pusheen",
     },
     {
       id: 8,
@@ -21,7 +21,7 @@ const pusheenDeck = {
       img: "/cardImages/pusheen/stormy.jpeg",
       ability: abilities[0],
       cardPosition: "hand",
-      deck: 'pusheen'
+      deck: "pusheen",
     },
     {
       id: 9,
@@ -31,7 +31,7 @@ const pusheenDeck = {
       img: "/cardImages/pusheen/pusheen.jpeg",
       ability: abilities[0],
       cardPosition: "hand",
-      deck: 'pusheen'
+      deck: "pusheen",
     },
     {
       id: 10,
@@ -41,7 +41,7 @@ const pusheenDeck = {
       img: "/cardImages/pusheen/dragonsheen.jpeg",
       ability: abilities[0],
       cardPosition: "hand",
-      deck: 'pusheen'
+      deck: "pusheen",
     },
     {
       id: 11,
@@ -51,7 +51,7 @@ const pusheenDeck = {
       img: "/cardImages/pusheen/sloth.jpeg",
       ability: abilities[0],
       cardPosition: "hand",
-      deck: 'pusheen'
+      deck: "pusheen",
     },
     {
       id: 12,
@@ -61,7 +61,7 @@ const pusheenDeck = {
       img: "/cardImages/pusheen/super_pusheenicorn.jpeg",
       ability: abilities[0],
       cardPosition: "hand",
-      deck: 'pusheen'
+      deck: "pusheen",
     },
   ],
 };
