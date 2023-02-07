@@ -64,6 +64,8 @@
   display: flex;
   align-items: center; 
   justify-content: center;
+  border-style: outset;
+  border-color: cornsilk;
 }
 
 .location {
@@ -77,8 +79,10 @@
   height: 10em;
   width: 7.5em;
   margin: 1em;
-
+  cursor: pointer;
   justify-self: left;
+  border-style: outset;
+  border-color: #900000;
   
 }
 
@@ -97,6 +101,8 @@
   display: flex;
   align-items: center; 
   justify-content: center;
+  border-style: outset;
+  border-color: cyan;
 }
 
 .current-turn {
@@ -110,4 +116,27 @@
   display: flex;
   align-items: center; 
   justify-content: center;
+  border-style: outset;
+  border-color: chartreuse;
+}
+
+.player-data-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 60em;
+}
+
+.versus {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: bolder;
+  width: fit-content;
+  font-family: 'Titillium Web';
+}
+
+.avatar img {
+  border-radius: 50%;
+  border-style: groove;
 }

@@ -4,7 +4,11 @@ import Game from "./game/Game";
 
 function PlayerInfo(props) {
   const [playerName, setPlayerName] = useState("");
+  const [opponentName, setOpponentName] = useState("Jason Voorhees");
   const [avatarSelected, setAvatarSelected] = useState(1);
+  const [opponentAvatar, setOpponentAvatar] = useState(
+    "cardImages/horror/jason.png"
+  );
   const [deckOneSelected, setDeckOneSelected] = useState(1);
   const [deckTwoSelected, setDeckTwoSelected] = useState(2);
 
@@ -28,7 +32,9 @@ function PlayerInfo(props) {
     return (
       <Game
         playerName={playerName}
+        opponentName={opponentName}
         avatar={avatarSelected}
+        opponentAvatar={opponentAvatar}
         deckOne={deckOneSelected}
         deckTwo={deckTwoSelected}
       />

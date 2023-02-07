@@ -8,30 +8,30 @@ const sailorMoonDeck = {
       name: "Tuxedo Mask",
       cost: 1,
       power: 0,
-      img: "/cardImages/tuxedo_mask.jpg",
+      img: "/cardImages/sailor/tuxedo_mask.jpg",
       ability: abilities[0],
       cardPosition: "hand",
-      deck: "sailor-moon"
+      deck: "sailor-moon",
     },
     {
       id: 14,
       name: "Sailor Mercury",
       cost: 1,
       power: 3,
-      img: "/cardImages/sailor_mercury.jpg",
+      img: "/cardImages/sailor/sailor_mercury.jpg",
       ability: abilities[0],
       cardPosition: "hand",
-      deck: "sailor-moon"
+      deck: "sailor-moon",
     },
     {
       id: 15,
       name: "Sailor Mars",
       cost: 2,
       power: 5,
-      img: "/cardImages/sailor_mars.jpg",
+      img: "/cardImages/sailor/sailor_mars.jpg",
       ability: abilities[0],
       cardPosition: "hand",
-      deck: "sailor-moon"
+      deck: "sailor-moon",
     },
     {
       id: 16,
@@ -41,7 +41,7 @@ const sailorMoonDeck = {
       img: "/cardImages/sailor/sailor_jupiter.jpg",
       ability: abilities[0],
       cardPosition: "hand",
-      deck: "sailor-moon"
+      deck: "sailor-moon",
     },
     {
       id: 17,
@@ -51,7 +51,7 @@ const sailorMoonDeck = {
       img: "/cardImages/sailor/sailor_venus.jpg",
       ability: abilities[0],
       cardPosition: "hand",
-      deck: "sailor-moon"
+      deck: "sailor-moon",
     },
     {
       id: 18,
@@ -61,7 +61,7 @@ const sailorMoonDeck = {
       img: "/cardImages/sailor/sailor_moon.jpg",
       ability: abilities[0],
       cardPosition: "hand",
-      deck: "sailor-moon"
+      deck: "sailor-moon",
     },
   ],
 };

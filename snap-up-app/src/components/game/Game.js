@@ -36,9 +36,11 @@ function Game(props) {
     <div className="game">
       <DndProvider backend={HTML5Backend}>
         <header className="player-data-header">
-          <Avatar />
-          <div className="vs">{props.playerName} vs. Opponent Name</div>
-          <Avatar />
+          <Avatar avatar={props.avatar} />
+          <h1 className="versus">
+            {props.playerName} VS {props.opponentName}
+          </h1>
+          <Avatar avatar={props.opponentAvatar} />
         </header>
         <div className="battlefield">
           <Lane

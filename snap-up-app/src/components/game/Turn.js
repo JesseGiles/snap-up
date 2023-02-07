@@ -5,10 +5,11 @@ export default function Turn(props) {
 
   return (
     <div className="Turn">
-      <div className="current-turn">{props.turn}</div>
-      <button className="button" onClick={() => props.onClick(props.state, props.setState)}>
+      <div className="current-turn">Turn {props.turn}</div>
+
+      {/* <button className="button" onClick={() => props.onClick(props.state, props.setState)}>
         next turn
-      </button>
+      </button> */}
     </div>
-  )
-};
+  );
+}

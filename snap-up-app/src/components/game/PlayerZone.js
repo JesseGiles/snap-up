@@ -10,16 +10,15 @@ export default function PlayerZone(props) {
 
   return (
     <div className="player-zone">
-      <Turn
-        turn={props.turn}
+      <Turn turn={props.turn} />
+
+      <Energy energy={props.energy} />
+
+      <Deck
         onClick={props.onClick}
         state={props.state}
         setState={props.setState}
       />
-
-      <Energy energy={props.energy} />
-
-      <Deck />
 
       <Hand
         hand={props.hand}

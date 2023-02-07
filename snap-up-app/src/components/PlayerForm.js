@@ -79,9 +79,9 @@ function PlayerForm(props) {
             style={{
               height: "150px",
               cursor: "pointer",
-              border: avatarSelected === image.id ? "5px solid blue" : "",
+              border: avatarSelected === image.src ? "5px solid blue" : "",
             }}
-            onClick={() => props.setAvatarSelected(image.id)}
+            onClick={() => props.setAvatarSelected(image.src)}
           />
         ))}
       </Grid>
@@ -95,9 +95,9 @@ function PlayerForm(props) {
             style={{
               height: "150px",
               cursor: "pointer",
-              border: deckOneSelected === image.id ? "5px solid blue" : "",
+              border: deckOneSelected === image.src ? "5px solid blue" : "",
             }}
-            onClick={() => props.setDeckOneSelected(image.id)}
+            onClick={() => props.setDeckOneSelected(image.src)}
           />
         ))}
       </Grid>
@@ -111,9 +111,9 @@ function PlayerForm(props) {
             style={{
               height: "150px",
               cursor: "pointer",
-              border: deckTwoSelected === image.id ? "5px solid blue" : "",
+              border: deckTwoSelected === image.src ? "5px solid blue" : "",
             }}
-            onClick={() => props.setDeckTwoSelected(image.id)}
+            onClick={() => props.setDeckTwoSelected(image.src)}
           />
         ))}
       </Grid>
