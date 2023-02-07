@@ -4,6 +4,11 @@ import { shuffle } from "../helpers/selectors.js";
 const { horrorDeck } = require("../db/DeckFiles/horrorDeck.js");
 const { sailorMoonDeck } = require("../db/DeckFiles/sailorMoonDeck.js");
 const { pusheenDeck } = require("../db/DeckFiles/pusheenDeck.js");
+const {
+  oppLeftCardZone,
+  oppMiddleCardZone,
+  oppRightCardZone,
+} = require("../db/oppTestCards.js");
 
 const useGameData = () => {
   const [state, setState] = useState({
@@ -15,12 +20,24 @@ const useGameData = () => {
     leftCardZone: [],
     middleCardZone: [],
     rightCardZone: [],
-    oppCardZone: {
+    oppCardZones: {
       leftCardZone: [],
       middleCardZone: [],
       rightCardZone: [],
     },
   });
+
+  function oppNextTurn() {
+    const left = state.oppCardZones.leftCardZone.push(oppLeftCardZone.pop());
+    const mid = state.oppCardZones.middleCardZone.push(oppMiddleCardZone.pop());
+    const right = state.oppCardZones.rightCardZone.push(oppRightCardZone.pop());
+    let oppVals = {
+      leftCardZone: left,
+      middleCardZone: mid,
+      rightCardZone: right,
+    };
+    return oppVals;
+  }
 
   function nextTurn(state, setState) {
     if (state.deck.length > 0 && state.turn < 6) {
@@ -43,11 +60,14 @@ const useGameData = () => {
         card.cardPosition = "fixed";
       });
 
+      const newOpp = oppNextTurn();
+
       setState((prev) => ({
         ...prev,
         leftCardZone: newLeftCardZone,
         middleCardZone: newMiddleCardZone,
         rightCardZone: newRightCardZone,
+        oppCardZone: newOpp,
         hand: draw,
         deck: newDeck,
         turn: prev.turn + 1,

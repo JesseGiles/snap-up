@@ -3,6 +3,7 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import "../../component-styles/game.css";
 import Lane from "./Lane";
+import Avatar from "./Avatar";
 import PlayerZone from "./PlayerZone";
 import useGameData from "../../hooks/useGameData";
 const {
@@ -11,7 +12,9 @@ const {
   oppRightCardZone,
 } = require("../../db/oppTestCards.js");
 
-function Game() {
+function Game(props) {
+  console.log("props recieved by game:", props);
+
   const { state, setState, getInitialHand, nextTurn, moveCardBetween } =
     useGameData();
 
@@ -32,11 +35,16 @@ function Game() {
   return (
     <div className="game">
       <DndProvider backend={HTML5Backend}>
+        <header className="player-data-header">
+          <Avatar />
+          <div className="vs">{props.playerName} vs. Opponent Name</div>
+          <Avatar />
+        </header>
         <div className="battlefield">
           <Lane
             position="leftCardZone"
             playerZoneCards={gameState.leftCardZone}
-            oppZoneCards={oppLeftCardZone}
+            oppZoneCards={gameState.oppCardZones.leftCardZone}
             energy={gameState.energy}
             moveCardBetween={moveCardBetween}
             hand={gameState.hand}
@@ -44,7 +52,7 @@ function Game() {
           <Lane
             position="middleCardZone"
             playerZoneCards={gameState.middleCardZone}
-            oppZoneCards={oppMiddleCardZone}
+            oppZoneCards={gameState.oppCardZones.middleCardZone}
             energy={gameState.energy}
             moveCardBetween={moveCardBetween}
             hand={gameState.hand}
@@ -52,7 +60,7 @@ function Game() {
           <Lane
             position="rightCardZone"
             playerZoneCards={gameState.rightCardZone}
-            oppZoneCards={oppRightCardZone}
+            oppZoneCards={gameState.oppCardZones.rightCardZone}
             energy={gameState.energy}
             moveCardBetween={moveCardBetween}
             hand={gameState.hand}

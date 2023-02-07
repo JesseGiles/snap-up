@@ -21,17 +21,11 @@ export default function Lane(props) {
 
   return (
     <div className="lane">
-      {/* <CardZone player="p2-opp" />
-      <PlayerLanePower player="p2-opp" /> */}
       <OppCardZone position={props.position} cardsInZone={props.oppZoneCards} />
       <PlayerLanePower totalPower={addUpPower(props.oppZoneCards)} />
       <Location />
-      <PlayerLanePower
-        player="p1-self"
-        totalPower={addUpPower(props.playerZoneCards)}
-      />
+      <PlayerLanePower totalPower={addUpPower(props.playerZoneCards)} />
       <CardZone
-        player="p1-self"
         moveCardBetween={props.moveCardBetween}
         cardsInZone={props.playerZoneCards}
         energy={props.energy}
