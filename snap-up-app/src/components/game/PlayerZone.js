@@ -15,9 +15,11 @@ export default function PlayerZone(props) {
       <Energy energy={props.energy} />
 
       <Deck
+        player={props.player}
         onClick={props.onClick}
         state={props.state}
         setState={props.setState}
+        socket={props.socket}
       />
 
       <Hand

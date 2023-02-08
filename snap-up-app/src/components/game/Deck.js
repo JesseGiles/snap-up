@@ -9,7 +9,9 @@ export default function Deck(props) {
       className="deck"
       src={cardBack}
       alt="Card Back"
-      onClick={() => props.onClick(props.state, props.setState)}
+      onClick={() =>
+        props.onClick(props.state, props.setState, props.socket, props.player)
+      }
     />
   );
 }

@@ -20,72 +20,88 @@ const useGameData = () => {
     leftCardZone: [],
     middleCardZone: [],
     rightCardZone: [],
-    oppCardZones: {
-      leftCardZone: [],
-      middleCardZone: [],
-      rightCardZone: [],
-    },
+    oppLeftCardZone: [],
+    oppMiddleCardZone: [],
+    oppRightCardZone: [],
+    nextTurnIsAllowed: true,
   });
 
-  function oppNextTurn() {
-    const left = state.oppCardZones.leftCardZone.push(oppLeftCardZone.pop());
-    const mid = state.oppCardZones.middleCardZone.push(oppMiddleCardZone.pop());
-    const right = state.oppCardZones.rightCardZone.push(oppRightCardZone.pop());
-    let oppVals = {
-      leftCardZone: left,
-      middleCardZone: mid,
-      rightCardZone: right,
-    };
-    return oppVals;
-  }
+  function nextTurn(state, setState, socket, player) {
+    if (!state.nextTurnIsAllowed) {
+      alert("Please wait for the opponent to make their turn");
+    }
+    if (state.nextTurnIsAllowed) {
+      if (state.deck.length > 0 && state.turn < 6) {
+        const newDeck = [...state.deck];
+        const draw = [...state.hand];
+        draw.push(newDeck.pop());
 
-  function nextTurn(state, setState) {
-    if (state.deck.length > 0 && state.turn < 6) {
-      const newDeck = [...state.deck];
-      const draw = [...state.hand];
-      draw.push(newDeck.pop());
+        // map through each of the cardzone arrays and set cardPosition = 'fixed'
+        const newLeftCardZone = [...state.leftCardZone];
+        const newMiddleCardZone = [...state.middleCardZone];
+        const newRightCardZone = [...state.rightCardZone];
 
-      // map through each of the cardzone arrays and set cardPosition = 'fixed'
-      const newLeftCardZone = [...state.leftCardZone];
-      const newMiddleCardZone = [...state.middleCardZone];
-      const newRightCardZone = [...state.rightCardZone];
+        newLeftCardZone.map((card) => {
+          card.cardPosition = "fixed";
+        });
+        newMiddleCardZone.map((card) => {
+          card.cardPosition = "fixed";
+        });
+        newRightCardZone.map((card) => {
+          card.cardPosition = "fixed";
+        });
 
-      newLeftCardZone.map((card) => {
-        card.cardPosition = "fixed";
-      });
-      newMiddleCardZone.map((card) => {
-        card.cardPosition = "fixed";
-      });
-      newRightCardZone.map((card) => {
-        card.cardPosition = "fixed";
-      });
+        setState((prev) => ({
+          ...prev,
+          leftCardZone: newLeftCardZone,
+          middleCardZone: newMiddleCardZone,
+          rightCardZone: newRightCardZone,
+          hand: draw,
+          deck: newDeck,
+          turn: prev.turn + 1,
+          energy: prev.turn + 1,
+          nextTurnIsAllowed: false,
+        }));
 
-      const newOpp = oppNextTurn();
+        socket.emit("nextTurn", {
+          // data to send to server
+          player: player,
+          leftCardZone: state.leftCardZone,
+          middleCardZone: state.middleCardZone,
+          rightCardZone: state.rightCardZone,
+        });
 
-      setState((prev) => ({
-        ...prev,
-        leftCardZone: newLeftCardZone,
-        middleCardZone: newMiddleCardZone,
-        rightCardZone: newRightCardZone,
-        oppCardZone: newOpp,
-        hand: draw,
-        deck: newDeck,
-        turn: prev.turn + 1,
-        energy: prev.turn + 1,
-      }));
-      //console.log("after next turn, state is: ", state);
-    } else if (state.turn >= 0) {
-      // this is where we'd call the final counts and stuff and determine the winner
-      console.log("GAME OVER!");
-    } else {
-      console.log(
-        "you've hit a case where you have run out of cards in deck???"
-      );
-      setState((prev) => ({
-        ...prev,
-        turn: prev.turn + 1,
-        energy: prev.turn + 1,
-      }));
+        socket.on("turnInfo", (data) => {
+          console.log("TurnInfo data received from server is:", data);
+
+          let opponent = {};
+          if (data[0].player === player) {
+            opponent = data[1];
+          } else {
+            opponent = data[0];
+          }
+
+          setState((prev) => ({
+            ...prev,
+            oppLeftCardZone: opponent.leftCardZone,
+            oppMiddleCardZone: opponent.middleCardZone,
+            oppRightCardZone: opponent.rightCardZone,
+            nextTurnIsAllowed: true,
+          }));
+        });
+      } else if (state.turn >= 0) {
+        // this is where we'd call the final counts and stuff and determine the winner
+        console.log("GAME OVER!");
+      } else {
+        console.log(
+          "you've hit a case where you have run out of cards in deck???"
+        );
+        setState((prev) => ({
+          ...prev,
+          turn: prev.turn + 1,
+          energy: prev.turn + 1,
+        }));
+      }
     }
   }
 

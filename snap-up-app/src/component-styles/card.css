@@ -27,13 +27,14 @@
 
 .card-show {
   display: flex;
-  margin: 1em;
+  margin: .5em;
   background-color: transparent;
   z-index: 10;
   --cost:#1AE9E9;
   --power: #A25664;
   user-select: none;
   cursor: pointer;
+  position: relative;
   transform-style: preserve-3d;
 }
 
@@ -41,14 +42,10 @@
   display: flex;
   height: 10em;
   width: 7.5em;
-  margin: 1em;
+  margin: .5em;
   border-radius: 5%;
 }
 
-.transition-container {
-  position: relative;
-  
-}
 
 .card {
   font-family: 'Titillium Web', sans-serif;
@@ -69,7 +66,7 @@
   display: flex;
   height: 10em;
   width: 7.5em;
-  margin: 1em;
+  margin: .5em;
   border-radius: 5%;
   transform: rotateY(180deg);
   -webkit-backface-visibility: hidden;

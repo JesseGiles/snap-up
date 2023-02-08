@@ -48,6 +48,7 @@ function Connection(props) {
         avatarImage={props.avatarImage}
         deckOneImage={props.deckOneImage}
         deckTwoImage={props.deckTwoImage}
+        socket={socket}
       />
     );
   }

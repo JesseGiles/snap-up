@@ -22,6 +22,7 @@ const socketIO = require("socket.io")(http, {
 });
 
 let users = [];
+let turnInfo = [];
 
 socketIO.on("connection", (socket) => {
   console.log(`⚡: ${socket.id} player just connected!`);
@@ -37,6 +38,22 @@ socketIO.on("connection", (socket) => {
       socketIO.emit("newUserResponse", users);
     } else {
       console.log("Waiting for another player to join...");
+    }
+  });
+
+  socket.on("nextTurn", (data) => {
+    //Listens and logs the message to the console
+    console.log("This was received from the CLIENT for nextTurn:", data);
+    // console.log("All connected users: ", data);
+    // socketIO.emit("messageResponse", data);
+    turnInfo.push(data);
+    console.log("All information received:", turnInfo);
+    if (turnInfo.length >= 2) {
+      socketIO.emit("turnInfo", turnInfo);
+      // clear the turnInfo
+      turnInfo = [];
+    } else {
+      console.log("Waiting for opponent to finish their turn...");
     }
   });
 

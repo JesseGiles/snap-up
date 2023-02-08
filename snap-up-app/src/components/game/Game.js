@@ -46,7 +46,7 @@ function Game(props) {
           <Lane
             position="leftCardZone"
             playerZoneCards={gameState.leftCardZone}
-            oppZoneCards={gameState.oppCardZones.leftCardZone}
+            oppZoneCards={gameState.oppLeftCardZone}
             energy={gameState.energy}
             moveCardBetween={moveCardBetween}
             hand={gameState.hand}
@@ -54,7 +54,7 @@ function Game(props) {
           <Lane
             position="middleCardZone"
             playerZoneCards={gameState.middleCardZone}
-            oppZoneCards={gameState.oppCardZones.middleCardZone}
+            oppZoneCards={gameState.oppMiddleCardZone}
             energy={gameState.energy}
             moveCardBetween={moveCardBetween}
             hand={gameState.hand}
@@ -62,14 +62,14 @@ function Game(props) {
           <Lane
             position="rightCardZone"
             playerZoneCards={gameState.rightCardZone}
-            oppZoneCards={gameState.oppCardZones.rightCardZone}
+            oppZoneCards={gameState.oppRightCardZone}
             energy={gameState.energy}
             moveCardBetween={moveCardBetween}
             hand={gameState.hand}
           />
         </div>
         <PlayerZone
-          player="p1-self"
+          player={props.playerName}
           hand={gameState.hand}
           deck={gameState.deck}
           turn={gameState.turn}
@@ -78,6 +78,7 @@ function Game(props) {
           moveCardBetween={moveCardBetween}
           state={state}
           setState={setState}
+          socket={props.socket}
         />
       </DndProvider>
     </div>
