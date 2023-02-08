@@ -29,11 +29,13 @@
   display: flex;
   margin: 1em;
   background-color: transparent;
+  z-index: 10;
   --cost:#1AE9E9;
   --power: #A25664;
-  
+  user-select: none;
+  cursor: pointer;
+  transform-style: preserve-3d;
 }
-
 
 .card-empty {
   display: flex;
@@ -41,6 +43,11 @@
   width: 7.5em;
   margin: 1em;
   border-radius: 5%;
+}
+
+.transition-container {
+  position: relative;
+  
 }
 
 .card {
@@ -53,12 +60,28 @@
   color: black;
   position: relative;
   border-radius: 5% 0% 5% 5%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  
+}
+
+.card-back {
+  display: flex;
+  height: 10em;
+  width: 7.5em;
+  margin: 1em;
+  border-radius: 5%;
+  transform: rotateY(180deg);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .card-header {
   display: flex;
   justify-content: space-between;
-  
   width: 100%;
   height:25%;
   

@@ -40,15 +40,15 @@ export default function CardShow(props) {
     cost: props.cost,
     power: props.power,
     img: props.img,
-    deck: props.deck
+    deck: props.deck,
   };
-  
+
   return (
     //show view with injected data
 
     <div className={`card-show ${cardObj.deck}`}>
-      
       <div
+        onClick={props.onClick}
         className="card"
         ref={canDragYN}
         style={{
@@ -57,10 +57,7 @@ export default function CardShow(props) {
         }}
       >
         <div className="card-header">
-          <div className="card-name">
-            {" "}
-            {cardObj.name}
-          </div>
+          <div className="card-name"> {cardObj.name}</div>
           <div className="card-cost-container">
             <div className="card-cost-shape"></div>
             <div className="card-cost">{cardObj.cost}</div>
@@ -69,6 +66,13 @@ export default function CardShow(props) {
         <img className="card-img" src={cardObj.img} />
         <div className="card-power">{cardObj.power}</div>
       </div>
+
+      <img
+        src={cardBack}
+        alt="Card Back"
+        className="card-back"
+        onClick={props.onClick}
+      />
     </div>
   );
 }

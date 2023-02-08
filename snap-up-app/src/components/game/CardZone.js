@@ -3,17 +3,14 @@ import { useDrop } from "react-dnd";
 import CardEmpty from "./CardEmpty.js";
 import CardShow from "./CardShow.js";
 import { ItemTypes } from "./ItemTypes.js";
+import cardBack from "../../assets/snapup_cardback.png";
+import "../../component-styles/flip-transition.css";
 
-import useGameData from "../../hooks/useGameData.js";
+import { CSSTransition } from "react-transition-group";
 
 export default function CardZone(props) {
-  const ref = useRef(null);
-  //const [cardsInZone, setCardsInZone] = useState([]);
-
-  //const cardsInZone = []
-  // console.log("this is state before:", state);
-  //console.log("props in cardZone:", props);
-  //console.log("props.energy is:", props.energy);
+  const nodeRef = useRef(null);
+  const [showFront, setShowFront] = useState(true);
 
   const generateCards = () => {
     let cardsInZone = props.cardsInZone;
@@ -21,17 +18,24 @@ export default function CardZone(props) {
     for (let i = 0; i < 4; i++) {
       if (cardsInZone.length > 0 && cardsInZone[i]) {
         cardsDisplayed.push(
-          <CardShow
-            key={i}
-            id={cardsInZone[i].id}
-            name={cardsInZone[i].name}
-            cost={cardsInZone[i].cost}
-            power={cardsInZone[i].power}
-            img={cardsInZone[i].img}
-            ability={cardsInZone[i].ability}
-            cardPosition={cardsInZone[i].cardPosition}
-            deck={cardsInZone[i].deck}
-          />
+          <div key={i}>
+            <CSSTransition in={showFront} timeout={300} classNames="flip">
+              <CardShow
+                key={i}
+                id={cardsInZone[i].id}
+                name={cardsInZone[i].name}
+                cost={cardsInZone[i].cost}
+                power={cardsInZone[i].power}
+                img={cardsInZone[i].img}
+                ability={cardsInZone[i].ability}
+                cardPosition={cardsInZone[i].cardPosition}
+                deck={cardsInZone[i].deck}
+                onClick={() => {
+                  setShowFront((view) => !view);
+                }}
+              />
+            </CSSTransition>
+          </div>
         );
       } else {
         cardsDisplayed.push(<CardEmpty key={i} />);

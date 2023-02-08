@@ -1,4 +1,4 @@
-import "./card.css";
+import "./jessecard.css";
 import "./flip-transition.css";
 
 function Card2({ onClick }) {
