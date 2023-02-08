@@ -8,8 +8,6 @@ import useGameData from "../../hooks/useGameData.js";
 
 export default function CardZone(props) {
   const ref = useRef(null);
-  console.log("top of cardzone props.hand: ", props.hand);
-
   //const [cardsInZone, setCardsInZone] = useState([]);
 
   //const cardsInZone = []

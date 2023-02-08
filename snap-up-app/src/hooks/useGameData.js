@@ -73,7 +73,7 @@ const useGameData = () => {
         turn: prev.turn + 1,
         energy: prev.turn + 1,
       }));
-      console.log("after next turn, state is: ", state);
+      //console.log("after next turn, state is: ", state);
     } else if (state.turn >= 0) {
       // this is where we'd call the final counts and stuff and determine the winner
       console.log("GAME OVER!");

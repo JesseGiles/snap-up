@@ -4,6 +4,7 @@ import FormControl from "@mui/material/FormControl";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import { avatarImages, deckImages } from "../db/images";
+import { useNavigate } from "react-router-dom";
 
 function PlayerForm(props) {
   let playerName = props.playerName;
@@ -17,17 +18,15 @@ function PlayerForm(props) {
   const handleSubmit = (event) => {
     if (playerName && avatarSelected && deckOneSelected && deckTwoSelected) {
       event.preventDefault();
-      props.setPlayerInfo(true);
-      // console.log(`Player Name: ${playerName}`);
-      // console.log(`Avatar: ${avatarSelected}`);
-      // console.log(`Avatar Image: ${avatarImage}`);
-      // console.log(`Deck One: ${deckOneSelected}`);
-      // console.log(`Deck One Image: ${deckOneImage}`);
-      // console.log(`Deck Two: ${deckTwoSelected}`);
-      // console.log(`Deck Two Image: ${deckTwoImage}`);
+      redirectingUser();
     } else {
       alert("You still need to enter your name or select all your choices.");
     }
+  };
+
+  const navigate = useNavigate();
+  const redirectingUser = () => {
+    navigate("/connection");
   };
 
   return (

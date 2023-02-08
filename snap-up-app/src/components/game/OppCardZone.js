@@ -7,7 +7,7 @@ export default function OppCardZone(props) {
 
   const generateCards = () => {
     let cardsInZone = oppCards;
-    console.log("this is prop position:", props.position);
+
     let cardsDisplayed = [];
     for (let i = 0; i < 4; i++) {
       if (cardsInZone.length > 0 && cardsInZone[i]) {

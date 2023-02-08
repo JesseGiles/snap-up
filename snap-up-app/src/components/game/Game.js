@@ -29,9 +29,9 @@ function Game(props) {
     setGameState({ ...state });
   }, [state]);
 
-  // Note from Jeremy: I removed the opponent playerzone. We'd probably want a whole separate state for it and to call it something like <OpponentZone /> for rendering.
-  console.log("gameState RERENDERED:", gameState);
-  console.log("regular state on gameRerender: ", state);
+  //checks to ensure copy of state is also updated
+  console.log("state on gameRerender: ", state);
+
   return (
     <div className="game">
       <DndProvider backend={HTML5Backend}>

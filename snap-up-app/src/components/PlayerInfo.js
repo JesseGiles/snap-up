@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import PlayerForm from "./PlayerForm";
-import Game from "./game/Game";
+import Connection from "./Connection";
 import { avatarImages, deckImages } from "../db/images";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import socketIO from "socket.io-client";
+
+const socket = socketIO.connect("http://localhost:4000");
 
 function PlayerInfo(props) {
   const [playerName, setPlayerName] = useState("");
-  const [opponentName, setOpponentName] = useState("Jason Voorhees");
   const [avatarSelected, setAvatarSelected] = useState(1);
-  const [opponentAvatar, setOpponentAvatar] = useState(
-    "cardImages/horror/jason.png"
-  );
   const [deckOneSelected, setDeckOneSelected] = useState(1);
   const [deckTwoSelected, setDeckTwoSelected] = useState(2);
   const [avatarImage, setAvatarImage] = useState("cardImages/horror/jason.png");
@@ -20,44 +20,52 @@ function PlayerInfo(props) {
     "cardImages/pusheen/pusheen.png"
   );
 
-  //console.log("Images selected:", avatarImage, deckOneImage, deckTwoImage);
-  // console.log("playerInfo props are:", props);
-  if (props.playerInfo === false) {
-    return (
-      <PlayerForm
-        setPlayerInfo={props.setPlayerInfo}
-        playerName={playerName}
-        setPlayerName={setPlayerName}
-        avatarSelected={avatarSelected}
-        setAvatarSelected={setAvatarSelected}
-        deckOneSelected={deckOneSelected}
-        setDeckOneSelected={setDeckOneSelected}
-        deckTwoSelected={deckTwoSelected}
-        setDeckTwoSelected={setDeckTwoSelected}
-        avatarImage={avatarImage}
-        setAvatarImage={setAvatarImage}
-        deckOneImage={deckOneImage}
-        setDeckOneImage={setDeckOneImage}
-        deckTwoImage={deckTwoImage}
-        setDeckTwoImage={setDeckTwoImage}
-      />
-    );
-  } else {
-    console.log("playerInfo props are:", props);
-    return (
-      <Game
-        playerName={playerName}
-        opponentName={opponentName}
-        avatar={avatarSelected}
-        opponentAvatar={opponentAvatar}
-        deckOne={deckOneSelected}
-        deckTwo={deckTwoSelected}
-        avatarImage={avatarImage}
-        deckOneImage={deckOneImage}
-        deckTwoImage={deckTwoImage}
-      />
-    );
-  }
+  return (
+    <BrowserRouter>
+      <div>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <PlayerForm
+                socket={socket}
+                setPlayerInfo={props.setPlayerInfo}
+                playerName={playerName}
+                setPlayerName={setPlayerName}
+                avatarSelected={avatarSelected}
+                setAvatarSelected={setAvatarSelected}
+                deckOneSelected={deckOneSelected}
+                setDeckOneSelected={setDeckOneSelected}
+                deckTwoSelected={deckTwoSelected}
+                setDeckTwoSelected={setDeckTwoSelected}
+                avatarImage={avatarImage}
+                setAvatarImage={setAvatarImage}
+                deckOneImage={deckOneImage}
+                setDeckOneImage={setDeckOneImage}
+                deckTwoImage={deckTwoImage}
+                setDeckTwoImage={setDeckTwoImage}
+              />
+            }
+          ></Route>
+          <Route
+            path="/connection"
+            element={
+              <Connection
+                socket={socket}
+                playerName={playerName}
+                avatar={avatarSelected}
+                deckOne={deckOneSelected}
+                deckTwo={deckTwoSelected}
+                avatarImage={avatarImage}
+                deckOneImage={deckOneImage}
+                deckTwoImage={deckTwoImage}
+              />
+            }
+          ></Route>
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
 }
 
 export default PlayerInfo;

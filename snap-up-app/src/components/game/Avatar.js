@@ -2,7 +2,6 @@ import React from "react";
 
 export default function Avatar(props) {
   const image = props.avatar;
-  console.log("avatar image: ", props);
 
   return (
     <div className="avatar">
