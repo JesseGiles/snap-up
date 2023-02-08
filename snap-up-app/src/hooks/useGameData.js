@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { shuffle } from "../helpers/selectors.js";
-
+const { locations } = require("../db/locations.js");
 const { horrorDeck } = require("../db/DeckFiles/horrorDeck.js");
 const { sailorMoonDeck } = require("../db/DeckFiles/sailorMoonDeck.js");
 const { pusheenDeck } = require("../db/DeckFiles/pusheenDeck.js");
@@ -23,6 +23,9 @@ const useGameData = () => {
     oppLeftCardZone: [],
     oppMiddleCardZone: [],
     oppRightCardZone: [],
+    locationLeft: {},
+    locationMiddle: {},
+    locationRight: {},
     nextTurnIsAllowed: true,
   });
 
@@ -51,11 +54,24 @@ const useGameData = () => {
           card.cardPosition = "fixed";
         });
 
+        let middleLocation;
+        let rightLocation;
+        if (state.turn === 1) {
+          middleLocation = getLocation();
+          rightLocation = state.locationRight;
+        }
+        if (state.turn === 2) {
+          rightLocation = getLocation();
+          middleLocation = state.locationMiddle;
+        }
+
         setState((prev) => ({
           ...prev,
           leftCardZone: newLeftCardZone,
           middleCardZone: newMiddleCardZone,
           rightCardZone: newRightCardZone,
+          locationMiddle: middleLocation,
+          locationRight: rightLocation,
           hand: draw,
           deck: newDeck,
           turn: prev.turn + 1,
@@ -147,7 +163,27 @@ const useGameData = () => {
       turn: 0,
       energy: 0,
     }));
+    setTimeout(() => {
+      console.log("SETTIMEOUT CALLED");
+      draw.push(newDeck.pop());
+
+      console.log("SETTIMEOUT draw and newDeck:", draw, newDeck);
+      setState((prev) => ({
+        ...prev,
+        hand: draw,
+        deck: newDeck,
+        turn: 1,
+        energy: 1,
+        locationLeft: getLocation(),
+      }));
+    }, 2000);
   }
+
+  const getLocation = () => {
+    const randomLocations = shuffle(locations);
+    let newLocation = randomLocations.pop();
+    return newLocation;
+  };
 
   function reduceEnergyOnDrop(energy, cost) {
     console.log("initial energyondrop: ", energy);

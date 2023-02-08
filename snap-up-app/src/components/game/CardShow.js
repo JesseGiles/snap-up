@@ -1,12 +1,12 @@
 import React from "react";
-import { useDrag, DragPreviewImage } from "react-dnd";
+import { useDrag } from "react-dnd";
 import { ItemTypes } from "./ItemTypes.js";
 import "../../component-styles/card.css";
 import cardBack from "../../assets/snapup_cardback.png";
 
 //turn this into a folder full of components for card modes.
 export default function CardShow(props) {
-  const [collected, drag] = useDrag(
+  const [collected, drag, dragPreview] = useDrag(
     () => ({
       type: ItemTypes.CARDSHOW,
       item: { props },
@@ -21,17 +21,17 @@ export default function CardShow(props) {
     []
   );
 
-  let canDragYN = null;
+  let draggable = null;
   // console.log("position of ", props.name, " is ", props.cardPosition);
   if (props.cardPosition === "hand" && props.energy >= props.cost) {
-    canDragYN = drag;
+    draggable = drag;
   }
   if (
     props.cardPosition === "leftCardZone" ||
     props.cardPosition === "middleCardZone" ||
     props.cardPosition === "rightCardZone"
   ) {
-    canDragYN = drag;
+    draggable = drag;
   }
 
   const cardObj = {
@@ -50,10 +50,9 @@ export default function CardShow(props) {
       <div
         onClick={props.onClick}
         className="card"
-        ref={canDragYN}
+        ref={draggable}
         style={{
           display: collected.isDragging ? "none" : "initial",
-          // transform: collected.isDragging ? "rotate()" : "rotate(0deg)",
         }}
       >
         <div className="card-header">

@@ -3,7 +3,7 @@
 
  */
 
-.pusheen {
+ .pusheen {
   --border:  #f1e3d3;
   --bg: #99c1b9;
   --img-border: #f2d0a9;
@@ -29,7 +29,6 @@
   display: flex;
   margin: .5em;
   background-color: transparent;
-  z-index: 10;
   --cost:#1AE9E9;
   --power: #A25664;
   user-select: none;
@@ -38,13 +37,6 @@
   transform-style: preserve-3d;
 }
 
-.card-empty {
-  display: flex;
-  height: 10em;
-  width: 7.5em;
-  margin: .5em;
-  border-radius: 5%;
-}
 
 
 .card {
@@ -55,7 +47,7 @@
   width: 7.5em;
   border: .25em solid var(--border);
   color: black;
-  position: relative;
+  z-index: 10;
   border-radius: 5% 0% 5% 5%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -66,14 +58,24 @@
   display: flex;
   height: 10em;
   width: 7.5em;
-  margin: .5em;
-  border-radius: 5%;
+  border: .25em solid #900000;
+  border-radius: 0% 5% 5% 5%;
   transform: rotateY(180deg);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   position: absolute;
   top: 0;
   left: 0;
+  
+}
+
+.card-empty {
+  display: flex;
+  height: 10em;
+  width: 7.5em;
+  margin: .5em;
+  border-radius: 5%;
+  
 }
 
 .card-header {

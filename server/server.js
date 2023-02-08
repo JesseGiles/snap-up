@@ -36,6 +36,8 @@ socketIO.on("connection", (socket) => {
     console.log("All connected users:", users);
     if (users.length >= 2) {
       socketIO.emit("newUserResponse", users);
+      // clear the users
+      users = [];
     } else {
       console.log("Waiting for another player to join...");
     }

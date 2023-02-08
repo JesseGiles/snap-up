@@ -6,7 +6,6 @@ import OppCardZone from "./OppCardZone";
 //also import scss file once you style things
 
 export default function Lane(props) {
-  //console.log("lane droppedcards:", droppedCards);
   const addUpPower = (array) => {
     let droppedCards = array;
     let totalPower = 0;
@@ -23,7 +22,7 @@ export default function Lane(props) {
     <div className="lane">
       <OppCardZone position={props.position} cardsInZone={props.oppZoneCards} />
       <PlayerLanePower totalPower={addUpPower(props.oppZoneCards)} />
-      <Location />
+      <Location location={props.location} />
       <PlayerLanePower totalPower={addUpPower(props.playerZoneCards)} />
       <CardZone
         moveCardBetween={props.moveCardBetween}

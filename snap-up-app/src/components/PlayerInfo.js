@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PlayerForm from "./PlayerForm";
 import Connection from "./Connection";
+import Home from "./Home";
 import { avatarImages, deckImages } from "../db/images";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import socketIO from "socket.io-client";
@@ -24,8 +25,9 @@ function PlayerInfo(props) {
     <BrowserRouter>
       <div>
         <Routes>
+          <Route path="/" element={<Home />}></Route>
           <Route
-            path="/"
+            path="/playerform"
             element={
               <PlayerForm
                 socket={socket}
@@ -38,11 +40,8 @@ function PlayerInfo(props) {
                 setDeckOneSelected={setDeckOneSelected}
                 deckTwoSelected={deckTwoSelected}
                 setDeckTwoSelected={setDeckTwoSelected}
-                avatarImage={avatarImage}
                 setAvatarImage={setAvatarImage}
-                deckOneImage={deckOneImage}
                 setDeckOneImage={setDeckOneImage}
-                deckTwoImage={deckTwoImage}
                 setDeckTwoImage={setDeckTwoImage}
               />
             }

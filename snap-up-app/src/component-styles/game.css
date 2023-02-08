@@ -19,7 +19,7 @@
 .player-zone {
   display: flex;
   flex-direction: row;
-  width: 68em;
+  width: 70em;
 }
 /* add or subtract to width of player zone to change the amount of cards in hand before wrapping. */
 
@@ -29,7 +29,7 @@
 .card-zone {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   border-radius: 3em;
   background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");;
 }
@@ -53,7 +53,7 @@
   border-radius: 3em;
   background-color: var(--lanebg);
   background-image: var(--lane-bg-img);
-  width: 25em;
+  width: 20em;
   margin: .5em;
 }
 
@@ -72,8 +72,10 @@
 }
 
 .location {
-  height: 100;
-  width: 100px;
+  height: 2em;
+  background-color: #A25664;
+  border: .25em outset #884753;
+  margin: .5em;
 }
 
 

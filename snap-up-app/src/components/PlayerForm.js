@@ -11,9 +11,9 @@ function PlayerForm(props) {
   let avatarSelected = props.avatarSelected;
   let deckOneSelected = props.deckOneSelected;
   let deckTwoSelected = props.deckTwoSelected;
-  let avatarImage = props.avatarImage;
-  let deckOneImage = props.deckOneImage;
-  let deckTwoImage = props.deckTwoImage;
+  // let avatarImage = props.avatarImage;
+  // let deckOneImage = props.deckOneImage;
+  // let deckTwoImage = props.deckTwoImage;
 
   const handleSubmit = (event) => {
     if (playerName && avatarSelected && deckOneSelected && deckTwoSelected) {
@@ -27,6 +27,16 @@ function PlayerForm(props) {
   const navigate = useNavigate();
   const redirectingUser = () => {
     navigate("/connection");
+  };
+  //prevents a player from selecting the same deck half twice
+  const deckTwoImages = () => {
+    const deckTwoVals = [];
+    for (let image of deckImages) {
+      if (image.id !== deckOneSelected) {
+        deckTwoVals.push(image);
+      }
+    }
+    return deckTwoVals;
   };
 
   return (
@@ -78,7 +88,7 @@ function PlayerForm(props) {
       </Grid>
       <Grid item xs={6}>
         <p>Deck Two:</p>
-        {deckImages.map((image) => (
+        {deckTwoImages().map((image) => (
           <img
             key={image.id}
             src={image.src}
