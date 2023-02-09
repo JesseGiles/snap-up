@@ -19,6 +19,17 @@ const avatarImages = [
     label: "Golden Girls",
     src: "cardImages/goldengirls/sophia_petrillo.jpg",
   },
+  {
+    id: 5,
+    label: "Tony",
+    src: "cardImages/cereal/Tony.png",
+  },
+  {
+    id: 6,
+    label: "Michael Myers",
+    src: "cardImages/horror/michael.png",
+  },
+
   // ... add more avatar images here
 ];
 
@@ -42,6 +53,11 @@ const deckImages = [
     id: 4,
     label: "Golden Girls",
     src: "cardImages/goldengirls/sophia_petrillo.jpg",
+  },
+  {
+    id: 5,
+    label: "Cereal",
+    src: "cardImages/cereal/CptCrunch2.png",
   },
   // ... add more deck images here
 ];
