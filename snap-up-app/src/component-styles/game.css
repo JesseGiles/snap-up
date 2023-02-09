@@ -26,17 +26,21 @@
 .hand {
   border: .3em dotted #ffffff;
 }
+
+
 .card-zone {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   border-radius: 3em;
+  height: 24em;
+  width: 18em;
   
   background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");;
 }
 
 .drop-card-zone {
   border-radius: 3em;
+  
   
 }
 
@@ -133,10 +137,6 @@
   justify-content: space-evenly;
   width: 60em;
 }
-
-
-
-
 
 .avatar img {
   border-radius: 50%;

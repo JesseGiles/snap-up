@@ -38,7 +38,7 @@ export default function CardZone(props) {
           </div>
         );
       } else {
-        cardsDisplayed.push(<CardEmpty key={i} />);
+        // cardsDisplayed.push(<CardEmpty key={i} />);
       }
     }
     return cardsDisplayed;
