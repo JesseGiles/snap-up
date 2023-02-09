@@ -25,14 +25,16 @@ export default function OppCardZone(props) {
           />
         );
       } else {
-        cardsDisplayed.push(<CardEmpty key={i} />);
+        // cardsDisplayed.push(<CardEmpty key={i} />);
       }
     }
     return cardsDisplayed;
   };
   return (
     <div className="opp-card-zone">
+      
       <div className="card-zone">{generateCards()}</div>
+      
     </div>
   );
 }

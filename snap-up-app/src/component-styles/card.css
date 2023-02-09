@@ -57,6 +57,7 @@
   border: .25em solid var(--border);
   color: black;
   z-index: 10;
+  position: relative;
   border-radius: 5% 0% 5% 5%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;

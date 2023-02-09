@@ -27,7 +27,9 @@
   border: .3em dotted #ffffff;
 }
 
-
+.opp-card-zone {
+  border-radius: 3em;
+}
 .card-zone {
   display: flex;
   flex-wrap: wrap;
@@ -35,7 +37,7 @@
   height: 24em;
   width: 18em;
   
-  background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");;
+  
 }
 
 .drop-card-zone {
