@@ -46,7 +46,7 @@ function Connection(props) {
       setLocations(data);
       console.log("LOCATIONS IN CLIENT SET TO:", locations);
     });
-  }, [socket]);
+  }, [socket, locations]);
 
   if (opponentName && opponentAvatar && locations.length > 0) {
     return (

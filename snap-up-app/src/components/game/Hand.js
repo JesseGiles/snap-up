@@ -47,7 +47,9 @@ export default function Hand(props) {
       className="drop-hand"
       ref={drop}
       style={{
-        backgroundColor: collected.isOver ? "#ffffff" : "initial",
+        backgroundColor: collected.isOver
+          ? "rgba(255, 255, 255, 0.2)"
+          : "initial",
       }}
     >
       <div className="hand">{currentHand}</div>

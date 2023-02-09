@@ -1,8 +1,17 @@
-import { pusheenDeck } from "./DeckFiles/pusheenDeck";
-import { sailorMoonDeck } from "./DeckFiles/sailorMoonDeck";
-import { horrorDeck } from "./DeckFiles/horrorDeck";
-import { cerealDeck } from "./DeckFiles/cerealDeck";
+const { horrorDeck } = require("../db/DeckFiles/horrorDeck.js");
+const { sailorMoonDeck } = require("../db/DeckFiles/sailorMoonDeck.js");
+const { pusheenDeck } = require("../db/DeckFiles/pusheenDeck.js");
+const { goldenGirlsDeck } = require("../db/DeckFiles/goldenGirlsDeck.js");
+const { cerealDeck } = require("../db/DeckFiles/cerealDeck.js");
+const { animalCrossingDeck } = require("../db/DeckFiles/animalCrossingDeck.js");
 
-const decks = [pusheenDeck, sailorMoonDeck, horrorDeck, cerealDeck];
+const decks = {
+  pusheenDeck,
+  sailorMoonDeck,
+  horrorDeck,
+  goldenGirlsDeck,
+  cerealDeck,
+  animalCrossingDeck,
+};
 
-export default decks;
+module.exports = { decks };

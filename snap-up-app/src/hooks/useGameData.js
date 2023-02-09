@@ -1,17 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { shuffle } from "../helpers/selectors.js";
-const { horrorDeck } = require("../db/DeckFiles/horrorDeck.js");
-const { sailorMoonDeck } = require("../db/DeckFiles/sailorMoonDeck.js");
-const { pusheenDeck } = require("../db/DeckFiles/pusheenDeck.js");
-const { goldenGirlsDeck } = require("../db/DeckFiles/goldenGirlsDeck.js");
-const { cerealDeck } = require("../db/DeckFiles/cerealDeck.js");
+import { useNavigate } from "react-router-dom";
+import { decks } from "../db/decks.js";
+
 const {
   oppLeftCardZone,
   oppMiddleCardZone,
   oppRightCardZone,
 } = require("../db/oppTestCards.js");
 
-const useGameData = () => {
+const useGameData = (socket, playerName) => {
+  console.log("socket at line 13 usegamedata: ", socket);
+
+  const navigate = useNavigate();
   const [state, setState] = useState({
     // shuffle calls the function and puts in the two 1/2 decks as one combined array of 12 cards
     deck: [],
@@ -24,14 +25,38 @@ const useGameData = () => {
     oppLeftCardZone: [],
     oppMiddleCardZone: [],
     oppRightCardZone: [],
-    nextTurnIsAllowed: true,
+    playerReady: false,
+    opponentReady: false,
   });
 
+  useEffect(() => {
+    if (state.playerReady && state.opponentReady) {
+      nextTurn(state, setState, socket, playerName);
+    }
+  }, [nextTurn, state.playerReady, state.opponentReady, socket]);
+
+  function broadcastForNextTurn(setState, socket, player) {
+    if (!state.playerReady) {
+      socket.emit("opponentReady", {
+        player: player,
+      });
+      setState((prev) => ({ ...prev, playerReady: true }));
+    }
+  }
+
   function nextTurn(state, setState, socket, player) {
-    if (!state.nextTurnIsAllowed) {
+    socket.emit("nextTurn", {
+      // data to send to server
+      player: player,
+      leftCardZone: state.leftCardZone,
+      middleCardZone: state.middleCardZone,
+      rightCardZone: state.rightCardZone,
+    });
+
+    if (!state.opponentReady) {
       alert("Please wait for the opponent to make their turn");
     }
-    if (state.nextTurnIsAllowed) {
+    if (state.opponentReady && state.playerReady) {
       if (state.deck.length > 0 && state.turn < 6) {
         const newDeck = [...state.deck];
         const draw = [...state.hand];
@@ -52,17 +77,6 @@ const useGameData = () => {
           card.cardPosition = "fixed";
         });
 
-        // let middleLocation;
-        // let rightLocation;
-        // if (state.turn === 1) {
-        //   middleLocation = getLocation();
-        //   rightLocation = state.locationRight;
-        // }
-        // if (state.turn === 2) {
-        //   rightLocation = getLocation();
-        //   middleLocation = state.locationMiddle;
-        // }
-
         setState((prev) => ({
           ...prev,
           leftCardZone: newLeftCardZone,
@@ -72,38 +86,13 @@ const useGameData = () => {
           deck: newDeck,
           turn: prev.turn + 1,
           energy: prev.turn + 1,
-          nextTurnIsAllowed: false,
+          playerReady: false,
+          opponentReady: false,
         }));
-
-        socket.emit("nextTurn", {
-          // data to send to server
-          player: player,
-          leftCardZone: state.leftCardZone,
-          middleCardZone: state.middleCardZone,
-          rightCardZone: state.rightCardZone,
-        });
-
-        socket.on("turnInfo", (data) => {
-          console.log("TurnInfo data received from server is:", data);
-
-          let opponent = {};
-          if (data[0].player === player) {
-            opponent = data[1];
-          } else {
-            opponent = data[0];
-          }
-
-          setState((prev) => ({
-            ...prev,
-            oppLeftCardZone: opponent.leftCardZone,
-            oppMiddleCardZone: opponent.middleCardZone,
-            oppRightCardZone: opponent.rightCardZone,
-            nextTurnIsAllowed: true,
-          }));
-        });
       } else if (state.turn >= 0) {
         // this is where we'd call the final counts and stuff and determine the winner
         console.log("GAME OVER!");
+        navigate("/gameover");
       } else {
         console.log(
           "you've hit a case where you have run out of cards in deck???"
@@ -117,48 +106,61 @@ const useGameData = () => {
     }
   }
 
-  function getInitialHand(state, setState, deckOne, deckTwo) {
+  function getInitialHand(state, setState, deckOne, deckTwo, socket, player) {
+    console.log("Deck ONE:", deckOne);
+    console.log("Deck TWO:", deckTwo);
+    console.log("Decks import in usegamedata: ", decks);
+    console.log("Decks", decks.horrorDeck);
+
     let startDeckOne;
     let startDeckTwo;
     switch (deckOne) {
       case 1:
-        startDeckOne = horrorDeck;
+        startDeckOne = decks.horrorDeck;
         break;
       case 2:
-        startDeckOne = pusheenDeck;
+        startDeckOne = decks.pusheenDeck;
         break;
       case 3:
-        startDeckOne = sailorMoonDeck;
+        startDeckOne = decks.sailorMoonDeck;
         break;
       case 4:
-        startDeckOne = goldenGirlsDeck;
+        startDeckOne = decks.goldenGirlsDeck;
         break;
       case 5:
-        startDeckOne = cerealDeck;
+        startDeckOne = decks.cerealDeck;
         break;
+      case 6:
+        startDeckOne = decks.animalCrossingDeck;
+        break;
+
       default:
         alert("ERROR! NO VALID DECK");
     }
     switch (deckTwo) {
       case 1:
-        startDeckTwo = horrorDeck;
+        startDeckTwo = decks.horrorDeck;
         break;
       case 2:
-        startDeckTwo = pusheenDeck;
+        startDeckTwo = decks.pusheenDeck;
         break;
       case 3:
-        startDeckTwo = sailorMoonDeck;
+        startDeckTwo = decks.sailorMoonDeck;
         break;
       case 4:
-        startDeckTwo = goldenGirlsDeck;
+        startDeckTwo = decks.goldenGirlsDeck;
         break;
       case 5:
-        startDeckOne = cerealDeck;
+        startDeckTwo = decks.cerealDeck;
+        break;
+      case 6:
+        startDeckTwo = decks.animalCrossingDeck;
         break;
       default:
         alert("ERROR! NO VALID DECK");
     }
 
+    console.log("state before we shuffle a deck", state);
     const newDeck = shuffle(startDeckOne.cards.concat(startDeckTwo.cards));
     const draw = [];
     draw.push(newDeck.pop());
@@ -184,6 +186,32 @@ const useGameData = () => {
         energy: 1,
       }));
     }, 2000);
+
+    socket.on("opponentReady", (data) => {
+      console.log("line 198: socket opponent ready DATA IS:", data);
+      console.log("line 199: player IS:", player);
+      if (data.player !== player) {
+        setState((prev) => ({ ...prev, opponentReady: true }));
+      }
+    });
+
+    socket.on("turnInfo", (data) => {
+      console.log("TurnInfo data received from server is:", data);
+
+      let opponent = {};
+      if (data[0].player === player) {
+        opponent = data[1];
+      } else {
+        opponent = data[0];
+      }
+
+      setState((prev) => ({
+        ...prev,
+        oppLeftCardZone: opponent.leftCardZone,
+        oppMiddleCardZone: opponent.middleCardZone,
+        oppRightCardZone: opponent.rightCardZone,
+      }));
+    });
   }
 
   function reduceEnergyOnDrop(energy, cost) {
@@ -232,7 +260,14 @@ const useGameData = () => {
     }));
   }
 
-  return { state, setState, moveCardBetween, nextTurn, getInitialHand };
+  return {
+    state,
+    setState,
+    moveCardBetween,
+    nextTurn,
+    getInitialHand,
+    broadcastForNextTurn,
+  };
 };
 
 export default useGameData;

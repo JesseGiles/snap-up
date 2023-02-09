@@ -48,7 +48,7 @@ function shuffle(array) {
 const getLocations = () => {
   const randomLocations = shuffle(locations);
   const gameLocations = randomLocations.slice(0, 3);
-  console.log("Our array has 3 locations:", randomLocations);
+  console.log("Our array has 3 locations:", gameLocations);
   return gameLocations;
 };
 
@@ -70,6 +70,10 @@ socketIO.on("connection", (socket) => {
     } else {
       console.log("Waiting for another player to join...");
     }
+  });
+
+  socket.on("opponentReady", (data) => {
+    socketIO.emit("opponentReady", data);
   });
 
   socket.on("nextTurn", (data) => {

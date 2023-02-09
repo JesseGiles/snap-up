@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PlayerForm from "./PlayerForm";
 import Connection from "./Connection";
 import Home from "./Home";
+import GameOver from "./GameOver";
 import { avatarImages, deckImages } from "../db/images";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import socketIO from "socket.io-client";
@@ -61,6 +62,7 @@ function PlayerInfo(props) {
               />
             }
           ></Route>
+          <Route path="/gameover" element={<GameOver />}></Route>
         </Routes>
       </div>
     </BrowserRouter>

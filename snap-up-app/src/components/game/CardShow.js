@@ -62,7 +62,7 @@ export default function CardShow(props) {
             <div className="card-cost">{cardObj.cost}</div>
           </div>
         </div>
-        <img className="card-img" src={cardObj.img} />
+        <img className="card-img" draggable="false" src={cardObj.img} />
         <div className="card-power">{cardObj.power}</div>
       </div>
 

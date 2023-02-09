@@ -15,13 +15,26 @@ const {
 function Game(props) {
   console.log("props recieved by game:", props);
 
-  const { state, setState, getInitialHand, nextTurn, moveCardBetween } =
-    useGameData();
+  const {
+    state,
+    setState,
+    getInitialHand,
+    nextTurn,
+    moveCardBetween,
+    broadcastForNextTurn,
+  } = useGameData(props.socket, props.playerName);
 
   const [gameState, setGameState] = useState({ ...state });
 
   useEffect(() => {
-    getInitialHand(state, setState, props.deckOne, props.deckTwo);
+    getInitialHand(
+      state,
+      setState,
+      props.deckOne,
+      props.deckTwo,
+      props.socket,
+      props.playerName
+    );
     setGameState({ ...state });
   }, []);
 
@@ -78,7 +91,7 @@ function Game(props) {
           deck={gameState.deck}
           turn={gameState.turn}
           energy={gameState.energy}
-          onClick={nextTurn}
+          onClick={broadcastForNextTurn}
           moveCardBetween={moveCardBetween}
           state={state}
           setState={setState}

@@ -1,6 +1,8 @@
 .game {
-  background-color: #464e60;
-  min-height: 100vh;
+  background: rgb(26,233,233);
+  background: url("https://www.transparenttextures.com/patterns/bright-squares.png"), radial-gradient(circle, rgba(26,233,233,1) 0%, rgba(162,86,100,1) 100%);
+  font-family: 'Fira Sans', sans-serif;
+  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,8 +12,8 @@
 
 .battlefield {
   display: flex;
-  --border:  #1AE9E9;
-  --lanebg: #A25664;
+  --lane-border:  #1AE9E9;
+  --lanebg: transparent;
   --lane-bg-img: url("https://www.transparenttextures.com/patterns/always-grey.png");
 
 }
@@ -53,16 +55,29 @@
   flex-wrap: wrap;
 }
 
+.pusheen-deck {
+  --lane-bg-color: pink;
+}
+
+.horror-deck {
+  --lane-bg-color: red;
+}
+
+.goldengirls-deck {
+  --lane-bg-color: yellow;
+}
+
 .lane {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 3px solid var(--border);
+  border: 3px solid var(--lane-border);
   border-radius: 3em;
-  background-color: var(--lanebg);
+  background-color: var(--lane-bg-color);
   background-image: var(--lane-bg-img);
   width: 20em;
   margin: .5em;
+  opacity: .9;
 }
 
 .player-lane-power {
@@ -145,6 +160,7 @@
   border-style: groove;
   height: 6em;
   width: 6em;
+  object-fit: contain;
 }
 
 .opp-avatar {

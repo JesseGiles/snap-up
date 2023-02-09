@@ -70,7 +70,9 @@ export default function CardZone(props) {
       className="drop-card-zone"
       ref={drop}
       style={{
-        backgroundColor: collected.isOver ? "#ffffff" : "initial",
+        backgroundColor: collected.isOver
+          ? "rgba(255, 255, 255, 0.1)"
+          : "initial",
       }}
     >
       <div className="card-zone">{generateCards()}</div>

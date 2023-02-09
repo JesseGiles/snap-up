@@ -40,6 +40,17 @@
   --font-color: #ffffff;
 }
 
+.animal-crossing {
+  --border:  #f1e3d3;
+  --bg: transparent;
+  --img-border: #e1b82c;
+  --bg-img: url(/../snap-up-app/public/cardImages/animalcrossing/ACbackground.png);
+  --font-color: #ffffff;
+  
+}
+
+
+
 /* end of deck styles */
 
 .card-show {
@@ -52,6 +63,7 @@
   cursor: pointer;
   position: relative;
   transform-style: preserve-3d;
+  
 }
 
 
@@ -69,6 +81,7 @@
   border-radius: 5% 0% 5% 5%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  box-shadow: 2px 2px 2px black
   
 }
 
@@ -110,6 +123,7 @@
   white-space: nowrap;
   font-style: italic;
   margin-top: 3px;
+  margin-left: 2px;
   color: var(--font-color);
 }
 
@@ -135,6 +149,10 @@
   right: .2em;
   position: absolute;
   font-weight: bolder;
+  -webkit-text-stroke: 1px #ffffff;
+  color:#ffffff;
+  text-shadow: 2px 2px 2px black;
+
 }
 
 .card-img {
@@ -164,5 +182,7 @@
   justify-content: center;
   align-items: center;
   color: white;
+  -webkit-text-stroke: 1px #ffffff;
+  text-shadow: 1px 1px 2px black;
   font-weight: bold;
 }

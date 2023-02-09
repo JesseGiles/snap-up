@@ -19,7 +19,7 @@ export default function Lane(props) {
   };
 
   return (
-    <div className="lane">
+    <div className={`lane ${props.location.deck}`}>
       <OppCardZone position={props.position} cardsInZone={props.oppZoneCards} />
       <PlayerLanePower totalPower={addUpPower(props.oppZoneCards)} />
       <Location location={props.location} />
