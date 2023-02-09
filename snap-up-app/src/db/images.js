@@ -20,10 +20,21 @@ const avatarImages = [
     src: "cardImages/goldengirls/sophia_petrillo.jpg",
   },
   {
-    id: 5,
+    id: 7,
     label: "Animal Crossing",
     src: "cardImages/animalcrossing/Tom_Nook.png"
-  }
+  },
+  {
+    id: 5,
+    label: "Tony",
+    src: "cardImages/cereal/Tony.png",
+  },
+  {
+    id: 6,
+    label: "Michael Myers",
+    src: "cardImages/horror/michael.png",
+  },
+
   // ... add more avatar images here
 ];
 
@@ -50,9 +61,9 @@ const deckImages = [
   },
   {
     id: 5,
-    label: "Animal Crossing",
-    src: "cardImages/animalcrossing/Tom_Nook.png"
-  }
+    label: "Cereal",
+    src: "cardImages/cereal/CptCrunch2.png",
+  },
   // ... add more deck images here
 ];
 

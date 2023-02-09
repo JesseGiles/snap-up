@@ -4,6 +4,7 @@ const { horrorDeck } = require("../db/DeckFiles/horrorDeck.js");
 const { sailorMoonDeck } = require("../db/DeckFiles/sailorMoonDeck.js");
 const { pusheenDeck } = require("../db/DeckFiles/pusheenDeck.js");
 const { goldenGirlsDeck } = require("../db/DeckFiles/goldenGirlsDeck.js");
+const { cerealDeck } = require("../db/DeckFiles/cerealDeck.js");
 const {
   oppLeftCardZone,
   oppMiddleCardZone,
@@ -132,6 +133,9 @@ const useGameData = () => {
       case 4:
         startDeckOne = goldenGirlsDeck;
         break;
+      case 5:
+        startDeckOne = cerealDeck;
+        break;
       default:
         alert("ERROR! NO VALID DECK");
     }
@@ -147,6 +151,9 @@ const useGameData = () => {
         break;
       case 4:
         startDeckTwo = goldenGirlsDeck;
+        break;
+      case 5:
+        startDeckOne = cerealDeck;
         break;
       default:
         alert("ERROR! NO VALID DECK");
