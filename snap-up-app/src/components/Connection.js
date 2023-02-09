@@ -33,7 +33,7 @@ function Connection(props) {
         setOpponentAvatar(data[1].avatar);
       }
       console.log(
-        "WITH TWO USERS CONNECTED WE SHOULD HAVE OPPONENT NAME AND OPPONENT AVATAR and a LOCATIONS array:",
+        "WITH TWO USERS CONNECTED WE SHOULD HAVE OPPONENT NAME AND OPPONENT AVATAR:",
         opponentName,
         opponentAvatar
       );
@@ -48,7 +48,7 @@ function Connection(props) {
     });
   }, [socket]);
 
-  if (opponentName && opponentAvatar) {
+  if (opponentName && opponentAvatar && locations.length > 0) {
     return (
       <Game
         playerName={props.playerName}
