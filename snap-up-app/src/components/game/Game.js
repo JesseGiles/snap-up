@@ -50,7 +50,7 @@ function Game(props) {
             energy={gameState.energy}
             moveCardBetween={moveCardBetween}
             hand={gameState.hand}
-            location={gameState.locationLeft}
+            location={props.locations[0]}
           />
           <Lane
             position="middleCardZone"
@@ -59,7 +59,7 @@ function Game(props) {
             energy={gameState.energy}
             moveCardBetween={moveCardBetween}
             hand={gameState.hand}
-            location={gameState.locationMiddle}
+            location={props.locations[1]}
           />
           <Lane
             position="rightCardZone"
@@ -68,7 +68,7 @@ function Game(props) {
             energy={gameState.energy}
             moveCardBetween={moveCardBetween}
             hand={gameState.hand}
-            location={gameState.locationRight}
+            location={props.locations[2]}
           />
         </div>
         <PlayerZone

@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const PORT = 4000;
+const { locations } = require("./locations");
 
 //New imports
 const http = require("http").Server(app);
@@ -24,6 +25,33 @@ const socketIO = require("socket.io")(http, {
 let users = [];
 let turnInfo = [];
 
+function shuffle(array) {
+  let currentIndex = array.length,
+    randomIndex;
+
+  // While there remain elements to shuffle.
+  while (currentIndex != 0) {
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+
+  return array;
+}
+
+const getLocations = () => {
+  const randomLocations = shuffle(locations);
+  const gameLocations = randomLocations.slice(0, 3);
+  console.log("Our array has 3 locations:", randomLocations);
+  return gameLocations;
+};
+
 socketIO.on("connection", (socket) => {
   console.log(`⚡: ${socket.id} player just connected!`);
 
@@ -36,6 +64,7 @@ socketIO.on("connection", (socket) => {
     console.log("All connected users:", users);
     if (users.length >= 2) {
       socketIO.emit("newUserResponse", users);
+      socketIO.emit("setGameLocations", getLocations());
       // clear the users
       users = [];
     } else {

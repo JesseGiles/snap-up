@@ -13,5 +13,5 @@ export default function Location(props) {
     return newLocation;
   };
 
-  return <div>{displayLocation()}</div>;
+  return <div className="location">{props.location.name}</div>;
 }

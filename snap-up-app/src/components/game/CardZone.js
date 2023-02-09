@@ -10,7 +10,7 @@ import { CSSTransition } from "react-transition-group";
 
 export default function CardZone(props) {
   const nodeRef = useRef(null);
-  const [showFront, setShowFront] = useState(true);
+  const [showFront, setShowFront] = useState(true); //move down
 
   const generateCards = () => {
     let cardsInZone = props.cardsInZone;
