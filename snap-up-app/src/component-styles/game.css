@@ -31,11 +31,13 @@
   flex-wrap: wrap;
   justify-content: center;
   border-radius: 3em;
+  
   background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");;
 }
 
 .drop-card-zone {
   border-radius: 3em;
+  
 }
 
 .hand {
@@ -132,16 +134,27 @@
   width: 60em;
 }
 
-.versus {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-weight: bolder;
-  width: fit-content;
-  font-family: 'Titillium Web';
-}
+
+
+
 
 .avatar img {
   border-radius: 50%;
   border-style: groove;
+  height: 6em;
+  width: 6em;
+}
+
+.opp-avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-top: 4em;
+}
+
+.player-avatar {
+  display: flex;
+  align-items: end;
+  flex-direction: column-reverse;
+  margin-bottom: 4em;
 }

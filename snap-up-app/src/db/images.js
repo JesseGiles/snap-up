@@ -14,6 +14,11 @@ const avatarImages = [
     label: "Sailor Moon",
     src: "cardImages/sailor/sailor_moon.jpg",
   },
+  {
+    id: 4,
+    label: "Golden Girls",
+    src: "cardImages/goldengirls/sophia_petrillo.jpg",
+  },
   // ... add more avatar images here
 ];
 
@@ -32,6 +37,11 @@ const deckImages = [
     id: 3,
     label: "Sailor Moon",
     src: "cardImages/sailor/sailor_moon.jpg",
+  },
+  {
+    id: 4,
+    label: "Golden Girls",
+    src: "cardImages/goldengirls/sophia_petrillo.jpg",
   },
   // ... add more deck images here
 ];

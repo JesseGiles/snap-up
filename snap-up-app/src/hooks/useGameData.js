@@ -3,6 +3,7 @@ import { shuffle } from "../helpers/selectors.js";
 const { horrorDeck } = require("../db/DeckFiles/horrorDeck.js");
 const { sailorMoonDeck } = require("../db/DeckFiles/sailorMoonDeck.js");
 const { pusheenDeck } = require("../db/DeckFiles/pusheenDeck.js");
+const { goldenGirlsDeck } = require("../db/DeckFiles/goldenGirlsDeck.js");
 const {
   oppLeftCardZone,
   oppMiddleCardZone,
@@ -128,6 +129,9 @@ const useGameData = () => {
       case 3:
         startDeckOne = sailorMoonDeck;
         break;
+      case 4:
+        startDeckOne = goldenGirlsDeck;
+        break;
       default:
         alert("ERROR! NO VALID DECK");
     }
@@ -140,6 +144,9 @@ const useGameData = () => {
         break;
       case 3:
         startDeckTwo = sailorMoonDeck;
+        break;
+      case 4:
+        startDeckTwo = goldenGirlsDeck;
         break;
       default:
         alert("ERROR! NO VALID DECK");

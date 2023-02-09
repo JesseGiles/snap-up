@@ -35,14 +35,11 @@ function Game(props) {
   return (
     <div className="game">
       <DndProvider backend={HTML5Backend}>
-        <header className="player-data-header">
-          <Avatar avatar={props.avatarImage} />
-          <h1 className="versus">
-            {props.playerName} VS {props.opponentName}
-          </h1>
-          <Avatar avatar={props.opponentAvatar} />
-        </header>
         <div className="battlefield">
+          <div className="player-avatar">
+            <Avatar avatar={props.avatarImage} />
+            <h2 className="player-name">{props.playerName}</h2>
+          </div>
           <Lane
             position="leftCardZone"
             playerZoneCards={gameState.leftCardZone}
@@ -70,6 +67,10 @@ function Game(props) {
             hand={gameState.hand}
             location={props.locations[2]}
           />
+          <div className="opp-avatar">
+            <Avatar avatar={props.opponentAvatar} />
+            <h2 className="opp-name">{props.opponentName}</h2>
+          </div>
         </div>
         <PlayerZone
           player={props.playerName}
