@@ -19,6 +19,11 @@ const avatarImages = [
     label: "Golden Girls",
     src: "cardImages/goldengirls/sophia_petrillo.jpg",
   },
+  {
+    id: 5,
+    label: "Animal Crossing",
+    src: "cardImages/animalcrossing/Tom_Nook.png"
+  }
   // ... add more avatar images here
 ];
 
@@ -43,6 +48,11 @@ const deckImages = [
     label: "Golden Girls",
     src: "cardImages/goldengirls/sophia_petrillo.jpg",
   },
+  {
+    id: 5,
+    label: "Animal Crossing",
+    src: "cardImages/animalcrossing/Tom_Nook.png"
+  }
   // ... add more deck images here
 ];
 

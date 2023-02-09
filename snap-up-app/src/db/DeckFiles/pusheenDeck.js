@@ -38,7 +38,7 @@ const pusheenDeck = {
       name: "Dragonsheen",
       cost: 3,
       power: 7,
-      img: "/cardImages/pusheen/dragonsheen.jpeg",
+      img: "/cardImages/pusheen/dragonsheen.gif",
       ability: abilities[0],
       cardPosition: "hand",
       deck: "pusheen",
@@ -51,7 +51,7 @@ const pusheenDeck = {
       img: "/cardImages/pusheen/sloth.jpeg",
       ability: abilities[0],
       cardPosition: "hand",
-      deck: "pusheen",
+      deck: "pusheen-deck",
     },
     {
       id: 12,
@@ -61,7 +61,7 @@ const pusheenDeck = {
       img: "/cardImages/pusheen/super_pusheenicorn.jpeg",
       ability: abilities[0],
       cardPosition: "hand",
-      deck: "pusheen",
+      deck: "pusheen-deck",
     },
   ],
 };
