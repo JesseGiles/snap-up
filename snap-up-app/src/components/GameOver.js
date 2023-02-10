@@ -20,7 +20,7 @@ export default function GameOver(props) {
   };
 
   const startGame = (event) => {
-    navigate("/connection");
+    navigate("/game");
   };
 
   if (playerWins > opponentWins) {

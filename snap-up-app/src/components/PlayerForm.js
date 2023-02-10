@@ -26,7 +26,7 @@ function PlayerForm(props) {
 
   const navigate = useNavigate();
   const redirectingUser = () => {
-    navigate("/connection");
+    navigate("/game");
   };
   //prevents a player from selecting the same deck half twice
   const deckTwoImages = () => {

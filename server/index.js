@@ -92,6 +92,10 @@ socketIO.on("connection", (socket) => {
     }
   });
 
+  // socket.on("oppAbilities", (data) => {
+  //   console.log("oppAbilities received at server: ", data);
+  // });
+
   socket.on("disconnect", () => {
     console.log("🔥: A user disconnected");
     users = users.filter((user) => user.socketID !== socket.id);

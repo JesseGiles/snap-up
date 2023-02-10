@@ -21,6 +21,8 @@ const useGameData = (socket, playerName) => {
     oppRightCardZone: [],
     playerReady: false,
     opponentReady: false,
+    playerAbilityQueue: [],
+    oppAbilityQueue: [],
   });
 
   useEffect(() => {
@@ -60,32 +62,48 @@ const useGameData = (socket, playerName) => {
         const newLeftCardZone = [...state.leftCardZone];
         const newMiddleCardZone = [...state.middleCardZone];
         const newRightCardZone = [...state.rightCardZone];
-        const abilityQueue = [];
+        const playerAbilityQueue = [];
+
         newLeftCardZone.map((card) => {
           card.cardPosition = "fixed";
-          console.log("Card is:", card);
           if (card.ability) {
-            abilityQueue.push(card.ability.description);
+            playerAbilityQueue.push({
+              lane: "left",
+              cardName: card.name,
+              cardAbility: card.ability.description,
+            });
             card.ability = null;
           }
         });
         newMiddleCardZone.map((card) => {
           card.cardPosition = "fixed";
-          console.log("Card is:", card);
           if (card.ability) {
-            abilityQueue.push(card.ability.description);
+            playerAbilityQueue.push({
+              lane: "middle",
+              cardName: card.name,
+              cardAbility: card.ability.description,
+            });
             card.ability = null;
           }
         });
         newRightCardZone.map((card) => {
           card.cardPosition = "fixed";
-          console.log("Card is:", card);
           if (card.ability) {
-            abilityQueue.push(card.ability.description);
+            playerAbilityQueue.push({
+              lane: "right",
+              cardName: card.name,
+              cardAbility: card.ability.description,
+            });
             card.ability = null;
           }
         });
-        console.log("ABILITY QUEUE:", abilityQueue);
+        console.log("ABILITY QUEUE:", playerAbilityQueue);
+
+        // socket.emit("oppAbilities", {
+        //   // data to send to server
+        //   player: player,
+        //   abilityQueue: abilityQueue,
+        // });
 
         setState((prev) => ({
           ...prev,
@@ -98,6 +116,7 @@ const useGameData = (socket, playerName) => {
           energy: prev.turn + 1,
           playerReady: false,
           opponentReady: false,
+          playerAbilityQueue: playerAbilityQueue,
         }));
       } else if (state.turn >= 0) {
         // this is where we'd call the final counts and stuff and determine the winner
@@ -117,10 +136,10 @@ const useGameData = (socket, playerName) => {
   }
 
   function getInitialHand(state, setState, deckOne, deckTwo, socket, player) {
-    console.log("Deck ONE:", deckOne);
-    console.log("Deck TWO:", deckTwo);
-    console.log("Decks import in usegamedata: ", decks);
-    console.log("Decks", decks.horrorDeck);
+    // console.log("Deck ONE:", deckOne);
+    // console.log("Deck TWO:", deckTwo);
+    // console.log("Decks import in usegamedata: ", decks);
+    // console.log("Decks", decks.horrorDeck);
 
     let startDeckOne;
     let startDeckTwo;
@@ -170,7 +189,7 @@ const useGameData = (socket, playerName) => {
         alert("ERROR! NO VALID DECK");
     }
 
-    console.log("state before we shuffle a deck", state);
+    //console.log("state before we shuffle a deck", state);
     const newDeck = shuffle(startDeckOne.cards.concat(startDeckTwo.cards));
     const draw = [];
     draw.push(newDeck.pop());
@@ -184,10 +203,10 @@ const useGameData = (socket, playerName) => {
       energy: 0,
     }));
     setTimeout(() => {
-      console.log("SETTIMEOUT CALLED");
+      //console.log("SETTIMEOUT CALLED");
       draw.push(newDeck.pop());
 
-      console.log("SETTIMEOUT draw and newDeck:", draw, newDeck);
+      //console.log("SETTIMEOUT draw and newDeck:", draw, newDeck);
       setState((prev) => ({
         ...prev,
         hand: draw,
@@ -198,8 +217,8 @@ const useGameData = (socket, playerName) => {
     }, 2000);
 
     socket.on("opponentReady", (data) => {
-      console.log("line 198: socket opponent ready DATA IS:", data);
-      console.log("line 199: player IS:", player);
+      //console.log("line 198: socket opponent ready DATA IS:", data);
+      //console.log("line 199: player IS:", player);
       if (data.player !== player) {
         setState((prev) => ({ ...prev, opponentReady: true }));
       }
@@ -215,11 +234,51 @@ const useGameData = (socket, playerName) => {
         opponent = data[0];
       }
 
+      const oppLeftCardZone = opponent.leftCardZone;
+      const oppMiddleCardZone = opponent.middleCardZone;
+      const oppRightCardZone = opponent.rightCardZone;
+      const oppAbilityQueue = [];
+
+      oppLeftCardZone.map((card) => {
+        card.cardPosition = "fixed";
+        if (card.ability) {
+          oppAbilityQueue.push({
+            lane: "left",
+            cardName: card.name,
+            cardAbility: card.ability.description,
+          });
+          card.ability = null;
+        }
+      });
+      oppMiddleCardZone.map((card) => {
+        card.cardPosition = "fixed";
+        if (card.ability) {
+          oppAbilityQueue.push({
+            lane: "middle",
+            cardName: card.name,
+            cardAbility: card.ability.description,
+          });
+          card.ability = null;
+        }
+      });
+      oppRightCardZone.map((card) => {
+        card.cardPosition = "fixed";
+        if (card.ability) {
+          oppAbilityQueue.push({
+            lane: "right",
+            cardName: card.name,
+            cardAbility: card.ability.description,
+          });
+          card.ability = null;
+        }
+      });
+
       setState((prev) => ({
         ...prev,
-        oppLeftCardZone: opponent.leftCardZone,
-        oppMiddleCardZone: opponent.middleCardZone,
-        oppRightCardZone: opponent.rightCardZone,
+        oppLeftCardZone: oppLeftCardZone,
+        oppMiddleCardZone: oppMiddleCardZone,
+        oppRightCardZone: oppRightCardZone,
+        oppAbilityQueue: oppAbilityQueue,
       }));
     });
   }

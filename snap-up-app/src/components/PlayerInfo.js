@@ -48,7 +48,7 @@ function PlayerInfo(props) {
             }
           ></Route>
           <Route
-            path="/connection"
+            path="/game"
             element={
               <Connection
                 socket={socket}
