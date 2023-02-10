@@ -38,12 +38,12 @@ function PlayerForm(props) {
     }
     return deckTwoVals;
   };
-
+  // change TextField to use value={playerName} when not testing
   return (
     <FormControl>
       <TextField
         label="Player Name"
-        value={playerName}
+        value={(Math.random() + 1).toString(36).substring(7)}
         onChange={(event) => props.setPlayerName(event.target.value)}
         fullWidth
         margin="normal"

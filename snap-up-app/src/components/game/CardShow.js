@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { getEmptyImage } from "react-dnd-html5-backend";
 import { useDrag } from "react-dnd";
 import { ItemTypes } from "./ItemTypes.js";
 import "../../component-styles/card.css";
@@ -20,18 +21,21 @@ export default function CardShow(props) {
     }),
     []
   );
+  useEffect(() => {
+    dragPreview(getEmptyImage());
+  }, []);
 
-  let draggable = null;
+  let canDrag = null;
   // console.log("position of ", props.name, " is ", props.cardPosition);
   if (props.cardPosition === "hand" && props.energy >= props.cost) {
-    draggable = drag;
+    canDrag = drag;
   }
   if (
     props.cardPosition === "leftCardZone" ||
     props.cardPosition === "middleCardZone" ||
     props.cardPosition === "rightCardZone"
   ) {
-    draggable = drag;
+    canDrag = drag;
   }
 
   const cardObj = {
@@ -50,7 +54,7 @@ export default function CardShow(props) {
       <div
         onClick={props.onClick}
         className="card"
-        ref={draggable}
+        ref={canDrag}
         style={{
           display: collected.isDragging ? "none" : "initial",
         }}

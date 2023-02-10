@@ -6,6 +6,7 @@ import Lane from "./Lane";
 import Avatar from "./Avatar";
 import PlayerZone from "./PlayerZone";
 import useGameData from "../../hooks/useGameData";
+import CustomDragLayer from "./CustomDragLayer";
 
 function Game(props) {
   console.log("props recieved by game:", props);
@@ -43,6 +44,7 @@ function Game(props) {
   return (
     <div className="game">
       <DndProvider backend={HTML5Backend}>
+        <CustomDragLayer />
         <div className="battlefield">
           <div className="player-avatar">
             <Avatar avatar={props.avatarImage} />
