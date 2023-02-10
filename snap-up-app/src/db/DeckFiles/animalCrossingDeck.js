@@ -1,4 +1,4 @@
-const abilities = require("../abilities");
+const { abilities } = require("../abilities.js");
 
 const animalCrossingDeck = {
   name: "Animal Crossing Deck",

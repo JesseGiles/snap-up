@@ -6,11 +6,6 @@ import Lane from "./Lane";
 import Avatar from "./Avatar";
 import PlayerZone from "./PlayerZone";
 import useGameData from "../../hooks/useGameData";
-const {
-  oppLeftCardZone,
-  oppMiddleCardZone,
-  oppRightCardZone,
-} = require("../../db/oppTestCards.js");
 
 function Game(props) {
   console.log("props recieved by game:", props);

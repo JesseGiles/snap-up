@@ -3,12 +3,6 @@ import { shuffle } from "../helpers/selectors.js";
 import { useNavigate } from "react-router-dom";
 import { decks } from "../db/decks.js";
 
-const {
-  oppLeftCardZone,
-  oppMiddleCardZone,
-  oppRightCardZone,
-} = require("../db/oppTestCards.js");
-
 const useGameData = (socket, playerName) => {
   console.log("socket at line 13 usegamedata: ", socket);
 
@@ -66,16 +60,32 @@ const useGameData = (socket, playerName) => {
         const newLeftCardZone = [...state.leftCardZone];
         const newMiddleCardZone = [...state.middleCardZone];
         const newRightCardZone = [...state.rightCardZone];
-
+        const abilityQueue = [];
         newLeftCardZone.map((card) => {
           card.cardPosition = "fixed";
+          console.log("Card is:", card);
+          if (card.ability) {
+            abilityQueue.push(card.ability.description);
+            card.ability = null;
+          }
         });
         newMiddleCardZone.map((card) => {
           card.cardPosition = "fixed";
+          console.log("Card is:", card);
+          if (card.ability) {
+            abilityQueue.push(card.ability.description);
+            card.ability = null;
+          }
         });
         newRightCardZone.map((card) => {
           card.cardPosition = "fixed";
+          console.log("Card is:", card);
+          if (card.ability) {
+            abilityQueue.push(card.ability.description);
+            card.ability = null;
+          }
         });
+        console.log("ABILITY QUEUE:", abilityQueue);
 
         setState((prev) => ({
           ...prev,

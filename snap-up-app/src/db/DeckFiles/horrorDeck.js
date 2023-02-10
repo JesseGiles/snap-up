@@ -1,4 +1,4 @@
-const abilities = require("../abilities");
+const { abilities } = require("../abilities.js");
 
 const horrorDeck = {
   name: "Horror Deck",
@@ -19,7 +19,7 @@ const horrorDeck = {
       cost: 2,
       power: 3,
       img: "/cardImages/horror/freddy.png",
-      ability: abilities[0],
+      ability: abilities[2],
       cardPosition: "hand",
       deck: "horror",
     },
@@ -29,7 +29,7 @@ const horrorDeck = {
       cost: 3,
       power: 5,
       img: "/cardImages/horror/leatherface.png",
-      ability: abilities[0],
+      ability: abilities[1],
       cardPosition: "hand",
       deck: "horror",
     },

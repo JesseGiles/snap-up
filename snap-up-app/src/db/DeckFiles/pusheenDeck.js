@@ -1,4 +1,4 @@
-const abilities = require("../abilities");
+const { abilities } = require("../abilities.js");
 
 const pusheenDeck = {
   name: "Pusheen Deck",
@@ -51,7 +51,7 @@ const pusheenDeck = {
       img: "/cardImages/pusheen/sloth.jpeg",
       ability: abilities[0],
       cardPosition: "hand",
-      deck: "pusheen-deck",
+      deck: "pusheen",
     },
     {
       id: 12,
@@ -61,7 +61,7 @@ const pusheenDeck = {
       img: "/cardImages/pusheen/super_pusheenicorn.jpeg",
       ability: abilities[0],
       cardPosition: "hand",
-      deck: "pusheen-deck",
+      deck: "pusheen",
     },
   ],
 };

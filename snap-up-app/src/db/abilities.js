@@ -1,4 +1,4 @@
-export const abilities = {
+const abilities = {
   0: {
     description: "Give friendly cards at this location +1 power.",
   },
@@ -10,3 +10,5 @@ export const abilities = {
       "If this is the only friendly card at this location, +5 power.",
   },
 };
+
+module.exports = { abilities };
