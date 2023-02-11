@@ -1,0 +1,8 @@
+[phases.setup]
+nixPkgs = []
+
+[phases.build]
+cmds = [''cd snap-up-app && npm install --force', 'cd snap-up-app && npm run build']
+
+[start]
+cmd = 'cd server && npm run start'
