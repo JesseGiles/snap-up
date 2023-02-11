@@ -1,4 +1,4 @@
-const { abilities } = require("../abilities.js");
+import abilities from "../abilities.js";
 
 const animalCrossingDeck = {
   name: "Animal Crossing Deck",
@@ -66,4 +66,4 @@ const animalCrossingDeck = {
   ],
 };
 
-module.exports = { animalCrossingDeck };
+export default animalCrossingDeck;

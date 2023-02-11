@@ -1,9 +1,9 @@
-const { horrorDeck } = require("../db/DeckFiles/horrorDeck.js");
-const { sailorMoonDeck } = require("../db/DeckFiles/sailorMoonDeck.js");
-const { pusheenDeck } = require("../db/DeckFiles/pusheenDeck.js");
-const { goldenGirlsDeck } = require("../db/DeckFiles/goldenGirlsDeck.js");
-const { cerealDeck } = require("../db/DeckFiles/cerealDeck.js");
-const { animalCrossingDeck } = require("../db/DeckFiles/animalCrossingDeck.js");
+import horrorDeck from "../db/DeckFiles/horrorDeck.js";
+import sailorMoonDeck from "../db/DeckFiles/sailorMoonDeck.js";
+import pusheenDeck from "../db/DeckFiles/pusheenDeck.js";
+import goldenGirlsDeck from "../db/DeckFiles/goldenGirlsDeck.js";
+import cerealDeck from "../db/DeckFiles/cerealDeck.js";
+import animalCrossingDeck from "../db/DeckFiles/animalCrossingDeck.js";
 
 const decks = {
   pusheenDeck,
@@ -14,4 +14,4 @@ const decks = {
   animalCrossingDeck,
 };
 
-module.exports = { decks };
+export default decks;

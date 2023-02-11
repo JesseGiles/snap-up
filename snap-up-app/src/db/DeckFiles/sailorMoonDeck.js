@@ -1,4 +1,4 @@
-const { abilities } = require("../abilities.js");
+import abilities from "../abilities.js";
 
 const sailorMoonDeck = {
   name: "Sailor Moon Deck",
@@ -66,4 +66,4 @@ const sailorMoonDeck = {
   ],
 };
 
-module.exports = { sailorMoonDeck };
+export default sailorMoonDeck;

@@ -1,20 +1,16 @@
-
-
-
 const friendlyCardsAddPower = (laneArray) => {
-  let newArr = [...laneArray]
+  let newArr = [...laneArray];
   for (let card of newArr) {
-    card.power += 1
+    card.power += 1;
   }
-  console.log('friendlyCardsAddPower set state with: ', newArr)
-  return newArr
-}
-
+  console.log("friendlyCardsAddPower set state with: ", newArr);
+  return newArr;
+};
 
 const abilities = {
   0: {
     description: "Give friendly cards at this location +1 power.",
-    action: friendlyCardsAddPower
+    action: friendlyCardsAddPower,
     // friendlyCardsAddPower()
   },
   1: {
@@ -26,7 +22,6 @@ const abilities = {
   },
 };
 
-module.exports = { abilities };
-
+export default abilities;
 
 //[{power: 1}, {power: 2}]

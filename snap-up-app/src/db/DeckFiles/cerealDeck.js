@@ -1,4 +1,4 @@
-const { abilities } = require("../abilities.js");
+import abilities from "../abilities.js";
 
 const cerealDeck = {
   name: "Cereal Deck",
@@ -66,4 +66,4 @@ const cerealDeck = {
   ],
 };
 
-module.exports = { cerealDeck };
+export default cerealDeck;

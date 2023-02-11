@@ -1,4 +1,4 @@
-const { abilities } = require("../abilities.js");
+import abilities from "../abilities.js";
 
 const goldenGirlsDeck = {
   name: "Golden Girls Deck",
@@ -66,4 +66,4 @@ const goldenGirlsDeck = {
   ],
 };
 
-module.exports = { goldenGirlsDeck };
+export default goldenGirlsDeck;

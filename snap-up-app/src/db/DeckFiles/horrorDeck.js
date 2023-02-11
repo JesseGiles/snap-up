@@ -1,4 +1,4 @@
-const { abilities } = require("../abilities.js");
+import abilities from "../abilities.js";
 
 const horrorDeck = {
   name: "Horror Deck",
@@ -66,4 +66,4 @@ const horrorDeck = {
   ],
 };
 
-module.exports = { horrorDeck };
+export default horrorDeck;
