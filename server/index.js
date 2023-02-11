@@ -14,7 +14,7 @@ const {
   getPlayersInRoom,
 } = require("./player");
 
-app.use(express.static("../snap-up-app/build"))
+app.use(express.static("../snap-up-app/build"));
 app.use(cors());
 
 const socketIO = require("socket.io")(http, {
@@ -109,4 +109,5 @@ socketIO.on("connection", (socket) => {
 
 http.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
+  console.log("Hello, World");
 });
