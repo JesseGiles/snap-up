@@ -7,12 +7,12 @@ const { locations } = require("./locations");
 const http = require("http").Server(app);
 const cors = require("cors");
 
-const {
-  addPlayer,
-  removePlayer,
-  getPlayer,
-  getPlayersInRoom,
-} = require("./player");
+// const {
+//   addPlayer,
+//   removePlayer,
+//   getPlayer,
+//   getPlayersInRoom,
+// } = require("./player");
 
 app.use(express.static("../snap-up-app/build"));
 app.use(cors());

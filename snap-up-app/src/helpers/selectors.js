@@ -21,21 +21,15 @@ function shuffle(array) {
   return array;
 }
 //consider the rest params (...args)
-const friendlyTargetAllInZone = (functionRef, ...args) => {
+const enterBattlefield = (functionRef, ...args) => {
   
   console.log("what is functionref?", functionRef);
   let callback = abilities[functionRef].action
   console.log("this is enterbattlefield the ability callback:", callback)
   console.log("enterBattlefield triggered with args:", ...args)
   return callback(...args);
-
 }
 
-const drawCardsHelper = (functionRef, ...args) => {
-  console.log("what is functionref?", functionRef);
-  console.log("cardDrawHelper triggered with args:", ...args)
-  let callback = abilities[functionRef].action
-  return callback(...args)
-}
 
-export { shuffle, friendlyTargetAllInZone, drawCardsHelper };
+
+export { shuffle, enterBattlefield };

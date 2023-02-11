@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { shuffle, friendlyTargetAllInZone, drawCardsHelper } from "../helpers/selectors.js";
+import { shuffle, enterBattlefield } from "../helpers/selectors.js";
 import { useNavigate } from "react-router-dom";
 import decks from "../db/decks.js";
 import abilities from "../db/abilities.js";
@@ -290,6 +290,10 @@ const useGameData = (socket, playerName) => {
     let arrName;
     //drawCards
     let newHandAndDeck;
+    //addEnergy
+    let newEnergy
+    //playCardsFromDeck
+    let newZoneAndDeck
     
     for (let ability of queue) {
       if (ability.lane === "left") {
@@ -306,7 +310,7 @@ const useGameData = (socket, playerName) => {
       }
       console.log("ABILITY is:", ability);
       if (ability.cardAbility[0] === 'addPower') {
-        updatedArr = friendlyTargetAllInZone(ability.cardAbility[0], ability.cardAbility[1], targetArr);
+        updatedArr = enterBattlefield(ability.cardAbility[0], ability.cardAbility[1], targetArr);
 
         setState((prev) => ({
           ...prev,
@@ -314,17 +318,31 @@ const useGameData = (socket, playerName) => {
         }));
       }
       if (ability.cardAbility[0] === 'drawCards') {
-        newHandAndDeck = drawCardsHelper(ability.cardAbility[0], ability.cardAbility[1], state)
+        newHandAndDeck = enterBattlefield(ability.cardAbility[0], ability.cardAbility[1], state)
         setState((prev) => ({
           ...prev,
           deck: newHandAndDeck[0],
           hand: newHandAndDeck[1]
         }));
-        
-        
       }
-      
+      if (ability.cardAbility[0] === 'addEnergy') {
+        newEnergy = enterBattlefield(ability.cardAbility[0], ability.cardAbility[1], state)
+        setState((prev) => ({
+          ...prev,
+          energy: newEnergy
+        }));
+      }
+      if (ability.cardAbility[0] === 'playCardFromDeck') {
+        newZoneAndDeck = enterBattlefield(ability.cardAbility[0], ability.cardAbility[1], state, targetArr);
 
+        setState((prev) => ({
+          ...prev,
+          deck: newZoneAndDeck[0],
+          [arrName]: newZoneAndDeck[1],
+        }));
+      }
+
+      
       
     }
   }
@@ -349,7 +367,7 @@ const useGameData = (socket, playerName) => {
       }
       console.log("ABILITY is:", ability);
       if (ability.cardAbility[0] === 'addPower') {
-      updatedArr = friendlyTargetAllInZone(ability.cardAbility[0], ability.cardAbility[1], targetArr);
+      updatedArr = enterBattlefield(ability.cardAbility[0], ability.cardAbility[1], targetArr);
       console.log("array that triggered opp ability queue:", updatedArr);
 
       setState((prev) => ({
