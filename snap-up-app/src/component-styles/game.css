@@ -1,3 +1,65 @@
+
+.pusheen-deck {
+  --lane-bg-color: rgb(248, 186, 197, 0.5);
+  
+
+}
+
+.horror-elmstreet {
+  --lane-bg-color: rgba(205, 17, 17, 0.5);
+  --lane-bg-img: url("https://i.pinimg.com/originals/72/66/4f/72664f686ee0c9ade23bb2daff6384dd.jpg");
+  background-position: center;
+  background-size: cover;
+  --lane-border: darkred;
+}
+
+.horror-crystallake {
+  --lane-bg-color: rgba(205, 17, 17, 0.5);
+  --lane-bg-img: url("https://e0.pxfuel.com/wallpapers/110/764/desktop-wallpaper-crystal-lake-camp-lake.jpg");
+  background-position: center;
+  background-size: cover;
+  --lane-border: darkred;
+}
+
+.golden-girls-richmond {
+  --lane-bg-color: rgb(244, 225, 16, 0.5);
+  --lane-bg-img: url("https://w0.peakpx.com/wallpaper/540/323/HD-wallpaper-florida-palms-fan-gold-golden-girls-leaf-leaves-palm-palm-tree-pattern-the-golden-girls.jpg");
+  --lane-border: rgb(244, 225, 16);
+  background-size: cover;
+}
+
+.golden-girls-shadypines {
+  --lane-bg-color: rgb(244, 225, 16, 0.5);
+  --lane-bg-img: url("https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/shady-pines-retirement-home-miami-florida-golden-girls-favorite-brindle-southern.jpg");
+  background-position: center;
+  --lane-border: rgb(244, 225, 16);
+}
+
+.animal-crossing-deck {
+  --lane-bg-color: transparent;
+  --lane-bg-img: url("https://dodo.ac/np/images/4/48/NH_Nook%27s_Cranny_Upgraded_Exterior.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  --lane-border: darkgreen;
+}
+
+.sailor-moon-crystaltokyo {
+  --lane-bg-color: silver;
+  --lane-bg-img: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/2e907edb-774e-4d6b-9101-4c4e1b2dd5f8/dctmd0v-984c0fc0-27f1-4413-b843-5af7e06d3e50.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzJlOTA3ZWRiLTc3NGUtNGQ2Yi05MTAxLTRjNGUxYjJkZDVmOFwvZGN0bWQwdi05ODRjMGZjMC0yN2YxLTQ0MTMtYjg0My01YWY3ZTA2ZDNlNTAucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Et_Ey_7Eaz72o8HkPKsjUL4GCxUCgs--T_Ie_t2ucFk");
+  background-position: center;
+  --lane-border: darkblue; 
+}
+
+.sailor-moon-negaverse {
+  --lane-bg-color: purple;
+  --lane-bg-img: url("https://wallpapercave.com/wp/wp9615576.jpg");
+  --lane-border: indigo;  
+  background-size: cover;
+  background-position: center;
+
+}
+
 .game {
   background: rgb(26,233,233);
   background: url("https://www.transparenttextures.com/patterns/bright-squares.png"), radial-gradient(circle, rgba(26,233,233,1) 0%, rgba(162,86,100,1) 100%);
@@ -14,14 +76,14 @@
   display: flex;
   --lane-border:  #1AE9E9;
   --lanebg: transparent;
-  --lane-bg-img: url("https://www.transparenttextures.com/patterns/always-grey.png");
 
 }
 
 .player-zone {
   display: flex;
   flex-direction: row;
-  width: 70em;
+  width: 76em;
+  ;
 }
 /* add or subtract to width of player zone to change the amount of cards in hand before wrapping. */
 
@@ -46,6 +108,7 @@
   border-radius: 3em;
   
   
+  
 }
 
 .hand {
@@ -55,17 +118,6 @@
   flex-wrap: wrap;
 }
 
-.pusheen-deck {
-  --lane-bg-color: pink;
-}
-
-.horror-deck {
-  --lane-bg-color: red;
-}
-
-.goldengirls-deck {
-  --lane-bg-color: yellow;
-}
 
 .lane {
   display: flex;
@@ -120,11 +172,15 @@
 
 .current-energy {
   background-color: #1AE9E9;
-  height: 3em;
-  width: 3em;
+  -webkit-text-stroke: 1px #ffffff;
+  color:#ffffff;
+  font-size: xx-large;
+  text-shadow: 3px 3px 2px black;
+  height: 2em;
+  width: 2em;
   margin: 1em;
   text-align: center;
-  border-radius: 50%;
+  border-radius: 5%;
   font-weight: bolder;
   display: flex;
   align-items: center; 
@@ -135,11 +191,15 @@
 
 .current-turn {
   background-color: rgb(59, 214, 35);
-  height: 3em;
-  width: 3em;
+  -webkit-text-stroke: 1px #ffffff;
+  color:#ffffff;
+  font-size: xx-large;
+  text-shadow: 3px 3px 2px black;
+  height: 2em;
+  width: 2em;
   margin: 1em;
   text-align: center;
-  border-radius: 50%;
+  border-radius: 5%;
   font-weight: bolder;
   display: flex;
   align-items: center; 
@@ -172,7 +232,7 @@
 
 .player-avatar {
   display: flex;
-  align-items: end;
+  
   flex-direction: column-reverse;
   margin-bottom: 4em;
 }

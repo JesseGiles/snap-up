@@ -37,23 +37,24 @@
 
 .card-preview-container {
   
-  
   background-color: transparent;
   pointer-events: none;
   height: 0;
-  
+  --cost:#1AE9E9;
+  --power: #A25664;
+  z-index: 25;
 }
 
 .card-preview {
   font-family: 'Fira Sans', sans-serif;
   background-color: var(--bg);
   background-image: var(--bg-img);
-  height: 15em;
-  width: 10em;
-  border: 1em solid var(--border);
+  height: 18em;
+  width: 12em;
+  border: .5em solid var(--border);
   color: black;
   position: fixed;
-  
+  display: flex;
   border-radius: 5% 0% 5% 5%;
   left: 50%;
   top: 50%;
@@ -73,8 +74,10 @@
   height: 100%;
   white-space: nowrap;
   font-style: italic;
+  font-size: x-large;
   margin-top: 3px;
   color: var(--font-color);
+  
 }
 
 .card-preview-cost-container {
@@ -95,26 +98,41 @@
 
 .card-preview-cost {
   z-index: 9;
-  right: .2em;
+  right: .5em;
   position: absolute;
   font-weight: bolder;
+  -webkit-text-stroke: 1px #ffffff;
+  color:#ffffff;
+  text-shadow: 4px 4px 4px black;
+  font-size: x-large;
 }
 
 .card-preview-img {
-  width: 9em;
-  height: 9em;
+  width: 8em;
+  height: 8em;
   border: .2em solid var(--img-border);
   border-radius: 5%;
   position: absolute;
-  top: 50%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   object-fit: contain;
 }
 
 .card-preview-ability {
-  height: 3em;
-  width: 9em;
+  color: var(--font-color);
+  text-align: center;
+  font-style: bold;
+  display: flex;
+  position: absolute;
+  height: 5em;
+  font-size: larger;
+  width: 10em;
+  top: 77%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+
 }
 
 .card-preview-power {
@@ -127,7 +145,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, 230%);
+  transform: translate(-50%, 250%);
   display: flex;
   justify-content: center;
   align-items: center;

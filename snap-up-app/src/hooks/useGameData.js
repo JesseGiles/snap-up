@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { shuffle } from "../helpers/selectors.js";
+import { shuffle, enterBattlefield } from "../helpers/selectors.js";
 import { useNavigate } from "react-router-dom";
 import { decks } from "../db/decks.js";
 
@@ -65,36 +65,37 @@ const useGameData = (socket, playerName) => {
         const playerAbilityQueue = [];
 
         newLeftCardZone.map((card) => {
+          
           card.cardPosition = "fixed";
-          if (card.ability) {
+          if (card.ability.action) {
             playerAbilityQueue.push({
               lane: "left",
               cardName: card.name,
-              cardAbility: card.ability.description,
+              cardAbility: card.ability.action,
             });
-            card.ability = null;
+            card.ability.action = null;
           }
         });
         newMiddleCardZone.map((card) => {
           card.cardPosition = "fixed";
-          if (card.ability) {
+          if (card.ability.action) {
             playerAbilityQueue.push({
               lane: "middle",
               cardName: card.name,
-              cardAbility: card.ability.description,
+              cardAbility: card.ability.action,
             });
-            card.ability = null;
+            card.ability.action = null;
           }
         });
         newRightCardZone.map((card) => {
           card.cardPosition = "fixed";
-          if (card.ability) {
+          if (card.ability.action) {
             playerAbilityQueue.push({
               lane: "right",
               cardName: card.name,
-              cardAbility: card.ability.description,
+              cardAbility: card.ability.action,
             });
-            card.ability = null;
+            card.ability.action = null;
           }
         });
         console.log("ABILITY QUEUE:", playerAbilityQueue);
@@ -118,6 +119,9 @@ const useGameData = (socket, playerName) => {
           opponentReady: false,
           playerAbilityQueue: playerAbilityQueue,
         }));
+        
+        
+
       } else if (state.turn >= 0) {
         // this is where we'd call the final counts and stuff and determine the winner
         console.log("GAME OVER!");
@@ -283,6 +287,45 @@ const useGameData = (socket, playerName) => {
     });
   }
 
+  function resolveAbilitiesQueue(queue) {
+    console.log("entered function resolveAbilityQueue");
+    let targetArr;
+    let updatedArr;
+    let arrName;
+    for (let ability of queue) {
+      if (ability.lane === 'left') {
+        targetArr = state.leftCardZone
+        arrName = 'leftCardZone'
+        }
+        if (ability.lane === 'middle') {
+          targetArr = state.middleCardZone
+          arrName = 'middleCardZone'
+        }
+        if (ability.lane === 'right') {
+          targetArr = state.rightCardZone
+          arrName = 'rightCardZone'
+        }
+        console.log("ABILITY is:", ability)
+        updatedArr = enterBattlefield(ability.cardAbility, targetArr)
+        console.log("array that triggered ability queue:",updatedArr)
+      
+    
+    
+    setState((prev) => ({
+      ...prev,
+      [arrName]: updatedArr
+      
+    }));
+  }
+  setState((prev) => ({
+    ...prev,
+    playerAbilityQueue: []
+    
+  }));
+  }
+
+
+  //MOVE ALL OF ME LATER
   function reduceEnergyOnDrop(energy, cost) {
     console.log("initial energyondrop: ", energy);
 
@@ -336,6 +379,7 @@ const useGameData = (socket, playerName) => {
     nextTurn,
     getInitialHand,
     broadcastForNextTurn,
+    resolveAbilitiesQueue
   };
 };
 

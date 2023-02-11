@@ -19,28 +19,12 @@ function shuffle(array) {
 
   return array;
 }
-// function getInitialLane(state, setState) {
-//   const newLeftLane = [...state.leftLane];
-//   const newMiddleLane = [...state.middleLane];
-//   const newRightLane = [...state.rightLane];
-//   draw.push(newDeck.pop());
-//   draw.push(newDeck.pop());
-//   draw.push(newDeck.pop());
-//   setState((prev) => ({
-//     ...prev,
-//     hand: draw,
-//     deck: newDeck,
-//     turn: 0,
-//     energy: 0,
-//   }));
-// }
+//consider the rest params (...args)
+const enterBattlefield = (callback, args) => {
+  console.log("this is enterbattlefield the ability callback:", callback)
+  console.log("enterBattlefield triggered with args:", args)
+  return callback(args);
 
-// const markAsDone = _id => {
-//   const task = taskList.filter((task, i) => task.id === id);
-//   task[0].status = 'done';
-//   setTaskList(taskList.filter((task, i) => task._id !== id).concat(task[0]));
-// };
+}
 
-// This is called every time the "Next Turn" button is clicked
-
-export { shuffle };
+export { shuffle, enterBattlefield };

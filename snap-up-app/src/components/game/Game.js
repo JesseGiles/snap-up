@@ -18,6 +18,7 @@ function Game(props) {
     nextTurn,
     moveCardBetween,
     broadcastForNextTurn,
+    resolveAbilitiesQueue
   } = useGameData(props.socket, props.playerName);
 
   const [gameState, setGameState] = useState({ ...state });
@@ -33,6 +34,15 @@ function Game(props) {
     );
     setGameState({ ...state });
   }, []);
+
+  useEffect(() => {
+    if (state.playerAbilityQueue.length > 0) {
+      console.log("ability queue prior to resolve:", state.playerAbilityQueue)
+      resolveAbilitiesQueue(state.playerAbilityQueue)
+      console.log("useeffect resolve abilites que: ", state.playerAbilityQueue)
+    }
+    
+  }, [state.playerAbilityQueue]);
 
   useEffect(() => {
     setGameState({ ...state });
