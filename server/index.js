@@ -15,14 +15,14 @@ const {
 } = require("./player");
 
 app.use(express.static("../snap-up-app/build"));
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    origin: "snap-up-production.up.railway.app",
+  })
+);
 
-const socketIO = require("socket.io")(http, {
-  cors: {
-    //origin: "http://localhost:3000",
-    //origin: "snap-up-production.up.railway.app",
-  },
-});
+const socketIO = require("socket.io")(http, {});
 
 let users = [];
 let turnInfo = [];
