@@ -14,6 +14,7 @@ const {
   getPlayersInRoom,
 } = require("./player");
 
+app.use(express.static("../snap-up-app/build"))
 app.use(cors());
 
 const socketIO = require("socket.io")(http, {
