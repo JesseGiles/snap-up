@@ -18,7 +18,7 @@ app.use(express.static("../snap-up-app/build"));
 app.use(
   cors({
     origin: "http://localhost:3000",
-    origin: "snap-up-production.up.railway.app",
+    origin: "https://snap-up-production.up.railway.app/",
   })
 );
 
