@@ -28,6 +28,7 @@ export default function CardZone(props) {
                 power={cardsInZone[i].power}
                 img={cardsInZone[i].img}
                 ability={cardsInZone[i].ability}
+                description={cardsInZone[i].description}
                 cardPosition={cardsInZone[i].cardPosition}
                 deck={cardsInZone[i].deck}
                 onClick={() => {

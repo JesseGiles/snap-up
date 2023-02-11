@@ -11,7 +11,7 @@ export default function CardPreview(props) {
     power: props.item.power,
     img: props.item.img,
     deck: props.item.deck,
-    ability: props.item.ability
+    description: props.item.description
   };
 
   return (
@@ -31,7 +31,7 @@ export default function CardPreview(props) {
         </div>
         <img className="card-preview-img" src={cardObj.img} />
         <div className="card-preview-ability">
-          {cardObj.ability.description}
+          {cardObj.description}
         </div>
         <div className="card-preview-power">{cardObj.power}</div>
       </div>

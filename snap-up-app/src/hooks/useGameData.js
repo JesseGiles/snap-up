@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { shuffle, enterBattlefield } from "../helpers/selectors.js";
+import { shuffle, friendlyTargetAllInZone, drawCardsHelper } from "../helpers/selectors.js";
 import { useNavigate } from "react-router-dom";
 import decks from "../db/decks.js";
+import abilities from "../db/abilities.js";
 
 const useGameData = (socket, playerName) => {
   console.log("socket at line 13 usegamedata: ", socket);
@@ -49,90 +50,84 @@ const useGameData = (socket, playerName) => {
       rightCardZone: state.rightCardZone,
     });
 
-    if (!state.opponentReady) {
-      alert("Please wait for the opponent to make their turn");
-    }
-    if (state.opponentReady && state.playerReady) {
-      if (state.deck.length > 0 && state.turn < 6) {
-        const newDeck = [...state.deck];
-        const draw = [...state.hand];
-        draw.push(newDeck.pop());
-
+    // console.log("useGameData, line 55: opponent ready:", state.opponentReady, "player ready:", state.playerReady);
+    // if (state.opponentReady && state.playerReady) {
+      if (state.turn < 6 ) {
         // map through each of the cardzone arrays and set cardPosition = 'fixed'
         const newLeftCardZone = [...state.leftCardZone];
         const newMiddleCardZone = [...state.middleCardZone];
         const newRightCardZone = [...state.rightCardZone];
-        const playerAbilityQueue = [];
+        const newPlayerAbilityQueue = [];
 
         newLeftCardZone.map((card) => {
+          console.log("left card is:", card)
           card.cardPosition = "fixed";
-          if (card.ability.action) {
-            playerAbilityQueue.push({
+          if (card.ability !== null) {
+            newPlayerAbilityQueue.push({
               lane: "left",
               cardName: card.name,
-              cardAbility: card.ability.action,
+              cardAbility: card.ability
             });
-            card.ability.action = null;
+            card.ability = null;
           }
         });
         newMiddleCardZone.map((card) => {
+          console.log("middle card is:", card)
           card.cardPosition = "fixed";
-          if (card.ability.action) {
-            playerAbilityQueue.push({
+          if (card.ability !== null) {
+            newPlayerAbilityQueue.push({
               lane: "middle",
               cardName: card.name,
-              cardAbility: card.ability.action,
+              cardAbility: card.ability,
             });
-            card.ability.action = null;
+            card.ability = null;
           }
         });
         newRightCardZone.map((card) => {
+          console.log("right card is:", card)
           card.cardPosition = "fixed";
-          if (card.ability.action) {
-            playerAbilityQueue.push({
+          if (card.ability !== null) {
+            newPlayerAbilityQueue.push({
               lane: "right",
               cardName: card.name,
-              cardAbility: card.ability.action,
+              cardAbility: card.ability,
             });
-            card.ability.action = null;
+            card.ability = null;
           }
         });
-        console.log("ABILITY QUEUE:", playerAbilityQueue);
-
-        // socket.emit("oppAbilities", {
-        //   // data to send to server
-        //   player: player,
-        //   abilityQueue: abilityQueue,
-        // });
+        // console.log("ABILITY QUEUE:", newPlayerAbilityQueue);
 
         setState((prev) => ({
           ...prev,
           leftCardZone: newLeftCardZone,
           middleCardZone: newMiddleCardZone,
           rightCardZone: newRightCardZone,
-          hand: draw,
-          deck: newDeck,
           turn: prev.turn + 1,
           energy: prev.turn + 1,
           playerReady: false,
           opponentReady: false,
-          playerAbilityQueue: playerAbilityQueue,
+          playerAbilityQueue: newPlayerAbilityQueue,
         }));
+
+        if (state.deck.length > 0 ){
+          console.log("You still have cards in your deck")
+          const newDeck = [...state.deck];
+          const draw = [...state.hand];
+          draw.push(newDeck.pop());
+
+          setState((prev) => ({
+            ...prev,
+            hand: draw,
+            deck: newDeck
+          }))
+
+        }
       } else if (state.turn >= 0) {
         // this is where we'd call the final counts and stuff and determine the winner
         console.log("GAME OVER!");
         navigate("/gameover");
-      } else {
-        console.log(
-          "you've hit a case where you have run out of cards in deck???"
-        );
-        setState((prev) => ({
-          ...prev,
-          turn: prev.turn + 1,
-          energy: prev.turn + 1,
-        }));
-      }
-    }
+      } 
+    
   }
 
   function getInitialHand(state, setState, deckOne, deckTwo, socket, player) {
@@ -234,86 +229,135 @@ const useGameData = (socket, playerName) => {
         opponent = data[0];
       }
 
+      //math their abilties
+
       const oppLeftCardZone = opponent.leftCardZone;
       const oppMiddleCardZone = opponent.middleCardZone;
       const oppRightCardZone = opponent.rightCardZone;
-      const oppAbilityQueue = [];
+      const newOppAbilityQueue = [];
 
       oppLeftCardZone.map((card) => {
         card.cardPosition = "fixed";
-        if (card.ability) {
-          oppAbilityQueue.push({
+        if (card.ability !== null) {
+          newOppAbilityQueue.push({
             lane: "left",
             cardName: card.name,
-            cardAbility: card.ability.description,
+            cardAbility: card.ability,
           });
           card.ability = null;
         }
       });
       oppMiddleCardZone.map((card) => {
         card.cardPosition = "fixed";
-        if (card.ability) {
-          oppAbilityQueue.push({
+        if (card.ability !== null) {
+          newOppAbilityQueue.push({
             lane: "middle",
             cardName: card.name,
-            cardAbility: card.ability.description,
+            cardAbility: card.ability,
           });
           card.ability = null;
         }
       });
       oppRightCardZone.map((card) => {
         card.cardPosition = "fixed";
-        if (card.ability) {
-          oppAbilityQueue.push({
+        if (card.ability !== null) {
+          newOppAbilityQueue.push({
             lane: "right",
             cardName: card.name,
-            cardAbility: card.ability.description,
+            cardAbility: card.ability,
           });
           card.ability = null;
         }
       });
+
+      console.log("oppAbilityQueue in turnInfo before setting state", newOppAbilityQueue)
 
       setState((prev) => ({
         ...prev,
         oppLeftCardZone: oppLeftCardZone,
         oppMiddleCardZone: oppMiddleCardZone,
         oppRightCardZone: oppRightCardZone,
-        oppAbilityQueue: oppAbilityQueue,
+        oppAbilityQueue: newOppAbilityQueue,
       }));
     });
   }
 
-  function resolveAbilitiesQueue(queue) {
-    console.log("entered function resolveAbilityQueue");
+  function resolvePlayerAbilitiesQueue(queue) {
+    console.log("entered function PlayerresolveAbilityQueue:", queue);
+    //friendlyTarget
+    let targetArr;
+    let updatedArr;
+    let arrName;
+    //drawCards
+    let newHandAndDeck;
+    
+    for (let ability of queue) {
+      if (ability.lane === "left") {
+        targetArr = [...state.leftCardZone];
+        arrName = "leftCardZone";
+      }
+      if (ability.lane === "middle") {
+        targetArr = [...state.middleCardZone];
+        arrName = "middleCardZone";
+      }
+      if (ability.lane === "right") {
+        targetArr = [...state.rightCardZone];
+        arrName = "rightCardZone";
+      }
+      console.log("ABILITY is:", ability);
+      if (ability.cardAbility[0] === 'addPower') {
+        updatedArr = friendlyTargetAllInZone(ability.cardAbility[0], ability.cardAbility[1], targetArr);
+
+        setState((prev) => ({
+          ...prev,
+          [arrName]: updatedArr,
+        }));
+      }
+      if (ability.cardAbility[0] === 'drawCards') {
+        newHandAndDeck = drawCardsHelper(ability.cardAbility[0], ability.cardAbility[1], state)
+        setState((prev) => ({
+          ...prev,
+          deck: newHandAndDeck[0],
+          hand: newHandAndDeck[1]
+        }));
+        
+        
+      }
+      
+
+      
+    }
+  }
+
+  function resolveOppAbilitiesQueue(queue) {
+    console.log("entered function OppresolveAbilityQueue:", queue);
     let targetArr;
     let updatedArr;
     let arrName;
     for (let ability of queue) {
       if (ability.lane === "left") {
-        targetArr = state.leftCardZone;
-        arrName = "leftCardZone";
+        targetArr = [...state.oppLeftCardZone];
+        arrName = "oppLeftCardZone";
       }
       if (ability.lane === "middle") {
-        targetArr = state.middleCardZone;
-        arrName = "middleCardZone";
+        targetArr = [...state.oppMiddleCardZone];
+        arrName = "oppMiddleCardZone";
       }
       if (ability.lane === "right") {
-        targetArr = state.rightCardZone;
-        arrName = "rightCardZone";
+        targetArr = [...state.oppRightCardZone];
+        arrName = "oppRightCardZone";
       }
       console.log("ABILITY is:", ability);
-      updatedArr = enterBattlefield(ability.cardAbility, targetArr);
-      console.log("array that triggered ability queue:", updatedArr);
+      if (ability.cardAbility[0] === 'addPower') {
+      updatedArr = friendlyTargetAllInZone(ability.cardAbility[0], ability.cardAbility[1], targetArr);
+      console.log("array that triggered opp ability queue:", updatedArr);
 
       setState((prev) => ({
         ...prev,
         [arrName]: updatedArr,
       }));
     }
-    setState((prev) => ({
-      ...prev,
-      playerAbilityQueue: [],
-    }));
+    }
   }
 
   //MOVE ALL OF ME LATER
@@ -367,10 +411,11 @@ const useGameData = (socket, playerName) => {
     state,
     setState,
     moveCardBetween,
-    nextTurn,
+    
     getInitialHand,
     broadcastForNextTurn,
-    resolveAbilitiesQueue,
+    resolvePlayerAbilitiesQueue,
+    resolveOppAbilitiesQueue,
   };
 };
 

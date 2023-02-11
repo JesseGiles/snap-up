@@ -18,7 +18,8 @@ function Game(props) {
     nextTurn,
     moveCardBetween,
     broadcastForNextTurn,
-    resolveAbilitiesQueue
+    resolvePlayerAbilitiesQueue,
+    resolveOppAbilitiesQueue,
   } = useGameData(props.socket, props.playerName);
 
   const [gameState, setGameState] = useState({ ...state });
@@ -36,13 +37,23 @@ function Game(props) {
   }, []);
 
   useEffect(() => {
+    console.log("trying to use playerqueue useEffect")
     if (state.playerAbilityQueue.length > 0) {
-      console.log("ability queue prior to resolve:", state.playerAbilityQueue)
-      resolveAbilitiesQueue(state.playerAbilityQueue)
-      console.log("useeffect resolve abilites que: ", state.playerAbilityQueue)
+      console.log("ability queue player prior to resolve:", state.playerAbilityQueue)
+      resolvePlayerAbilitiesQueue(state.playerAbilityQueue)
+      console.log("useeffect resolve abilites player que: ", state.playerAbilityQueue)
+    }
+  }, [state.playerAbilityQueue]);
+
+  useEffect(() => {
+    console.log("trying to use oppqueue useEffect")
+    if (state.oppAbilityQueue.length > 0) {
+      console.log("ability queue opp prior to resolve:", state.oppAbilityQueue)
+      resolveOppAbilitiesQueue(state.oppAbilityQueue)
+      console.log("useeffect resolve abilites opp que: ", state.oppAbilityQueue)
     }
     
-  }, [state.playerAbilityQueue]);
+  }, [state.oppAbilityQueue]);
 
   useEffect(() => {
     setGameState({ ...state });
