@@ -15,25 +15,14 @@ const {
 } = require("./player");
 
 app.use(express.static("../snap-up-app/build"));
-app.use(
-  cors({
+app.use(cors());
+
+const socketIO = require("socket.io")(http, {
+  cors: {
     origin: "http://localhost:3000",
     origin: "https://snap-up-production.up.railway.app",
-  })
-);
-app.use((req, res, next) => {
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://snap-up-production.up.railway.app"
-  );
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
+  },
 });
-
-const socketIO = require("socket.io")(http, {});
 
 let users = [];
 let turnInfo = [];
