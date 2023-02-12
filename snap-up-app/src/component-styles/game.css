@@ -1,8 +1,12 @@
 
-.pusheen-deck {
+.pusheen-pool {
   --lane-bg-color: rgb(248, 186, 197, 0.5);
-  
+  --lane-bg-img: url("../../public/cardImages/pusheen/pusheen-pool.png");
+}
 
+.pusheen-zoo {
+  --lane-bg-color: rgb(248, 186, 197, 0.5);
+  --lane-bg-img: url("../../public/cardImages/pusheen/pusheen-zoo.jpeg");
 }
 
 .horror-elmstreet {

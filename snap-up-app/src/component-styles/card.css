@@ -44,7 +44,7 @@
   --border:  #f1e3d3;
   --bg: transparent;
   --img-border: #e1b82c;
-  --bg-img: url(/../snap-up-app/public/cardImages/animalcrossing/ACbackground.png);
+  --bg-img: url("/../snap-up-app/public/cardImages/animalcrossing/ACbackground.png");
   --font-color: #ffffff;
   
 }
