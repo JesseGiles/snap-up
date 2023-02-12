@@ -65,7 +65,7 @@ function Connection(props) {
       />
     );
   }
-  return <p>Waiting for connection...</p>;
+  return <h1>Waiting for connection...</h1>;
 }
 
 export default Connection;

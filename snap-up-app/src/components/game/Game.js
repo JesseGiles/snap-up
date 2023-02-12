@@ -26,9 +26,7 @@ function Game(props) {
   //prevents the default right click menu, needs an event listen disabler in the game over
   useEffect(() => {
     document.addEventListener("contextmenu", (event) => {
-
       event.preventDefault();
-    
     });
   }, []);
   //run once at start of game.

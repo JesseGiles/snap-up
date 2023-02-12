@@ -30,6 +30,17 @@ const enterBattlefield = (functionRef, ...args) => {
   return callback(...args);
 }
 
+const addUpPower = (array) => {
+  let droppedCards = array;
+  let totalPower = 0;
+  for (let i = 0; i < 4; i++) {
+    if (droppedCards.length > 0 && droppedCards[i]) {
+      totalPower += droppedCards[i].power;
+    }
+  }
+
+  return totalPower;
+};
 
 
-export { shuffle, enterBattlefield };
+export { shuffle, enterBattlefield, addUpPower };

@@ -3,20 +3,11 @@ import CardZone from "./CardZone";
 import Location from "./Location";
 import PlayerLanePower from "./PlayerLanePower";
 import OppCardZone from "./OppCardZone";
+import { addUpPower } from "../../helpers/selectors";
+
 //also import scss file once you style things
 
 export default function Lane(props) {
-  const addUpPower = (array) => {
-    let droppedCards = array;
-    let totalPower = 0;
-    for (let i = 0; i < 4; i++) {
-      if (droppedCards.length > 0 && droppedCards[i]) {
-        totalPower += droppedCards[i].power;
-      }
-    }
-
-    return totalPower;
-  };
 
   return (
     <div className={`lane ${props.location.deck}`}>

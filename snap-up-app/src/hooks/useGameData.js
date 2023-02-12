@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import decks from "../db/decks.js";
 import abilities from "../db/abilities.js";
 
+const _ = require('lodash');
+
 const useGameData = (socket, playerName) => {
   console.log("socket at line 13 usegamedata: ", socket);
 
@@ -123,9 +125,11 @@ const useGameData = (socket, playerName) => {
 
         }
       } else if (state.turn >= 0) {
-        // this is where we'd call the final counts and stuff and determine the winner
-        console.log("GAME OVER!");
-        navigate("/gameover");
+        console.log("GAME OVER!", state);
+        const oldState = _.cloneDeep(state);
+        console.log("useGameData line 130: oldState is:", oldState);
+        // NestedModal(); // can't call in hook
+        navigate("/gameover", {state: oldState});
       } 
     
   }
