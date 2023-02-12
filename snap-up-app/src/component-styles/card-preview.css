@@ -34,7 +34,7 @@
   --bg-img: url("https://www.transparenttextures.com/patterns/candyhole.png");
   --font-color: #ffffff;
 }
-
+/* On drag container */
 .card-preview-container {
   
   background-color: transparent;
@@ -43,6 +43,16 @@
   --cost:#1AE9E9;
   --power: #A25664;
   z-index: 25;
+}
+
+/* on right click container */
+.card-show-preview-container {
+  z-index: 30;
+  background-color: #510b09;
+  transform: translate(-50%, -50%);
+  position: fixed;
+
+  
 }
 
 .card-preview {
@@ -58,6 +68,7 @@
   border-radius: 5% 0% 5% 5%;
   left: 50%;
   top: 50%;
+  z-index: 15;
   
 }
 
@@ -97,7 +108,7 @@
 }
 
 .card-preview-cost {
-  z-index: 9;
+  z-index: 11;
   right: .5em;
   position: absolute;
   font-weight: bolder;

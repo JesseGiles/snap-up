@@ -1,3 +1,5 @@
+import { shuffle } from "../helpers/selectors.js";
+
 const friendlyCardsAddPower = (num, laneArray) => {
   let newArr = [...laneArray];
   for (let card of newArr) {
@@ -36,6 +38,18 @@ const playCardFromDeck = (numCards, state, laneArray) => {
   return [newDeck, newArr]
 }
 
+const shuffleHandIntoDeck = (state) => {
+  const newDeck = shuffle(state.deck.concat(state.hand));
+  const newHand = [];
+  console.log("shuffleHandIntoDeck, newDeck:", newDeck, "newHand:", newHand);
+  for (let i = 0; i < 3; i++) {
+    if (newDeck.length > 0) {
+      newHand.push(newDeck.pop());
+    }
+  }
+  return [newDeck, newHand];
+}
+
 // const enemyCardsLosePower = (numPower, laneArray, state) => {
 //   let newArr = [...laneArray];
 //   for (let card of newArr) 
@@ -49,7 +63,6 @@ const abilities = {
   'addPower': {
     description: "Give friendly cards at this location +1 power.",
     action: friendlyCardsAddPower,
-    
   },
   'drawCards': {
     description: "Draw a card",
@@ -64,6 +77,10 @@ const abilities = {
     action: playCardFromDeck,
     
   },
+  'shuffleHandIntoDeck' : {
+    description: "Shuffle your hand back into your deck and draw three new cards.",
+    action: shuffleHandIntoDeck,
+  }
 }
 
 export default abilities;

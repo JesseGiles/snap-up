@@ -15,7 +15,6 @@ function Game(props) {
     state,
     setState,
     getInitialHand,
-    nextTurn,
     moveCardBetween,
     broadcastForNextTurn,
     resolvePlayerAbilitiesQueue,
@@ -24,6 +23,15 @@ function Game(props) {
 
   const [gameState, setGameState] = useState({ ...state });
 
+  //prevents the default right click menu, needs an event listen disabler in the game over
+  useEffect(() => {
+    document.addEventListener("contextmenu", (event) => {
+
+      event.preventDefault();
+    
+    });
+  }, []);
+  //run once at start of game.
   useEffect(() => {
     getInitialHand(
       state,
@@ -36,6 +44,7 @@ function Game(props) {
     setGameState({ ...state });
   }, []);
 
+  //runs the player's ability queue at the end of the turn
   useEffect(() => {
     console.log("trying to use playerqueue useEffect")
     if (state.playerAbilityQueue.length > 0) {
@@ -45,6 +54,7 @@ function Game(props) {
     }
   }, [state.playerAbilityQueue]);
 
+  //runs the opp's ability queue at the end of the turn
   useEffect(() => {
     console.log("trying to use oppqueue useEffect")
     if (state.oppAbilityQueue.length > 0) {
@@ -55,6 +65,15 @@ function Game(props) {
     
   }, [state.oppAbilityQueue]);
 
+  //testing for reveal phase unsure if need
+  // useEffect(() => {
+  //   let revealArr = state.oppLeftCardZone.concat(state.oppMiddleCardZone,state.oppRightCardZone)
+  //   for (let card of revealArr) {
+      
+  //   }
+  // }, [state.oppLeftCardZone, state.oppMiddleCardZone, state.oppRightCardZone]);
+
+  //creates duplicate state to have access to copy of state.
   useEffect(() => {
     setGameState({ ...state });
   }, [state]);

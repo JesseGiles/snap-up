@@ -9,19 +9,20 @@ import "../../component-styles/flip-transition.css";
 import { CSSTransition } from "react-transition-group";
 
 export default function CardZone(props) {
-  const nodeRef = useRef(null);
+  
   const [showFront, setShowFront] = useState(true); //move down
-
+  
   const generateCards = () => {
     let cardsInZone = props.cardsInZone;
     let cardsDisplayed = [];
     for (let i = 0; i < 4; i++) {
       if (cardsInZone.length > 0 && cardsInZone[i]) {
+        
         cardsDisplayed.push(
           <div key={i}>
             <CSSTransition in={showFront} timeout={300} classNames="flip">
               <CardShow
-                key={i}
+                key={cardsInZone[i].id}
                 id={cardsInZone[i].id}
                 name={cardsInZone[i].name}
                 cost={cardsInZone[i].cost}
@@ -31,9 +32,6 @@ export default function CardZone(props) {
                 description={cardsInZone[i].description}
                 cardPosition={cardsInZone[i].cardPosition}
                 deck={cardsInZone[i].deck}
-                onClick={() => {
-                  setShowFront((view) => !view);
-                }}
               />
             </CSSTransition>
           </div>

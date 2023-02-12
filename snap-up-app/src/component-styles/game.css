@@ -15,10 +15,18 @@
 
 .horror-crystallake {
   --lane-bg-color: rgba(205, 17, 17, 0.5);
-  --lane-bg-img: url("https://e0.pxfuel.com/wallpapers/110/764/desktop-wallpaper-crystal-lake-camp-lake.jpg");
+  --lane-bg-img: url("https://wallpapercave.com/wp/wp5780718.jpg");
   background-position: center;
   background-size: cover;
   --lane-border: darkred;
+}
+
+.cereal-milkcarton {
+  --lane-bg-color: rgb(255, 254, 254);
+  --lane-bg-img: url("https://e1.pxfuel.com/desktop-wallpaper/650/283/desktop-wallpaper-cute-milk-carton-cute-milk-thumbnail.jpg");
+  background-position: center;
+  background-size: cover;
+  --lane-border: rgb(97, 218, 255);
 }
 
 .golden-girls-richmond {

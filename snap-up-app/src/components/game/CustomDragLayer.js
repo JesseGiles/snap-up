@@ -11,7 +11,7 @@ const CustomDragLayer = () => {
       currentClientOffset: monitor.getSourceClientOffset(),
       initialSourceClientOffset: monitor.getInitialSourceClientOffset(),
     }));
-  console.log("CLIENT OFFSET:", currentClientOffset);
+  
 
   if (!isDragging) {
     return null;

@@ -1,12 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { getEmptyImage } from "react-dnd-html5-backend";
 import { useDrag } from "react-dnd";
 import { ItemTypes } from "./ItemTypes.js";
+import CardPreview from "./CardPreview";
 import "../../component-styles/card.css";
 import cardBack from "../../assets/snapup_cardback.png";
 
 //turn this into a folder full of components for card modes.
 export default function CardShow(props) {
+  const [showPreview, setShowPreview] = useState(false)
+
   const [collected, drag, dragPreview] = useDrag(
     () => ({
       type: ItemTypes.CARDSHOW,
@@ -24,6 +27,7 @@ export default function CardShow(props) {
   useEffect(() => {
     dragPreview(getEmptyImage());
   }, []);
+  
 
   let canDrag = null;
   // console.log("position of ", props.name, " is ", props.cardPosition);
@@ -45,18 +49,34 @@ export default function CardShow(props) {
     power: props.power,
     img: props.img,
     deck: props.deck,
+    description: props.description
+    
   };
-
-  return (
-    //show view with injected data
-
-    <div className={`card-show ${cardObj.deck}`}>
+  
+  if ( showPreview === true) {
+    return (
+      <div >
+        <div className="card-show-preview-container" ref={null}>
+        <CardPreview style={{pointerEvents: 'auto',}} onContextMenu={()=> setShowPreview(false)} onClick={()=> setShowPreview(false)} item={
+        {
+          id: cardObj.id,
+          name: cardObj.name,
+          cost: cardObj.cost,
+          power: cardObj.power,
+          img: cardObj.img,
+          deck: cardObj.deck,
+          description: cardObj.description
+          
+        }}/>
+        </div>
+        <div className={`card-show ${cardObj.deck}`} onContextMenu={()=> setShowPreview(true)}>
       <div
-        onClick={props.onClick}
+        
         className="card"
         ref={canDrag}
         style={{
-          display: collected.isDragging ? "none" : "initial",
+          // display: collected.isDragging ? "none" : "initial",
+          opacity: collected.isDragging ? "0" : "1",
         }}
       >
         <div className="card-header">
@@ -69,7 +89,42 @@ export default function CardShow(props) {
         <img className="card-img" draggable="false" src={cardObj.img} />
         <div className="card-power">{cardObj.power}</div>
       </div>
-
+      
+      <img
+        src={cardBack}
+        alt="Card Back"
+        className="card-back"
+        
+      />
+    </div>
+        
+        </div>
+        )
+  } else {
+  return (
+    //only return card-show
+    
+    <div className={`card-show ${cardObj.deck}`} onContextMenu={()=> setShowPreview(true)}>
+      <div
+        onClick={props.onClick}
+        className="card"
+        ref={canDrag}
+        style={{
+          // display: collected.isDragging ? "none" : "initial",
+          opacity: collected.isDragging ? "0" : "1"
+        }}
+      >
+        <div className="card-header">
+          <div className="card-name"> {cardObj.name}</div>
+          <div className="card-cost-container">
+            <div className="card-cost-shape"></div>
+            <div className="card-cost">{cardObj.cost}</div>
+          </div>
+        </div>
+        <img className="card-img" draggable="false" src={cardObj.img} />
+        <div className="card-power">{cardObj.power}</div>
+      </div>
+      
       <img
         src={cardBack}
         alt="Card Back"
@@ -77,5 +132,9 @@ export default function CardShow(props) {
         onClick={props.onClick}
       />
     </div>
-  );
+
+  )}
+    
+
+  
 }

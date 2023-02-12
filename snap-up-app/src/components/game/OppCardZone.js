@@ -1,28 +1,38 @@
-import React from "react";
-import CardEmpty from "./CardEmpty.js";
+import React, { useState } from "react";
 import CardShow from "./CardShow.js";
+import "../../component-styles/flip-transition.css";
+import { CSSTransition } from "react-transition-group";
 
 export default function OppCardZone(props) {
+  const [showFront, setShowFront] = useState(true)
+  
   let oppCards = props.cardsInZone;
+
 
   const generateCards = () => {
     let cardsInZone = oppCards;
 
     let cardsDisplayed = [];
     for (let i = 0; i < 4; i++) {
+      
       if (cardsInZone.length > 0 && cardsInZone[i]) {
         cardsDisplayed.push(
+          <div key={i}>
+            <CSSTransition in={showFront} timeout={300} classNames="flip">
           <CardShow
-            key={i}
+            key={cardsInZone[i].id}
             id={cardsInZone[i].id}
             name={cardsInZone[i].name}
             cost={cardsInZone[i].cost}
             power={cardsInZone[i].power}
             img={cardsInZone[i].img}
             ability={cardsInZone[i].ability}
+            description={cardsInZone[i].description}
             cardPosition={cardsInZone[i].cardPosition}
             deck={cardsInZone[i].deck}
           />
+          </CSSTransition>
+          </div>  
         );
       } else {
       }

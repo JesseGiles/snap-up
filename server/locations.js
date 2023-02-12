@@ -9,6 +9,7 @@ const locations = [
   { name: "Shady Pines", deck: "golden-girls-shadypines" },
   { name: "Nook's Cranny", deck: "animal-crossing-deck" },
   { name: "Able Sisters", deck: "animal-crossing-deck" },
+  { name: "Cereal Bowl", deck: "cereal-milkcarton"}
 ];
 
 module.exports = { locations };

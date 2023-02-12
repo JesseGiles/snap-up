@@ -237,33 +237,36 @@ const useGameData = (socket, playerName) => {
       const newOppAbilityQueue = [];
 
       oppLeftCardZone.map((card) => {
+        
         card.cardPosition = "fixed";
         if (card.ability !== null) {
           newOppAbilityQueue.push({
             lane: "left",
-            cardName: card.name,
+            card: card,
             cardAbility: card.ability,
           });
           card.ability = null;
         }
       });
       oppMiddleCardZone.map((card) => {
+        
         card.cardPosition = "fixed";
         if (card.ability !== null) {
           newOppAbilityQueue.push({
             lane: "middle",
-            cardName: card.name,
+            card: card,
             cardAbility: card.ability,
           });
           card.ability = null;
         }
       });
       oppRightCardZone.map((card) => {
+        
         card.cardPosition = "fixed";
         if (card.ability !== null) {
           newOppAbilityQueue.push({
             lane: "right",
-            cardName: card.name,
+            card: card,
             cardAbility: card.ability,
           });
           card.ability = null;
@@ -341,6 +344,14 @@ const useGameData = (socket, playerName) => {
           [arrName]: newZoneAndDeck[1],
         }));
       }
+      if (ability.cardAbility[0] === 'shuffleHandIntoDeck') {
+        newHandAndDeck = enterBattlefield(ability.cardAbility[0], state)
+        setState((prev) => ({
+          ...prev,
+          deck: newHandAndDeck[0],
+          hand: newHandAndDeck[1]
+        }));
+      }
 
       
       
@@ -388,37 +399,42 @@ const useGameData = (socket, playerName) => {
   }
 
   function addEnergyOnDrop(energy, cost) {
-    if (energy + cost <= state.turn) {
+   
       energy += cost;
-    }
+    
     return energy;
   }
 
   function moveCardBetween(card, srcZone, targetZone) {
     let srcArr = state[srcZone]; //array to remove card from, ie. hand
     let targetArr = state[targetZone]; //array to add card to, ie. cardzone
+    let currEnergy = state.energy
     let newEnergy;
     let cardObj = { ...card };
+    console.log("CARDOBJ", cardObj)
     console.log("card position before:", cardObj.cardPosition);
     console.log("TargetZone:", targetZone);
     cardObj["cardPosition"] = targetZone;
     if (srcZone !== targetZone) {
       targetArr.push(cardObj);
-      srcArr = srcArr.filter((cardinHand) => cardinHand.id !== card.id);
+      console.log("TargetArr with new card", targetArr)
+      console.log("srcArr before filter", srcArr)
+      srcArr = srcArr.filter((cardToRemove) => cardToRemove.id !== card.id);
+      console.log("srcArr after filter", srcArr)
     }
 
     //changes logic based on wher you are dropping
     if (srcZone === "hand" && targetZone !== "hand") {
-      newEnergy = reduceEnergyOnDrop(state.energy, card.cost);
+
+      newEnergy = reduceEnergyOnDrop(currEnergy, card.cost);
     } else if (targetZone === "hand" && srcZone !== "hand") {
-      newEnergy = addEnergyOnDrop(state.energy, card.cost);
+      newEnergy = addEnergyOnDrop(currEnergy, card.cost);
     } else {
-      newEnergy = state.energy;
+      newEnergy = currEnergy;
     }
 
     setState((prev) => ({
       ...prev,
-
       [targetZone]: targetArr,
       [srcZone]: srcArr,
       energy: newEnergy,
