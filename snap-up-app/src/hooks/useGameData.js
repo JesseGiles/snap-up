@@ -244,7 +244,9 @@ const useGameData = (socket, playerName) => {
     }
 
     //console.log("state before we shuffle a deck", state);
-    const newDeck = shuffle(_.cloneDeep(startDeckOne.cards.concat(startDeckTwo.cards)));
+    const newDeck = shuffle(
+      _.cloneDeep(startDeckOne.cards.concat(startDeckTwo.cards))
+    );
     const draw = [];
     draw.push(newDeck.pop());
     draw.push(newDeck.pop());
@@ -346,12 +348,12 @@ const useGameData = (socket, playerName) => {
 
   function resolvePlayerAbilitiesQueue(queue) {
     console.log("entered function PlayerresolveAbilityQueue:", queue);
-    let deckCopy = [...state.deck]
-    let handCopy = [...state.hand]
-    let leftCopy = [...state.leftCardZone]
-    let middleCopy = [...state.middleCardZone]
-    let rightCopy = [...state.rightCardZone]
-    let energyCopy = state.energy
+    let deckCopy = [...state.deck];
+    let handCopy = [...state.hand];
+    let leftCopy = [...state.leftCardZone];
+    let middleCopy = [...state.middleCardZone];
+    let rightCopy = [...state.rightCardZone];
+    let energyCopy = state.energy;
     //friendlyTarget
     let targetArr;
     let updatedArr;
@@ -363,19 +365,17 @@ const useGameData = (socket, playerName) => {
     //playCardsFromDeck
     let newZoneAndDeck;
 
-    
-
     for (let ability of queue) {
       if (ability.lane === "left") {
-        targetArr = leftCopy
+        targetArr = leftCopy;
         arrName = "leftCopy";
       }
       if (ability.lane === "middle") {
-        targetArr = middleCopy
+        targetArr = middleCopy;
         arrName = "middleCopy";
       }
       if (ability.lane === "right") {
-        targetArr = rightCopy
+        targetArr = rightCopy;
         arrName = "rightCopy";
       }
       console.log("ABILITY is:", ability);
@@ -384,31 +384,29 @@ const useGameData = (socket, playerName) => {
         updatedArr = enterBattlefield(
           ability.cardAbility[0],
           ability.cardAbility[1],
-          targetArr,
+          targetArr
         );
-        if (arrName === 'leftCopy') {
-                leftCopy = updatedArr
+        if (arrName === "leftCopy") {
+          leftCopy = updatedArr;
         }
-        if (arrName === 'middleCopy') {
-                middleCopy = updatedArr
+        if (arrName === "middleCopy") {
+          middleCopy = updatedArr;
         }
-        if (arrName === 'rightCopy') {
-                rightCopy = updatedArr
+        if (arrName === "rightCopy") {
+          rightCopy = updatedArr;
         }
-         
       }
 
       if (ability.cardAbility[0] === "drawCards") {
-        console.log()
+        console.log();
         newHandAndDeck = enterBattlefield(
           ability.cardAbility[0],
           ability.cardAbility[1],
           deckCopy,
           handCopy
         );
-        deckCopy = newHandAndDeck[0]
-        handCopy = newHandAndDeck[1]
-        
+        deckCopy = newHandAndDeck[0];
+        handCopy = newHandAndDeck[1];
       }
       if (ability.cardAbility[0] === "addEnergy") {
         newEnergy = enterBattlefield(
@@ -416,35 +414,39 @@ const useGameData = (socket, playerName) => {
           ability.cardAbility[1],
           energyCopy
         );
-        energyCopy = newEnergy
+        energyCopy = newEnergy;
       }
       if (ability.cardAbility[0] === "playCardFromDeck") {
         newZoneAndDeck = enterBattlefield(
           ability.cardAbility[0],
           ability.cardAbility[1],
           targetArr,
-          deckCopy,
+          deckCopy
         );
         deckCopy = newZoneAndDeck[0];
 
-        if (arrName === 'leftCopy') {
-          leftCopy = newZoneAndDeck[1]
+        if (arrName === "leftCopy") {
+          leftCopy = newZoneAndDeck[1];
         }
-        if (arrName === 'middleCopy') {
-          middleCopy = newZoneAndDeck[1]
+        if (arrName === "middleCopy") {
+          middleCopy = newZoneAndDeck[1];
         }
-        if (arrName === 'rightCopy') {
-          rightCopy = newZoneAndDeck[1]
+        if (arrName === "rightCopy") {
+          rightCopy = newZoneAndDeck[1];
         }
-        
       }
       if (ability.cardAbility[0] === "shuffleHandIntoDeck") {
-        newHandAndDeck = enterBattlefield(ability.cardAbility[0], ability.cardAbility[1], deckCopy, handCopy);
-        
-          deckCopy = newHandAndDeck[0];
-          handCopy = newHandAndDeck[1];
+        newHandAndDeck = enterBattlefield(
+          ability.cardAbility[0],
+          ability.cardAbility[1],
+          deckCopy,
+          handCopy
+        );
+
+        deckCopy = newHandAndDeck[0];
+        handCopy = newHandAndDeck[1];
       }
-      
+
       setState((prev) => ({
         ...prev,
         deck: deckCopy,
@@ -453,28 +455,30 @@ const useGameData = (socket, playerName) => {
         leftCardZone: leftCopy,
         middleCardZone: middleCopy,
         rightCardZone: rightCopy,
-
       }));
     }
   }
 
   function resolveOppAbilitiesQueue(queue) {
     console.log("entered function OppresolveAbilityQueue:", queue);
+    let leftCopy = [...state.oppLeftCardZone];
+    let middleCopy = [...state.oppMiddleCardZone];
+    let rightCopy = [...state.oppRightCardZone];
     let targetArr;
     let updatedArr;
     let arrName;
     for (let ability of queue) {
       if (ability.lane === "left") {
-        targetArr = [...state.oppLeftCardZone];
-        arrName = "oppLeftCardZone";
+        targetArr = leftCopy;
+        arrName = "leftCopy";
       }
       if (ability.lane === "middle") {
-        targetArr = [...state.oppMiddleCardZone];
-        arrName = "oppMiddleCardZone";
+        targetArr = middleCopy;
+        arrName = "middleCopy";
       }
       if (ability.lane === "right") {
-        targetArr = [...state.oppRightCardZone];
-        arrName = "oppRightCardZone";
+        targetArr = rightCopy;
+        arrName = "rightCopy";
       }
       console.log("ABILITY is:", ability);
       if (ability.cardAbility[0] === "addPower") {
@@ -483,14 +487,23 @@ const useGameData = (socket, playerName) => {
           ability.cardAbility[1],
           targetArr
         );
-        console.log("array that triggered opp ability queue:", updatedArr);
-
-        setState((prev) => ({
-          ...prev,
-          [arrName]: updatedArr,
-        }));
+        if (arrName === "leftCopy") {
+          leftCopy = updatedArr;
+        }
+        if (arrName === "middleCopy") {
+          middleCopy = updatedArr;
+        }
+        if (arrName === "rightCopy") {
+          rightCopy = updatedArr;
+        }
       }
     }
+    setState((prev) => ({
+      ...prev,
+      oppLeftCardZone: leftCopy,
+      oppMiddleCardZone: middleCopy,
+      oppRightCardZone: rightCopy,
+    }));
   }
 
   //MOVE ALL OF ME LATER

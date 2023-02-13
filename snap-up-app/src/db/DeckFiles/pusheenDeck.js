@@ -28,7 +28,7 @@ const pusheenDeck = {
     {
       id: 9,
       name: "Pusheen",
-      cost: 2,
+      cost: 1,
       power: 5,
       img: "/cardImages/pusheen/pusheen.jpeg",
       ability: ['playCardFromDeck', 1],
@@ -39,7 +39,7 @@ const pusheenDeck = {
     {
       id: 10,
       name: "Dragonsheen",
-      cost: 3,
+      cost: 1,
       power: 7,
       img: "/cardImages/pusheen/dragonsheen.gif",
       ability: ['addPower', 4],
@@ -50,7 +50,7 @@ const pusheenDeck = {
     {
       id: 11,
       name: "Sloth",
-      cost: 6,
+      cost: 1,
       power: 15,
       img: "/cardImages/pusheen/sloth.jpeg",
       ability: ['addPower', 5],
@@ -61,7 +61,7 @@ const pusheenDeck = {
     {
       id: 12,
       name: "Pusheenicorn",
-      cost: 5,
+      cost: 1,
       power: 12,
       img: "/cardImages/pusheen/super_pusheenicorn.jpeg",
       ability: ['addPower', 6],

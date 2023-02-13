@@ -7,9 +7,8 @@ import GameOver from "./GameOver";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import socketIO from "socket.io-client";
 const socket = socketIO.connect("https://snap-up-app.up.railway.app/");
-//change me to localhost 4000.
 // const socket= socketIO.connect("http://localhost:4000");
-// "https://snap-up-app.up.railway.app/"
+
 
 function PlayerInfo(props) {
 
