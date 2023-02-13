@@ -6,7 +6,7 @@ import GameOver from "./GameOver";
 // import { avatarImages, deckImages } from "../db/images";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import socketIO from "socket.io-client";
-const socket = socketIO.connect("https://snap-up-app.up.railway.app:4000");
+const socket = socketIO.connect("https://snap-up-app.up.railway.app/");
 
 function PlayerInfo(props) {
 
