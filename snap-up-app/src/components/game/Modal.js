@@ -15,8 +15,7 @@ function GameOver(props) {
 
   const startNewGame = (event) => {
     props.socket.emit("leave room", {});
-    navigate("/");
-    setTimeout(window.location.reload(), 2000);
+    window.location = "/";
   };
 
   const winner =
