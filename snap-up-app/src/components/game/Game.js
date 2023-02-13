@@ -5,6 +5,8 @@ import "../../component-styles/game.css";
 import Lane from "./Lane";
 import Avatar from "./Avatar";
 import PlayerZone from "./PlayerZone";
+import GameOver from "./Modal";
+import NextTurnNotReady from "./NextTurnNotReady";
 import useGameData from "../../hooks/useGameData";
 import CustomDragLayer from "./CustomDragLayer";
 
@@ -44,30 +46,38 @@ function Game(props) {
 
   //runs the player's ability queue at the end of the turn
   useEffect(() => {
-    console.log("trying to use playerqueue useEffect")
+    console.log("trying to use playerqueue useEffect");
     if (state.playerAbilityQueue.length > 0) {
-      console.log("ability queue player prior to resolve:", state.playerAbilityQueue)
-      resolvePlayerAbilitiesQueue(state.playerAbilityQueue)
-      console.log("useeffect resolve abilites player que: ", state.playerAbilityQueue)
+      console.log(
+        "ability queue player prior to resolve:",
+        state.playerAbilityQueue
+      );
+      resolvePlayerAbilitiesQueue(state.playerAbilityQueue);
+      console.log(
+        "useeffect resolve abilites player que: ",
+        state.playerAbilityQueue
+      );
     }
   }, [state.playerAbilityQueue]);
 
   //runs the opp's ability queue at the end of the turn
   useEffect(() => {
-    console.log("trying to use oppqueue useEffect")
+    console.log("trying to use oppqueue useEffect");
     if (state.oppAbilityQueue.length > 0) {
-      console.log("ability queue opp prior to resolve:", state.oppAbilityQueue)
-      resolveOppAbilitiesQueue(state.oppAbilityQueue)
-      console.log("useeffect resolve abilites opp que: ", state.oppAbilityQueue)
+      console.log("ability queue opp prior to resolve:", state.oppAbilityQueue);
+      resolveOppAbilitiesQueue(state.oppAbilityQueue);
+      console.log(
+        "useeffect resolve abilites opp que: ",
+        state.oppAbilityQueue
+      );
     }
-    
   }, [state.oppAbilityQueue]);
 
   //testing for reveal phase unsure if need
   // useEffect(() => {
   //   let revealArr = state.oppLeftCardZone.concat(state.oppMiddleCardZone,state.oppRightCardZone)
   //   for (let card of revealArr) {
-      
+
   //   }
   // }, [state.oppLeftCardZone, state.oppMiddleCardZone, state.oppRightCardZone]);
 
@@ -81,6 +91,8 @@ function Game(props) {
 
   return (
     <div className="game">
+      <NextTurnNotReady waitingForNextTurn={state.waitingForNextTurn} />
+      <GameOver gameOverState={gameState} />
       <DndProvider backend={HTML5Backend}>
         <CustomDragLayer />
         <div className="battlefield">

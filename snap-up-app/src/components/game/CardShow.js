@@ -8,7 +8,7 @@ import cardBack from "../../assets/snapup_cardback.png";
 
 //turn this into a folder full of components for card modes.
 export default function CardShow(props) {
-  const [showPreview, setShowPreview] = useState(false)
+  const [showPreview, setShowPreview] = useState(false);
 
   const [collected, drag, dragPreview] = useDrag(
     () => ({
@@ -27,7 +27,6 @@ export default function CardShow(props) {
   useEffect(() => {
     dragPreview(getEmptyImage());
   }, []);
-  
 
   let canDrag = null;
   // console.log("position of ", props.name, " is ", props.cardPosition);
@@ -49,92 +48,90 @@ export default function CardShow(props) {
     power: props.power,
     img: props.img,
     deck: props.deck,
-    description: props.description
-    
+    description: props.description,
   };
-  
-  if ( showPreview === true) {
+
+  if (showPreview === true) {
     return (
-      <div >
+      <div>
         <div className="card-show-preview-container" ref={null}>
-        <CardPreview style={{pointerEvents: 'auto',}} onContextMenu={()=> setShowPreview(false)} onClick={()=> setShowPreview(false)} item={
-        {
-          id: cardObj.id,
-          name: cardObj.name,
-          cost: cardObj.cost,
-          power: cardObj.power,
-          img: cardObj.img,
-          deck: cardObj.deck,
-          description: cardObj.description
-          
-        }}/>
+          <CardPreview
+            style={{ pointerEvents: "auto" }}
+            onContextMenu={() => setShowPreview(false)}
+            onClick={() => setShowPreview(false)}
+            item={{
+              id: cardObj.id,
+              name: cardObj.name,
+              cost: cardObj.cost,
+              power: cardObj.power,
+              img: cardObj.img,
+              deck: cardObj.deck,
+              description: cardObj.description,
+            }}
+          />
         </div>
-        <div className={`card-show ${cardObj.deck}`} onContextMenu={()=> setShowPreview(true)}>
-      <div
-        
-        className="card"
-        ref={canDrag}
-        style={{
-          // display: collected.isDragging ? "none" : "initial",
-          opacity: collected.isDragging ? "0" : "1",
-        }}
-      >
-        <div className="card-header">
-          <div className="card-name"> {cardObj.name}</div>
-          <div className="card-cost-container">
-            <div className="card-cost-shape"></div>
-            <div className="card-cost">{cardObj.cost}</div>
+        <div
+          className={`card-show ${cardObj.deck}`}
+          onContextMenu={() => setShowPreview(true)}
+        >
+          <div
+            className="card"
+            ref={canDrag}
+            style={{
+              // display: collected.isDragging ? "none" : "initial",
+              opacity: collected.isDragging ? "0" : "1",
+            }}
+          >
+            <div className="card-header">
+              <div className="card-name"> {cardObj.name}</div>
+              <div className="card-cost-container">
+                <div className="card-cost-shape"></div>
+                <div className="card-cost">{cardObj.cost}</div>
+              </div>
+            </div>
+            <img className="card-img" draggable="false" src={cardObj.img} />
+            <div className="card-power">{cardObj.power}</div>
           </div>
+
+          <img src={cardBack} alt="Card Back" className="card-back" />
         </div>
-        <img className="card-img" draggable="false" src={cardObj.img} />
-        <div className="card-power">{cardObj.power}</div>
       </div>
-      
-      <img
-        src={cardBack}
-        alt="Card Back"
-        className="card-back"
-        
-      />
-    </div>
-        
-        </div>
-        )
+    );
   } else {
-  return (
-    //only return card-show
-    
-    <div className={`card-show ${cardObj.deck}`} onContextMenu={()=> setShowPreview(true)}>
+    return (
+      //only return card-show
+
       <div
-        onClick={props.onClick}
-        className="card"
-        ref={canDrag}
-        style={{
-          // display: collected.isDragging ? "none" : "initial",
-          opacity: collected.isDragging ? "0" : "1"
-        }}
+        className={`card-show ${cardObj.deck}`}
+        onContextMenu={() => setShowPreview(true)}
       >
-        <div className="card-header">
-          <div className="card-name"> {cardObj.name}</div>
-          <div className="card-cost-container">
-            <div className="card-cost-shape"></div>
-            <div className="card-cost">{cardObj.cost}</div>
+        <div
+          onClick={props.onClick}
+          className="card-main"
+          ref={canDrag}
+          style={{
+            // display: collected.isDragging ? "none" : "initial",
+            opacity: collected.isDragging ? "0" : "1",
+          }}
+        >
+          <div className="card-header">
+            <div className="card-name"> {cardObj.name}</div>
+            <div className="card-cost-container">
+              <div className="card-cost-shape"></div>
+              <div className="card-cost">{cardObj.cost}</div>
+            </div>
           </div>
+          <img className="card-img" draggable="false" src={cardObj.img} />
+          <div className="card-power">{cardObj.power}</div>
         </div>
-        <img className="card-img" draggable="false" src={cardObj.img} />
-        <div className="card-power">{cardObj.power}</div>
+
+        <img
+          src={cardBack}
+          alt="Card Back"
+          className="card-back"
+          onClick={props.onClick}
+        />
       </div>
-      
-      <img
-        src={cardBack}
-        alt="Card Back"
-        className="card-back"
-        onClick={props.onClick}
-      />
-    </div>
-
-  )}
-    
-
-  
+    );
+  }
 }
