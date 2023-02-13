@@ -100,24 +100,17 @@
   
 }
 
-.card-empty {
-  display: flex;
-  height: 10em;
-  width: 7.5em;
-  margin: .5em;
-  border-radius: 5%;
-  
-}
 
-.card-header {
+.card-main-header {
   display: flex;
   justify-content: space-between;
   width: 100%;
   height:25%;
+  line-height: normal;
   
 }
 
-.card-name {
+.card-main-name {
   width: 70%;
   height: 100%;
   white-space: nowrap;
@@ -155,7 +148,7 @@
 
 }
 
-.card-img {
+.card-main-img {
   width: 6em;
   height: 6em;
   border: .2em solid var(--img-border);
@@ -167,7 +160,7 @@
   object-fit: contain;
 }
 
-.card-power {
+.card-main-power {
   background-color: var(--power);
   width: 1.5em;
   height: 1.5em;

@@ -7,12 +7,7 @@ const { locations } = require("./locations");
 const http = require("http").Server(app);
 const cors = require("cors");
 
-// const {
-//   addPlayer,
-//   removePlayer,
-//   getPlayer,
-//   getPlayersInRoom,
-// } = require("./player");
+
 
 app.use(express.static("../snap-up-app/build"));
 app.use(cors());
@@ -28,21 +23,9 @@ let users = [];
 
 let turnInfo = [];
 
-function checkForRoomMatch(users, data) {
-  users.push(data)
-  let userIndex = users.length
-  return userIndex
-}
 
-function getRoomNum(users, data) {
-  let roomNum = 1;
-  for ( let i; i < users.length; i++) {
-    if (users[i].player === data.player) {
-      roomNum = Math.floor(i / 2);
-    }
-  }
-  return roomNum;
-};
+
+
 
 function pairUsers(users, data) {
   let pairedUsers = []
@@ -98,6 +81,16 @@ socketIO.on("connection", (socket) => {
     // }
     
     if (pairedUsers.length === 2){
+      users = users.filter((user) => {
+        console.log("user is",user, "pairedUsers are ", pairedUsers)
+        if (user.player !== pairedUsers[0].player) {
+          if (user.player !== pairedUsers[1].player) {
+            return true
+          }
+        }
+        
+      })
+      console.log("All connected users without pair:", users);
       //you're the second player to connect set the default vals
       
       console.log("paired users:",pairedUsers)
@@ -106,7 +99,7 @@ socketIO.on("connection", (socket) => {
     }
 
     
-    console.log("All connected users:", users);
+    
     
 
       

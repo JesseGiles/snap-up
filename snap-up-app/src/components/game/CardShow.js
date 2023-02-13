@@ -75,22 +75,22 @@ export default function CardShow(props) {
           onContextMenu={() => setShowPreview(true)}
         >
           <div
-            className="card"
+            className="card-main"
             ref={canDrag}
             style={{
               // display: collected.isDragging ? "none" : "initial",
               opacity: collected.isDragging ? "0" : "1",
             }}
           >
-            <div className="card-header">
-              <div className="card-name"> {cardObj.name}</div>
+            <div className="card-main-header">
+              <div className="card-main-name"> {cardObj.name}</div>
               <div className="card-cost-container">
                 <div className="card-cost-shape"></div>
                 <div className="card-cost">{cardObj.cost}</div>
               </div>
             </div>
-            <img className="card-img" draggable="false" src={cardObj.img} />
-            <div className="card-power">{cardObj.power}</div>
+            <img className="card-main-img" draggable="false" src={cardObj.img} />
+            <div className="card-main-power">{cardObj.power}</div>
           </div>
 
           <img src={cardBack} alt="Card Back" className="card-back" />
@@ -114,15 +114,15 @@ export default function CardShow(props) {
             opacity: collected.isDragging ? "0" : "1",
           }}
         >
-          <div className="card-header">
-            <div className="card-name"> {cardObj.name}</div>
+          <div className="card-main-header">
+            <div className="card-main-name"> {cardObj.name}</div>
             <div className="card-cost-container">
               <div className="card-cost-shape"></div>
               <div className="card-cost">{cardObj.cost}</div>
             </div>
           </div>
-          <img className="card-img" draggable="false" src={cardObj.img} />
-          <div className="card-power">{cardObj.power}</div>
+          <img className="card-main-img" draggable="false" src={cardObj.img} />
+          <div className="card-main-power">{cardObj.power}</div>
         </div>
 
         <img

@@ -218,6 +218,7 @@
   justify-content: center;
   border-style: outset;
   border-color: chartreuse;
+  line-height: normal;
 }
 
 .player-data-header {
