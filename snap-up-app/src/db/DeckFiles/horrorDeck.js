@@ -20,7 +20,7 @@ const horrorDeck = {
       cost: 2,
       power: 3,
       img: "/cardImages/horror/freddy.png",
-      ability: ['playCardFromDeck', 2],
+      ability: ['playCardFromDeck', 1],
       description: "A random card is placed in this location from your deck for next turn.",
       cardPosition: "hand",
       deck: "horror",

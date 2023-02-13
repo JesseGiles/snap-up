@@ -105,17 +105,18 @@ socketIO.on("connection", (socket) => {
       
         
         socket.on("opponentReady", (data) => {
-          socketIO.to(roomNum).emit("opponentReady", data);
+          socket.to(roomNum).emit("opponentReady", data);
         });
       
         socket.on("nextTurn", (data) => {
           //Listens and logs the message to the console
-          console.log("This was received from the CLIENT for nextTurn:", data);
+          console.log("This was received from opp for nextTurn:", data);
           // console.log("All connected users: ", data);
           // socketIO.emit("messageResponse", data);
+          
           turnInfo.push(data);
           console.log("All information received:", turnInfo);
-          if (turnInfo.length >= 2) {
+          if (turnInfo.length === 2) {
             socketIO.to(roomNum).emit("turnInfo", turnInfo);
             // clear the turnInfo
             turnInfo = [];
