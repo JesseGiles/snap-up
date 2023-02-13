@@ -3,7 +3,7 @@ import PlayerForm from "./PlayerForm";
 import Connection from "./Connection";
 import Home from "./Home";
 import GameOver from "./GameOver";
-import { avatarImages, deckImages } from "../db/images";
+// import { avatarImages, deckImages } from "../db/images";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function PlayerInfo(props) {

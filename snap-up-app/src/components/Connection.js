@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import Game from "./game/Game";
 import socketIO from "socket.io-client";
 
-const socket = socketIO.connect("http://localhost:4000");
 
 function Connection(props) {
+  const socket = socketIO.connect("http://localhost:4000");
   // const socket = props.socket;
   // const [messages, setMessages] = useState([]);
   // const [users, setUsers] = useState([]);
