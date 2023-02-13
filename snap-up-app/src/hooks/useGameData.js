@@ -244,7 +244,7 @@ const useGameData = (socket, playerName) => {
     }
 
     //console.log("state before we shuffle a deck", state);
-    const newDeck = shuffle(startDeckOne.cards.concat(startDeckTwo.cards));
+    const newDeck = shuffle(_.cloneDeep(startDeckOne.cards.concat(startDeckTwo.cards)));
     const draw = [];
     draw.push(newDeck.pop());
     draw.push(newDeck.pop());
