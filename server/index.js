@@ -25,7 +25,35 @@ const socketIO = require("socket.io")(http, {
 });
 
 let users = [];
+
 let turnInfo = [];
+
+function checkForRoomMatch(users, data) {
+  users.push(data)
+  let userIndex = users.length
+  return userIndex
+}
+
+function getRoomNum(users, data) {
+  let roomNum = 1;
+  for ( let i; i < users.length; i++) {
+    if (users[i].player === data.player) {
+      roomNum = Math.floor(i / 2);
+    }
+  }
+  return roomNum;
+};
+
+function pairUsers(users, data) {
+  let pairedUsers = []
+  for (let user of users) {
+    if (user.room === data.room) {
+      pairedUsers.push(data)
+      pairedUsers.push(user)
+    }
+  }
+  return pairedUsers
+}
 
 function shuffle(array) {
   let currentIndex = array.length,
@@ -56,43 +84,63 @@ const getLocations = () => {
 
 socketIO.on("connection", (socket) => {
   console.log(`⚡: ${socket.id} player just connected!`);
-
+  
   //Listens and logs the message to the console
   socket.on("message", (data) => {
+    let roomNum = data.room
     console.log("This was received from the CLIENT:", data);
-    // console.log("All connected users: ", data);
-    // socketIO.emit("messageResponse", data);
+    
+    let pairedUsers = pairUsers(users, data)
+    console.log("there are paired users", pairedUsers)
     users.push(data);
+    // if (socketIO.sockets.adapter.rooms[data.room].length < 2) {
+      socket.join(roomNum)
+    // }
+    
+    if (pairedUsers.length === 2){
+      //you're the second player to connect set the default vals
+      
+      console.log("paired users:",pairedUsers)
+        socketIO.to(roomNum).emit("newUserResponse", pairedUsers);
+        socketIO.to(roomNum).emit("setGameLocations", getLocations());
+    }
+
+    
     console.log("All connected users:", users);
-    if (users.length >= 2) {
-      socketIO.emit("newUserResponse", users);
-      socketIO.emit("setGameLocations", getLocations());
-      // clear the users
-      users = [];
-    } else {
-      console.log("Waiting for another player to join...");
-    }
-  });
+    
 
-  socket.on("opponentReady", (data) => {
-    socketIO.emit("opponentReady", data);
-  });
+      
+        
+        socket.on("opponentReady", (data) => {
+          socketIO.to(roomNum).emit("opponentReady", data);
+        });
+      
+        socket.on("nextTurn", (data) => {
+          //Listens and logs the message to the console
+          console.log("This was received from the CLIENT for nextTurn:", data);
+          // console.log("All connected users: ", data);
+          // socketIO.emit("messageResponse", data);
+          turnInfo.push(data);
+          console.log("All information received:", turnInfo);
+          if (turnInfo.length >= 2) {
+            socketIO.to(roomNum).emit("turnInfo", turnInfo);
+            // clear the turnInfo
+            turnInfo = [];
+          } else {
+            console.log("Waiting for opponent to finish their turn...");
+          }
+        });
 
-  socket.on("nextTurn", (data) => {
-    //Listens and logs the message to the console
-    console.log("This was received from the CLIENT for nextTurn:", data);
-    // console.log("All connected users: ", data);
-    // socketIO.emit("messageResponse", data);
-    turnInfo.push(data);
-    console.log("All information received:", turnInfo);
-    if (turnInfo.length >= 2) {
-      socketIO.emit("turnInfo", turnInfo);
-      // clear the turnInfo
-      turnInfo = [];
-    } else {
-      console.log("Waiting for opponent to finish their turn...");
-    }
-  });
+
+      
+     
+
+
+
+   });
+    
+      
+
 
   // socket.on("oppAbilities", (data) => {
   //   console.log("oppAbilities received at server: ", data);
@@ -103,7 +151,7 @@ socketIO.on("connection", (socket) => {
     users = users.filter((user) => user.socketID !== socket.id);
     // console.log(users);
     //Sends the list of users to the client
-    socketIO.emit("newUserResponse", users);
+    // socketIO.emit("newUserResponse", users);
     socket.disconnect();
   });
 });

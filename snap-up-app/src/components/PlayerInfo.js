@@ -11,6 +11,7 @@ const socket = socketIO.connect("http://localhost:4000");
 
 function PlayerInfo(props) {
   const [playerName, setPlayerName] = useState("");
+  const [room, setRoom] = useState();
   const [avatarSelected, setAvatarSelected] = useState(1);
   const [deckOneSelected, setDeckOneSelected] = useState(1);
   const [deckTwoSelected, setDeckTwoSelected] = useState(2);
@@ -32,6 +33,8 @@ function PlayerInfo(props) {
             element={
               <PlayerForm
                 socket={socket}
+                room={room}
+                setRoom={setRoom}
                 setPlayerInfo={props.setPlayerInfo}
                 playerName={playerName}
                 setPlayerName={setPlayerName}
@@ -52,6 +55,7 @@ function PlayerInfo(props) {
             element={
               <Connection
                 socket={socket}
+                room={room}
                 playerName={playerName}
                 avatar={avatarSelected}
                 deckOne={deckOneSelected}
