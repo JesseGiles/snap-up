@@ -351,6 +351,7 @@ const useGameData = (socket, playerName) => {
     let leftCopy = [...state.leftCardZone]
     let middleCopy = [...state.middleCardZone]
     let rightCopy = [...state.rightCardZone]
+    let energyCopy = state.energy
     //friendlyTarget
     let targetArr;
     let updatedArr;
@@ -362,19 +363,7 @@ const useGameData = (socket, playerName) => {
     //playCardsFromDeck
     let newZoneAndDeck;
 
-    // function abilitesTriggerIn(laneName) {
-      
-    //     if (laneName === 'leftCopy') {
-    //       leftCopy = updatedArr[0]
-    //     }
-    //     if (laneName === 'middleCopy') {
-    //       middleCopy = updatedArr[0]
-    //     }
-    //     if (laneName === 'rightCopy') {
-    //       rightCopy = updatedArr[0]
-    //     }
-      
-    // }
+    
 
     for (let ability of queue) {
       if (ability.lane === "left") {
@@ -399,13 +388,13 @@ const useGameData = (socket, playerName) => {
         );
         if (arrName === 'leftCopy') {
                 leftCopy = updatedArr
-              }
-              if (arrName === 'middleCopy') {
+        }
+        if (arrName === 'middleCopy') {
                 middleCopy = updatedArr
-              }
-              if (arrName === 'rightCopy') {
+        }
+        if (arrName === 'rightCopy') {
                 rightCopy = updatedArr
-              }
+        }
          
       }
 
@@ -425,12 +414,9 @@ const useGameData = (socket, playerName) => {
         newEnergy = enterBattlefield(
           ability.cardAbility[0],
           ability.cardAbility[1],
-          state
+          energyCopy
         );
-        setState((prev) => ({
-          ...prev,
-          energy: newEnergy,
-        }));
+        energyCopy = newEnergy
       }
       if (ability.cardAbility[0] === "playCardFromDeck") {
         newZoneAndDeck = enterBattlefield(
@@ -463,9 +449,11 @@ const useGameData = (socket, playerName) => {
         ...prev,
         deck: deckCopy,
         hand: handCopy,
+        energy: energyCopy,
         leftCardZone: leftCopy,
         middleCardZone: middleCopy,
         rightCardZone: rightCopy,
+
       }));
     }
   }

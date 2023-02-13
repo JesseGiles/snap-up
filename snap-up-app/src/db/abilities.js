@@ -21,8 +21,8 @@ const drawCards = (numCards, deck, hand ) => {
   return [newDeck, newHand];
 };
 
-const addEnergy = (numEnergy, state) => {
-  let newEnergy =  state.energy;
+const addEnergy = (numEnergy, energy) => {
+  let newEnergy =  energy;
   newEnergy += numEnergy
   return newEnergy
 }

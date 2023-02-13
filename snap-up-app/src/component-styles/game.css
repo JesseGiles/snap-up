@@ -101,6 +101,8 @@
 
 .hand {
   border: .3em dotted #ffffff;
+  min-width: 50em;
+  min-height: 12em;
 }
 
 .opp-card-zone {
