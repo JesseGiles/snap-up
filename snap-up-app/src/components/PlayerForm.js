@@ -11,12 +11,10 @@ function PlayerForm(props) {
   let avatarSelected = props.avatarSelected;
   let deckOneSelected = props.deckOneSelected;
   let deckTwoSelected = props.deckTwoSelected;
-  // let avatarImage = props.avatarImage;
-  // let deckOneImage = props.deckOneImage;
-  // let deckTwoImage = props.deckTwoImage;
+  let roomSelected = props.room;
 
   const handleSubmit = (event) => {
-    if (playerName && avatarSelected && deckOneSelected && deckTwoSelected) {
+    if (playerName && avatarSelected && deckOneSelected && deckTwoSelected && roomSelected) {
       event.preventDefault();
       redirectingUser();
     } else {
@@ -43,8 +41,15 @@ function PlayerForm(props) {
     <FormControl>
       <TextField
         label="Player Name"
-        value={(Math.random() + 1).toString(36).substring(7)}
+        value={playerName}
         onChange={(event) => props.setPlayerName(event.target.value)}
+        fullWidth
+        margin="normal"
+      />
+      <TextField
+        label="Room"
+        value={roomSelected}
+        onChange={(event) => props.setRoom(event.target.value)}
         fullWidth
         margin="normal"
       />
@@ -105,7 +110,6 @@ function PlayerForm(props) {
           />
         ))}
       </Grid>
-
       <Button onClick={handleSubmit} variant="contained" color="primary">
         Submit
       </Button>

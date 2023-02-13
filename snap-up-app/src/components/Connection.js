@@ -10,9 +10,11 @@ function Connection(props) {
   const [locations, setLocations] = useState([]);
 
   useEffect(() => {
+    
     socket.emit("message", {
       player: props.playerName,
       avatar: props.avatarImage,
+      room: props.room
     });
   }, []);
 
