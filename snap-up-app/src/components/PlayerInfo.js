@@ -7,11 +7,9 @@ import GameOver from "./GameOver";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import socketIO from "socket.io-client";
 const socket = socketIO.connect("https://snap-up-app.up.railway.app/");
-// const socket= socketIO.connect("http://localhost:4000");
-
+// const socket = socketIO.connect("http://localhost:4000");
 
 function PlayerInfo(props) {
-
   const [playerName, setPlayerName] = useState("");
   const [room, setRoom] = useState();
   const [avatarSelected, setAvatarSelected] = useState(1);
@@ -36,6 +34,7 @@ function PlayerInfo(props) {
               <PlayerForm
                 room={room}
                 setRoom={setRoom}
+                socket={socket}
                 setPlayerInfo={props.setPlayerInfo}
                 playerName={playerName}
                 setPlayerName={setPlayerName}

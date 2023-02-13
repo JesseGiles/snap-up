@@ -7,6 +7,7 @@ import { avatarImages, deckImages } from "../db/images";
 import { useNavigate } from "react-router-dom";
 
 function PlayerForm(props) {
+  const socket = props.socket;
   let playerName = props.playerName;
   let avatarSelected = props.avatarSelected;
   let deckOneSelected = props.deckOneSelected;
@@ -14,7 +15,20 @@ function PlayerForm(props) {
   let roomSelected = props.room;
 
   const handleSubmit = (event) => {
-    if (playerName && avatarSelected && deckOneSelected && deckTwoSelected && roomSelected) {
+    socket.once("room full", () => {
+      alert(
+        "That room is in use by two players, redirecting to home. Please try again with another room id."
+      );
+      navigate("/");
+    });
+
+    if (
+      playerName &&
+      avatarSelected &&
+      deckOneSelected &&
+      deckTwoSelected &&
+      roomSelected
+    ) {
       event.preventDefault();
       redirectingUser();
     } else {
