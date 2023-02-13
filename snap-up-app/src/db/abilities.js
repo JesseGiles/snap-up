@@ -9,9 +9,9 @@ const friendlyCardsAddPower = (num, laneArray) => {
   return newArr;
 };
 
-const drawCards = (numCards, state ) => {
-  const newDeck = [...state.deck];
-  const newHand = [...state.hand];
+const drawCards = (numCards, deck, hand ) => {
+  const newDeck = deck;
+  const newHand = hand;
   while (numCards > 0 && newDeck.length > 0) {
     newHand.push(newDeck.pop());
     numCards -= 1
@@ -27,10 +27,10 @@ const addEnergy = (numEnergy, state) => {
   return newEnergy
 }
 
-const playCardFromDeck = (numCards, state, laneArray) => {
+const playCardFromDeck = (numCards, laneArray, deck) => {
   console.log("LaneArray is:", laneArray)
-  const newDeck = [...state.deck]
-  let newArr = [...laneArray];
+  const newDeck = deck
+  let newArr = laneArray
   while (numCards > 0 && newDeck.length > 0 && newArr.length < 4){
     newArr.push(newDeck.pop())
     numCards -= 1
@@ -38,11 +38,11 @@ const playCardFromDeck = (numCards, state, laneArray) => {
   return [newDeck, newArr]
 }
 
-const shuffleHandIntoDeck = (state) => {
-  const newDeck = shuffle(state.deck.concat(state.hand));
+const shuffleHandIntoDeck = (numCards, deck, hand) => {
+  const newDeck = shuffle(deck.concat(hand));
   const newHand = [];
   console.log("shuffleHandIntoDeck, newDeck:", newDeck, "newHand:", newHand);
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < (numCards + 1); i++) {
     if (newDeck.length > 0) {
       newHand.push(newDeck.pop());
     }
