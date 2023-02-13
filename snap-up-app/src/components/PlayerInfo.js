@@ -5,8 +5,11 @@ import Home from "./Home";
 import GameOver from "./GameOver";
 // import { avatarImages, deckImages } from "../db/images";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import socketIO from "socket.io-client";
+const socket = socketIO.connect("http://localhost:4000");
 
 function PlayerInfo(props) {
+
   const [playerName, setPlayerName] = useState("");
   const [room, setRoom] = useState();
   const [avatarSelected, setAvatarSelected] = useState(1);
@@ -51,6 +54,7 @@ function PlayerInfo(props) {
             element={
               <Connection
                 room={room}
+                socket={socket}
                 playerName={playerName}
                 avatar={avatarSelected}
                 deckOne={deckOneSelected}
