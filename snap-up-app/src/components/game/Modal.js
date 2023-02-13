@@ -14,6 +14,8 @@ function GameOver(props) {
   const isGameOver = gameOverState.isGameOver;
 
   const startNewGame = (event) => {
+    props.socket.emit("leave room", {
+    });
     navigate("/playerform");
   };
 

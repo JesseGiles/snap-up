@@ -131,8 +131,11 @@ socketIO.on("connection", (socket) => {
           }
         });
 
-
-      
+        socket.on("leave room", (data) => {
+          socket.leave(roomNum);
+          console.log("You have left the room!")
+        });
+    
      
 
 

@@ -92,7 +92,7 @@ function Game(props) {
   return (
     <div className="game">
       <NextTurnNotReady waitingForNextTurn={state.waitingForNextTurn} />
-      <GameOver gameOverState={gameState} />
+      <GameOver socket={props.socket} gameOverState={gameState} />
       <DndProvider backend={HTML5Backend}>
         <CustomDragLayer />
         <div className="battlefield">
