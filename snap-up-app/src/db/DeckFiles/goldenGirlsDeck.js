@@ -13,6 +13,8 @@ const goldenGirlsDeck = {
       description: abilities.drawCards.description,
       cardPosition: "hand",
       deck: "goldengirls",
+      locationBonus: false,
+
     },
     {
       id: 20,
@@ -24,6 +26,8 @@ const goldenGirlsDeck = {
       description: "Add 3 bonus energy on your next turn",
       cardPosition: "hand",
       deck: "goldengirls",
+      locationBonus: false,
+
     },
     {
       id: 21,
@@ -35,6 +39,8 @@ const goldenGirlsDeck = {
       description: "Add 3 bonus energy on your next turn",
       cardPosition: "hand",
       deck: "goldengirls",
+      locationBonus: false,
+
     },
     {
       id: 22,
@@ -46,6 +52,8 @@ const goldenGirlsDeck = {
       description: "Play 1 card from your deck into this lane",
       cardPosition: "hand",
       deck: "goldengirls",
+      locationBonus: false,
+
     },
     {
       id: 23,
@@ -57,6 +65,8 @@ const goldenGirlsDeck = {
       description: "Shuffle your hand back into your deck and draw three new cards.",
       cardPosition: "hand",
       deck: "goldengirls",
+      locationBonus: false,
+
     },
     {
       id: 24,
@@ -68,6 +78,8 @@ const goldenGirlsDeck = {
       description: "Shuffle your hand back into your deck and draw three new cards.",
       cardPosition: "hand",
       deck: "goldengirls",
+      locationBonus: false,
+
     },
   ],
 };

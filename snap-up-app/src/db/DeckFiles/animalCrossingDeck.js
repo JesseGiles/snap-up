@@ -13,6 +13,7 @@ const animalCrossingDeck = {
       description: "Add a bonus energy on your next turn",
       cardPosition: "hand",
       deck: "animal-crossing",
+      locationBonus: false
     },
     {
       id: 44,
@@ -24,6 +25,7 @@ const animalCrossingDeck = {
       description: "Give friendly cards at this location +1 power.",
       cardPosition: "hand",
       deck: "animal-crossing",
+      locationBonus: false
     },
     {
       id: 45,
@@ -35,6 +37,7 @@ const animalCrossingDeck = {
       description: "Draw a card",
       cardPosition: "hand",
       deck: "animal-crossing",
+      locationBonus: false
     },
     {
       id: 46,
@@ -46,6 +49,7 @@ const animalCrossingDeck = {
       description: "Add 2 bonus energy on your next turn",
       cardPosition: "hand",
       deck: "animal-crossing",
+      locationBonus: false
     },
     {
       id: 47,
@@ -57,6 +61,7 @@ const animalCrossingDeck = {
       description: "A random card is placed in this location from your deck for next turn.",
       cardPosition: "hand",
       deck: "animal-crossing",
+      locationBonus: false
     },
     {
       id: 48,
@@ -68,6 +73,7 @@ const animalCrossingDeck = {
       description: "Give all friendly cards in this location +6 power",
       cardPosition: "hand",
       deck: "animal-crossing",
+      locationBonus: false
     },
   ],
 };

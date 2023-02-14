@@ -13,6 +13,7 @@ const cerealDeck = {
       description: abilities.addPower.description,
       cardPosition: "hand",
       deck: "cereal",
+      locationBonus: false
     },
     {
       id: 26,
@@ -24,6 +25,7 @@ const cerealDeck = {
       description: "Add 3 bonus energy on your next turn",
       cardPosition: "hand",
       deck: "cereal",
+      locationBonus: false
     },
     {
       id: 27,
@@ -35,6 +37,7 @@ const cerealDeck = {
       description: "Add 3 bonus energy on your next turn",
       cardPosition: "hand",
       deck: "cereal",
+      locationBonus: false
     },
     {
       id: 28,
@@ -46,6 +49,7 @@ const cerealDeck = {
       description: "Play 1 card from your deck into this lane",
       cardPosition: "hand",
       deck: "cereal",
+      locationBonus: false
     },
     {
       id: 29,
@@ -57,6 +61,7 @@ const cerealDeck = {
       description: "Shuffle your hand back into your deck and draw three new cards.",
       cardPosition: "hand",
       deck: "cereal",
+      locationBonus: false
     },
     {
       id: 30,
@@ -68,6 +73,7 @@ const cerealDeck = {
       description: "Shuffle your hand back into your deck and draw three new cards.",
       cardPosition: "hand",
       deck: "cereal",
+      locationBonus: false
     },
   ],
 };

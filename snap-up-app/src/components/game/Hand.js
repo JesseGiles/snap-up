@@ -40,6 +40,7 @@ export default function Hand(props) {
       description={card.description}
       cardPosition={card.cardPosition}
       energy={energy}
+      locationBonus={card.locationBonus}
     />
   ));
   // returns all the card components wrapped in a hand div component

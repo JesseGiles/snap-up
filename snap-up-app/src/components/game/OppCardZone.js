@@ -30,6 +30,7 @@ export default function OppCardZone(props) {
             description={cardsInZone[i].description}
             cardPosition={cardsInZone[i].cardPosition}
             deck={cardsInZone[i].deck}
+            
           />
           </CSSTransition>
           </div>  

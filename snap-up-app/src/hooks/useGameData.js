@@ -332,7 +332,7 @@ const useGameData = (socket, playerName) => {
 
       console.log(
         "oppAbilityQueue in turnInfo before setting state",
-        newOppAbilityQueue
+        newOppAbilityQueue, "this is the opp left card zone", oppLeftCardZone
       );
 
       setState((prev) => ({
@@ -504,6 +504,44 @@ const useGameData = (socket, playerName) => {
       oppRightCardZone: rightCopy,
     }));
   }
+  
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
+  const buffOppCardsIfMatching = function(laneName, location) {
+    let oppLaneName = "opp" + capitalizeFirstLetter(laneName)
+    console.log('Opp Lane Name to buff', oppLaneName)
+    let oppCards = [...state[oppLaneName]]
+    console.log('Buff OppCards array', oppCards)
+    for ( let card of oppCards) {
+      console.log("card: ", card.deck, " location: ", location.deck)
+      if(card.locationBonus === false && card.deck === location.deck) {
+       
+            card.power += 1
+            card.locationBonus = true
+      }
+    }
+  
+    
+    return [oppCards, oppLaneName]
+  }
+
+  const buffCardsIfMatching = function(laneName, location) {
+    console.log('lane Name:', laneName, "location:", location )
+    let playerCards = [...state[laneName]]
+    console.log("PlayerCards", playerCards)
+    for ( let card of playerCards) {
+      if(card.locationBonus === false && card.deck === location.deck) {
+        console.log("Found matching card: ", card, " for location: ", location)
+            card.power += 1
+            card.locationBonus = true
+      }
+    }
+  
+    
+    return playerCards
+  }
 
   //MOVE ALL OF ME LATER
   function reduceEnergyOnDrop(energy, cost) {
@@ -559,8 +597,10 @@ const useGameData = (socket, playerName) => {
     state,
     setState,
     moveCardBetween,
-
+    buffCardsIfMatching,
+    buffOppCardsIfMatching,
     getInitialHand,
+    nextTurn,
     broadcastForNextTurn,
     resolvePlayerAbilitiesQueue,
     resolveOppAbilitiesQueue,

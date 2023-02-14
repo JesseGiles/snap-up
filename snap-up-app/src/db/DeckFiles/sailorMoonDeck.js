@@ -13,6 +13,7 @@ const sailorMoonDeck = {
       description: "Draw two cards",
       cardPosition: "hand",
       deck: "sailor-moon",
+      locationBonus: false,
     },
     {
       id: 14,
@@ -24,6 +25,7 @@ const sailorMoonDeck = {
       description: "Play 2 cards from your deck into this lane",
       cardPosition: "hand",
       deck: "sailor-moon",
+      locationBonus: false,
     },
     {
       id: 15,
@@ -35,6 +37,7 @@ const sailorMoonDeck = {
       description: "Add additional 3 energy to your next turn",
       cardPosition: "hand",
       deck: "sailor-moon",
+      locationBonus: false,
     },
     {
       id: 16,
@@ -42,10 +45,11 @@ const sailorMoonDeck = {
       cost: 3,
       power: 7,
       img: "/cardImages/sailor/sailor_jupiter.jpg",
-      ability: ['shuffleHandIntoDeck'],
+      ability: ['shuffleHandIntoDeck', 3],
       description: "Shuffle your hand back into your deck and draw three new cards.",
       cardPosition: "hand",
       deck: "sailor-moon",
+      locationBonus: false,
     },
     {
       id: 17,
@@ -57,6 +61,7 @@ const sailorMoonDeck = {
       description: "Draw two cards",
       cardPosition: "hand",
       deck: "sailor-moon",
+      locationBonus: false,
     },
     {
       id: 18,
@@ -64,10 +69,11 @@ const sailorMoonDeck = {
       cost: 6,
       power: 15,
       img: "/cardImages/sailor/sailor_moon.jpg",
-      ability: ['drawCards', 1],
+      ability: ['drawCards', 2],
       description: "Draw two cards",
       cardPosition: "hand",
       deck: "sailor-moon",
+      locationBonus: false,
     },
   ],
 };

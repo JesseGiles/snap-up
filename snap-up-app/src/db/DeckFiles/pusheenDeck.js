@@ -13,6 +13,7 @@ const pusheenDeck = {
       description: "A random card is placed in this location from your deck for next turn.",
       cardPosition: "hand",
       deck: "pusheen",
+      locationBonus: false
     },
     {
       id: 8,
@@ -24,6 +25,7 @@ const pusheenDeck = {
       description: "A random card is placed in this location from your deck for next turn.",
       cardPosition: "hand",
       deck: "pusheen",
+      locationBonus: false
     },
     {
       id: 9,
@@ -35,6 +37,7 @@ const pusheenDeck = {
       description: "A random card is placed in this location from your deck for next turn.",
       cardPosition: "hand",
       deck: "pusheen",
+      locationBonus: false
     },
     {
       id: 10,
@@ -46,6 +49,7 @@ const pusheenDeck = {
       description: "All cards in this location get +4 power",
       cardPosition: "hand",
       deck: "pusheen",
+      locationBonus: false
     },
     {
       id: 11,
@@ -57,6 +61,7 @@ const pusheenDeck = {
       description: "All cards in this location get +5 power",
       cardPosition: "hand",
       deck: "pusheen",
+      locationBonus: false
     },
     {
       id: 12,
@@ -68,6 +73,7 @@ const pusheenDeck = {
       description: "All cards in this location get +6 power",
       cardPosition: "hand",
       deck: "pusheen",
+      locationBonus: false
     },
   ],
 };

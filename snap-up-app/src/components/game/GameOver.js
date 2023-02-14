@@ -35,30 +35,30 @@ function GameOver(props) {
 
   if (playerLeftCardZonePoints > oppLeftCardZonePoints) {
     playerWins++;
-    console.log("You won Left Card Zone");
+    // console.log("You won Left Card Zone");
   } else if (oppLeftCardZonePoints > playerLeftCardZonePoints) {
     oppWins++;
-    console.log("You lost Left Card Zone");
+    // console.log("You lost Left Card Zone");
   } else {
-    console.log("LeftCardZone is a tie");
+    // console.log("LeftCardZone is a tie");
   }
   if (playerMiddleCardZonePoints > oppMiddleCardZonePoints) {
     playerWins++;
-    console.log("You won Middle Card Zone");
+    // console.log("You won Middle Card Zone");
   } else if (oppMiddleCardZonePoints > playerMiddleCardZonePoints) {
     oppWins++;
-    console.log("You lost Middle Card Zone");
+    // console.log("You lost Middle Card Zone");
   } else {
-    console.log("MiddleCardZone is a tie");
+    // console.log("MiddleCardZone is a tie");
   }
   if (playerRightCardZonePoints > oppRightCardZonePoints) {
     playerWins++;
-    console.log("You won Right Card Zone");
+    // console.log("You won Right Card Zone");
   } else if (oppRightCardZonePoints > playerRightCardZonePoints) {
     oppWins++;
-    console.log("You lost Right Card Zone");
+    // console.log("You lost Right Card Zone");
   } else {
-    console.log("RightCardZone is a tie");
+    // console.log("RightCardZone is a tie");
   }
 
   console.log("player wins:", playerWins, "opponent wins:", oppWins);

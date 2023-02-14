@@ -32,6 +32,8 @@ export default function CardZone(props) {
                 description={cardsInZone[i].description}
                 cardPosition={cardsInZone[i].cardPosition}
                 deck={cardsInZone[i].deck}
+                locationBonus={cardsInZone[i].locationBonus}
+
               />
             </CSSTransition>
           </div>

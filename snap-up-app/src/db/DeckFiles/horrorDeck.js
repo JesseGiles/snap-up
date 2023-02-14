@@ -13,6 +13,7 @@ const horrorDeck = {
       description: "Draw a cards",
       cardPosition: "hand",
       deck: "horror",
+      locationBonus: false
     },
     {
       id: 2,
@@ -24,6 +25,7 @@ const horrorDeck = {
       description: "A random card is placed in this location from your deck for next turn.",
       cardPosition: "hand",
       deck: "horror",
+      locationBonus: false
     },
     {
       id: 3,
@@ -35,6 +37,7 @@ const horrorDeck = {
       description: "Add 3 bonus energy on your next turn",
       cardPosition: "hand",
       deck: "horror",
+      locationBonus: false
     },
     {
       id: 4,
@@ -46,6 +49,7 @@ const horrorDeck = {
       description: "Give all friendly cards in this location +4 power",
       cardPosition: "hand",
       deck: "horror",
+      locationBonus: false
     },
     {
       id: 5,
@@ -57,6 +61,7 @@ const horrorDeck = {
       description: "Give all friendly cards in this location +5 power",
       cardPosition: "hand",
       deck: "horror",
+      locationBonus: false
     },
     {
       id: 6,
@@ -68,6 +73,7 @@ const horrorDeck = {
       description: "Give all friendly cards in this location +6 power",
       cardPosition: "hand",
       deck: "horror",
+      locationBonus: false
     },
   ],
 };

@@ -18,9 +18,12 @@ function Game(props) {
     setState,
     getInitialHand,
     moveCardBetween,
+    nextTurn,
     broadcastForNextTurn,
     resolvePlayerAbilitiesQueue,
     resolveOppAbilitiesQueue,
+    buffCardsIfMatching,
+    buffOppCardsIfMatching
   } = useGameData(props.socket, props.playerName);
 
   const [gameState, setGameState] = useState({ ...state });
@@ -108,6 +111,11 @@ function Game(props) {
             moveCardBetween={moveCardBetween}
             hand={gameState.hand}
             location={props.locations[0]}
+            buffCardsIfMatching={buffCardsIfMatching}
+            buffOppCardsIfMatching={buffOppCardsIfMatching}
+            setState={setState}
+            playerAbilityQueue={gameState.playerAbilityQueue}
+            oppAbilityQueue={gameState.oppAbilityQueue}
           />
           <Lane
             position="middleCardZone"
@@ -117,6 +125,11 @@ function Game(props) {
             moveCardBetween={moveCardBetween}
             hand={gameState.hand}
             location={props.locations[1]}
+            buffCardsIfMatching={buffCardsIfMatching}
+            buffOppCardsIfMatching={buffOppCardsIfMatching}
+            setState={setState}
+            playerAbilityQueue={gameState.playerAbilityQueue}
+            oppAbilityQueue={gameState.oppAbilityQueue}
           />
           <Lane
             position="rightCardZone"
@@ -126,6 +139,12 @@ function Game(props) {
             moveCardBetween={moveCardBetween}
             hand={gameState.hand}
             location={props.locations[2]}
+            buffCardsIfMatching={buffCardsIfMatching}
+            buffOppCardsIfMatching={buffOppCardsIfMatching}
+            setState={setState}
+            playerAbilityQueue={gameState.playerAbilityQueue}
+            oppAbilityQueue={gameState.oppAbilityQueue}
+            
           />
           <div className="opp-avatar">
             <Avatar avatar={props.opponentAvatar} />
