@@ -1,8 +1,4 @@
-import React, { useState } from "react";
-import TextField from "@mui/material/TextField";
-import FormControl from "@mui/material/FormControl";
-import Grid from "@mui/material/Grid";
-import Button from "@mui/material/Button";
+import React from "react";
 import { avatarImages, deckImages } from "../db/images";
 import { useNavigate } from "react-router-dom";
 
@@ -52,32 +48,25 @@ function PlayerForm(props) {
   };
   // change TextField to use value={playerName} when not testing
   return (
-    <FormControl>
-      <TextField
-        label="Player Name"
-        value={playerName}
-        onChange={(event) => props.setPlayerName(event.target.value)}
-        fullWidth
-        margin="normal"
-      />
-      <TextField
-        label="Room"
-        value={roomSelected}
-        onChange={(event) => props.setRoom(event.target.value)}
-        fullWidth
-        margin="normal"
-      />
-      <Grid item xs={6}>
-        <p>Avatar:</p>
+    <form>
+      <div className="p-2 m-2">
+        <input class="form-control form-control-lg" type="text" placeholder="Enter your name here" onChange={(event) => props.setPlayerName(event.target.value)}/>
+      </div>
+      <div className="p-2 m-2">
+        <input class="form-control form-control-lg" type="text" placeholder="Enter a room name here" onChange={(event) => props.setRoom(event.target.value)}/>
+      </div>
+      <div className="p-2 m-2">
+        <h4>Select your avatar:</h4>
         {avatarImages.map((image) => (
           <img
             key={image.id}
             src={image.src}
             alt={image.label}
+            className="rounded-circle"
             style={{
-              height: "150px",
+              height: "100px",
               cursor: "pointer",
-              border: avatarSelected === image.id ? "5px solid blue" : "",
+              border: avatarSelected === image.id ? "5px solid #0dcaf0" : "",
             }}
             onClick={() => {
               props.setAvatarSelected(image.id);
@@ -85,9 +74,9 @@ function PlayerForm(props) {
             }}
           />
         ))}
-      </Grid>
-      <Grid item xs={6}>
-        <p>Deck One:</p>
+      </div>
+      <div className="p-2 m-2">
+        <h4>Select your first deck:</h4>
         {deckImages.map((image) => (
           <img
             key={image.id}
@@ -96,7 +85,7 @@ function PlayerForm(props) {
             style={{
               height: "150px",
               cursor: "pointer",
-              border: deckOneSelected === image.id ? "5px solid blue" : "",
+              border: deckOneSelected === image.id ? "5px solid #0dcaf0" : "",
             }}
             onClick={() => {
               props.setDeckOneSelected(image.id);
@@ -104,9 +93,9 @@ function PlayerForm(props) {
             }}
           />
         ))}
-      </Grid>
-      <Grid item xs={6}>
-        <p>Deck Two:</p>
+      </div>
+      <div className="p-2 m-2">
+        <h4>Select your second deck:</h4>
         {deckTwoImages().map((image) => (
           <img
             key={image.id}
@@ -115,7 +104,7 @@ function PlayerForm(props) {
             style={{
               height: "150px",
               cursor: "pointer",
-              border: deckTwoSelected === image.id ? "5px solid blue" : "",
+              border: deckTwoSelected === image.id ? "5px solid #0dcaf0" : "",
             }}
             onClick={() => {
               props.setDeckTwoSelected(image.id);
@@ -123,11 +112,13 @@ function PlayerForm(props) {
             }}
           />
         ))}
-      </Grid>
-      <Button onClick={handleSubmit} variant="contained" color="primary">
-        Submit
-      </Button>
-    </FormControl>
+      </div>
+      <div className="row mx-auto mt-4 justify-content-center">
+        <button type="button" onClick={handleSubmit} className="btn btn-info btn-lg text-white">
+          PLAY A GAME!
+        </button>
+      </div>
+    </form>
   );
 }
 
