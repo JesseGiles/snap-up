@@ -5,7 +5,7 @@ import "../../component-styles/game.css";
 import Lane from "./Lane";
 import Avatar from "./Avatar";
 import PlayerZone from "./PlayerZone";
-import GameOver from "./Modal";
+import GameOver from "./GameOver";
 import NextTurnNotReady from "./NextTurnNotReady";
 import useGameData from "../../hooks/useGameData";
 import CustomDragLayer from "./CustomDragLayer";

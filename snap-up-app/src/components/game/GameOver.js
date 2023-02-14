@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { addUpPower } from "../../helpers/selectors";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function GameOver(props) {
-  const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
 
@@ -70,6 +68,8 @@ function GameOver(props) {
       return <img src={winner} height="200px" width="400px" />;
     } else if (oppWins > playerWins) {
       return <img src={loser} height="200px" width="300px" />;
+    } else {
+      return <img src={tie} height="200px" width="400px" />;
     }
   };
 

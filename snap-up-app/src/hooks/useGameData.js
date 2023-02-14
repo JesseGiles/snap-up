@@ -11,7 +11,6 @@ const useGameData = (socket, playerName) => {
 
   const navigate = useNavigate();
   const [state, setState] = useState({
-    // shuffle calls the function and puts in the two 1/2 decks as one combined array of 12 cards
     deck: [],
     hand: [],
     energy: 0,
