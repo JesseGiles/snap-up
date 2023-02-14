@@ -9,11 +9,11 @@ const horrorDeck = {
       cost: 1,
       power: 1,
       img: "/cardImages/horror/chucky.png",
-      ability: ['drawCards', 1],
+      ability: ["drawCards", 1],
       description: "Draw a cards",
       cardPosition: "hand",
       deck: "horror",
-      locationBonus: false
+      locationBonus: false,
     },
     {
       id: 2,
@@ -21,11 +21,12 @@ const horrorDeck = {
       cost: 2,
       power: 3,
       img: "/cardImages/horror/freddy.png",
-      ability: ['playCardFromDeck', 1],
-      description: "A random card is placed in this location from your deck for next turn.",
+      ability: ["shuffleHandIntoDeck", 2],
+      description:
+        "Shuffle your hand back into your deck and draw two new cards.",
       cardPosition: "hand",
       deck: "horror",
-      locationBonus: false
+      locationBonus: false,
     },
     {
       id: 3,
@@ -33,11 +34,11 @@ const horrorDeck = {
       cost: 3,
       power: 5,
       img: "/cardImages/horror/leatherface.png",
-      ability: ['addEnergy', 3],
+      ability: ["addEnergy", 3],
       description: "Add 3 bonus energy on your next turn",
       cardPosition: "hand",
       deck: "horror",
-      locationBonus: false
+      locationBonus: false,
     },
     {
       id: 4,
@@ -45,11 +46,11 @@ const horrorDeck = {
       cost: 4,
       power: 7,
       img: "/cardImages/horror/pinhead.png",
-      ability: ['addPower', 4],
+      ability: ["addPower", 4],
       description: "Give all friendly cards in this location +4 power",
       cardPosition: "hand",
       deck: "horror",
-      locationBonus: false
+      locationBonus: false,
     },
     {
       id: 5,
@@ -57,11 +58,12 @@ const horrorDeck = {
       cost: 5,
       power: 10,
       img: "/cardImages/horror/mmyers.gif",
-      ability: ['addPower', 5],
-      description: "Give all friendly cards in this location +5 power",
+      ability: ["playCardFromDeck", 1],
+      description:
+        "On your next turn, place a card from your deck into this location.",
       cardPosition: "hand",
       deck: "horror",
-      locationBonus: false
+      locationBonus: false,
     },
     {
       id: 6,
@@ -69,11 +71,11 @@ const horrorDeck = {
       cost: 6,
       power: 15,
       img: "/cardImages/horror/jasonstab.gif",
-      ability: ['addPower', 6],
+      ability: ["addPower", 6],
       description: "Give all friendly cards in this location +6 power",
       cardPosition: "hand",
       deck: "horror",
-      locationBonus: false
+      locationBonus: false,
     },
   ],
 };

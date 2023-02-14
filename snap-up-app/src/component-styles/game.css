@@ -1,6 +1,8 @@
 
 .pusheen-pool {
   --lane-bg-color: rgb(248, 186, 197, 0.5);
+  background-position: center;
+  background-size: cover;
   --lane-bg-img: url("../../public/cardImages/pusheen/pusheen-pool.png");
 }
 
@@ -163,10 +165,13 @@
 }
 
 .location {
-  height: 2em;
-  background-color: #A25664;
-  border: .25em outset #884753;
+  height: 2.5em;
   margin: .5em;
+  background-color: #A25664;
+  border: .25em outset #A25664;
+  border-radius: 1em;
+  margin: .5em;
+  line-height: unset;
 }
 
 

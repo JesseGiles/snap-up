@@ -16,12 +16,15 @@
   --img-border: #f2d0a9;
   --bg-img: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
   --font-color: #ffffff;
+  text-shadow: 1px 1px 1px rgb(0, 0, 0);
 }
 
 .sailor-moon {
   --border:  #f1e3d3;
-  --bg: #b68bd1;
+  --bg: #995dbe;
   --img-border: #f2d0a9;
+  --font-color: #ffffff;
+  text-shadow: 1px 1px 1px rgb(0, 0, 0);
   --bg-img: url("https://www.transparenttextures.com/patterns/black-thread-light.png");
 }
 
@@ -46,6 +49,7 @@
   --img-border: #e1b82c;
   --bg-img: url("/../snap-up-app/public/cardImages/animalcrossing/ACbackground.png");
   --font-color: #ffffff;
+  text-shadow: 1px 1px 1px rgb(0, 0, 0);
   
 }
 
@@ -116,6 +120,7 @@
   white-space: nowrap;
   font-style: italic;
   margin-top: 3px;
+  letter-spacing: -1px;
   margin-left: 2px;
   color: var(--font-color);
 }
@@ -175,7 +180,6 @@
   justify-content: center;
   align-items: center;
   color: white;
-  -webkit-text-stroke: 1px #ffffff;
   text-shadow: 1px 1px 2px black;
   font-weight: bold;
 }

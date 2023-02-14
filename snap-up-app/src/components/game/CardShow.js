@@ -83,13 +83,17 @@ export default function CardShow(props) {
             }}
           >
             <div className="card-main-header">
-              <div className="card-main-name"> {cardObj.name}</div>
+              <div className="card-main-name fw-semibold"> {cardObj.name}</div>
               <div className="card-cost-container">
                 <div className="card-cost-shape"></div>
                 <div className="card-cost">{cardObj.cost}</div>
               </div>
             </div>
-            <img className="card-main-img" draggable="false" src={cardObj.img} />
+            <img
+              className="card-main-img"
+              draggable="false"
+              src={cardObj.img}
+            />
             <div className="card-main-power">{cardObj.power}</div>
           </div>
 

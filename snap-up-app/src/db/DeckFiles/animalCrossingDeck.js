@@ -9,11 +9,11 @@ const animalCrossingDeck = {
       cost: 1,
       power: 2,
       img: "/cardImages/animalcrossing/Rover.png",
-      ability: ['addEnergy', 1],
+      ability: ["addEnergy", 1],
       description: "Add a bonus energy on your next turn",
       cardPosition: "hand",
       deck: "animal-crossing",
-      locationBonus: false
+      locationBonus: false,
     },
     {
       id: 44,
@@ -21,11 +21,11 @@ const animalCrossingDeck = {
       cost: 2,
       power: 5,
       img: "/cardImages/animalcrossing/Redd.png",
-      ability: ['addPower', 1],
-      description: "Give friendly cards at this location +1 power.",
+      ability: ["drawCards", 1],
+      description: "Draw a card",
       cardPosition: "hand",
       deck: "animal-crossing",
-      locationBonus: false
+      locationBonus: false,
     },
     {
       id: 45,
@@ -33,35 +33,37 @@ const animalCrossingDeck = {
       cost: 3,
       power: 7,
       img: "/cardImages/animalcrossing/Tom_Nook.png",
-      ability: ['drawCards', 1 ],
-      description: "Draw a card",
+      ability: ["addPower", 2],
+      description: "Give all friendly cards in this location +2 power",
       cardPosition: "hand",
       deck: "animal-crossing",
-      locationBonus: false
+      locationBonus: false,
     },
     {
       id: 46,
       name: "K.K. Slider",
-      cost: 4,
+      cost: 3,
       power: 7,
       img: "/cardImages/animalcrossing/KK_Slider.png",
-      ability: ['addEnergy', 2],
-      description: "Add 2 bonus energy on your next turn",
+      ability: ["shuffleHandIntoDeck", 3],
+      description:
+        "Shuffle your hand back into your deck and draw three new cards.",
       cardPosition: "hand",
       deck: "animal-crossing",
-      locationBonus: false
+      locationBonus: false,
     },
     {
       id: 47,
       name: "Blathers",
-      cost: 5,
+      cost: 4,
       power: 10,
       img: "/cardImages/animalcrossing/Blathers.png",
-      ability: ['playCardFromDeck', 2],
-      description: "A random card is placed in this location from your deck for next turn.",
+      ability: ["playCardFromDeck", 1],
+      description:
+        "On your next turn, place a card from your deck into this location.",
       cardPosition: "hand",
       deck: "animal-crossing",
-      locationBonus: false
+      locationBonus: false,
     },
     {
       id: 48,
@@ -69,11 +71,11 @@ const animalCrossingDeck = {
       cost: 6,
       power: 15,
       img: "/cardImages/animalcrossing/Resetti.png",
-      ability: ['addPower', 6],
-      description: "Give all friendly cards in this location +6 power",
+      ability: ["addPower", 4],
+      description: "Give all friendly cards in this location +4 power",
       cardPosition: "hand",
       deck: "animal-crossing",
-      locationBonus: false
+      locationBonus: false,
     },
   ],
 };

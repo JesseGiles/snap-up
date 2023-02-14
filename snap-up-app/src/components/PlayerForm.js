@@ -50,10 +50,20 @@ function PlayerForm(props) {
   return (
     <form>
       <div className="p-2 m-2">
-        <input class="form-control form-control-lg" type="text" placeholder="Enter your name here" onChange={(event) => props.setPlayerName(event.target.value)}/>
+        <input
+          class="form-control form-control-lg"
+          type="text"
+          placeholder="Enter your name here"
+          onChange={(event) => props.setPlayerName(event.target.value)}
+        />
       </div>
       <div className="p-2 m-2">
-        <input class="form-control form-control-lg" type="text" placeholder="Enter a room name here" onChange={(event) => props.setRoom(event.target.value)}/>
+        <input
+          class="form-control form-control-lg"
+          type="text"
+          placeholder="Enter a room name here"
+          onChange={(event) => props.setRoom(event.target.value)}
+        />
       </div>
       <div className="p-2 m-2">
         <h4>Select your avatar:</h4>
@@ -62,11 +72,11 @@ function PlayerForm(props) {
             key={image.id}
             src={image.src}
             alt={image.label}
-            className="rounded-circle"
+            className="rounded-circle bg-info"
             style={{
               height: "100px",
               cursor: "pointer",
-              border: avatarSelected === image.id ? "5px solid #0dcaf0" : "",
+              border: avatarSelected === image.id ? "5px solid Chartreuse" : "",
             }}
             onClick={() => {
               props.setAvatarSelected(image.id);
@@ -82,10 +92,12 @@ function PlayerForm(props) {
             key={image.id}
             src={image.src}
             alt={image.label}
+            className="bg-info"
             style={{
               height: "150px",
               cursor: "pointer",
-              border: deckOneSelected === image.id ? "5px solid #0dcaf0" : "",
+              border:
+                deckOneSelected === image.id ? "5px solid Chartreuse" : "",
             }}
             onClick={() => {
               props.setDeckOneSelected(image.id);
@@ -101,10 +113,12 @@ function PlayerForm(props) {
             key={image.id}
             src={image.src}
             alt={image.label}
+            className="bg-info"
             style={{
               height: "150px",
               cursor: "pointer",
-              border: deckTwoSelected === image.id ? "5px solid #0dcaf0" : "",
+              border:
+                deckTwoSelected === image.id ? "5px solid Chartreuse" : "",
             }}
             onClick={() => {
               props.setDeckTwoSelected(image.id);
@@ -114,7 +128,11 @@ function PlayerForm(props) {
         ))}
       </div>
       <div className="row mx-auto mt-4 justify-content-center">
-        <button type="button" onClick={handleSubmit} className="btn btn-info btn-lg text-white">
+        <button
+          type="button"
+          onClick={handleSubmit}
+          className="btn btn-info btn-lg text-white"
+        >
           PLAY A GAME!
         </button>
       </div>
