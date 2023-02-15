@@ -39,5 +39,21 @@ const addUpPower = (array) => {
   return totalPower;
 };
 
+function reduceEnergyOnDrop(energy, cost) {
+  
+  energy -= cost;
+  return energy;
+}
 
-export { shuffle, enterBattlefield, addUpPower };
+function addEnergyOnDrop(energy, cost) {
+  energy += cost;
+
+  return energy;
+}
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+
+export { shuffle, enterBattlefield, addUpPower, reduceEnergyOnDrop, addEnergyOnDrop, capitalizeFirstLetter };

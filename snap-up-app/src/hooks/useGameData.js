@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { shuffle, enterBattlefield } from "../helpers/selectors.js";
+import { shuffle, enterBattlefield, reduceEnergyOnDrop, addEnergyOnDrop, capitalizeFirstLetter } from "../helpers/game-helpers.js";
 import decks from "../db/decks.js";
 
 const _ = require("lodash");
@@ -166,7 +166,6 @@ const useGameData = (socket, playerName) => {
         }
       });
       
-
       setState((prev) => ({
         ...prev,
         leftCardZone: newLeftCardZone,
@@ -282,7 +281,6 @@ const useGameData = (socket, playerName) => {
       }
 
       //math their abilties
-
       const oppLeftCardZone = opponent.leftCardZone;
       const oppMiddleCardZone = opponent.middleCardZone;
       const oppRightCardZone = opponent.rightCardZone;
@@ -383,7 +381,6 @@ const useGameData = (socket, playerName) => {
       }
 
       if (ability.cardAbility[0] === "drawCards") {
-       
         newHandAndDeck = enterBattlefield(
           ability.cardAbility[0],
           ability.cardAbility[1],
@@ -489,16 +486,13 @@ const useGameData = (socket, playerName) => {
     }));
   }
   
-  function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
+  
 
   const buffOppCardsIfMatching = function(laneName, location) {
     let oppLaneName = "opp" + capitalizeFirstLetter(laneName)
     let oppCards = [...state[oppLaneName]]
     for ( let card of oppCards) {
       if(card.locationBonus === false && card.deck === location.deck) {
-       
             card.power += 1
             card.locationBonus = true
       }
@@ -516,22 +510,7 @@ const useGameData = (socket, playerName) => {
             card.locationBonus = true
       }
     }
-  
-    
     return playerCards
-  }
-
-  //MOVE ALL OF ME LATER
-  function reduceEnergyOnDrop(energy, cost) {
-  
-    energy -= cost;
-    return energy;
-  }
-
-  function addEnergyOnDrop(energy, cost) {
-    energy += cost;
-
-    return energy;
   }
 
   function moveCardBetween(card, srcZone, targetZone) {
@@ -544,9 +523,7 @@ const useGameData = (socket, playerName) => {
     cardObj["cardPosition"] = targetZone;
     if (srcZone !== targetZone) {
       targetArr.push(cardObj);
-      
       srcArr = srcArr.filter((cardToRemove) => cardToRemove.id !== card.id);
-      
     }
 
     //changes logic based on wher you are dropping

@@ -1,4 +1,4 @@
-import { shuffle } from "../helpers/selectors.js";
+import { shuffle } from "../helpers/game-helpers.js";
 
 const friendlyCardsAddPower = (num, laneArray) => {
   let newArr = [...laneArray];
@@ -55,11 +55,11 @@ const abilities = {
     action: friendlyCardsAddPower,
   },
   'drawCards': {
-    description: "Draw a card",
+    description: "Draw x card(s)",
     action: drawCards,
   },
   'addEnergy' : {
-    description: "Add energy on your next turn",
+    description: "Add x energy on your next turn",
     action: addEnergy,
   },
   'playCardFromDeck' : {
@@ -68,7 +68,7 @@ const abilities = {
     
   },
   'shuffleHandIntoDeck' : {
-    description: "Shuffle your hand back into your deck and draw three new cards.",
+    description: "Shuffle your hand back into your deck and draw x new cards.",
     action: shuffleHandIntoDeck,
   }
 }

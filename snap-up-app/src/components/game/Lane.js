@@ -4,7 +4,7 @@ import Location from "./Location";
 import PlayerLanePower from "./PlayerLanePower";
 import OppLanePower from "./OppLanePower";
 import OppCardZone from "./OppCardZone";
-import { addUpPower } from "../../helpers/selectors";
+import { addUpPower } from "../../helpers/game-helpers";
 
 //also import scss file once you style things
 
