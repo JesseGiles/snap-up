@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import CardZone from "./CardZone";
 import Location from "./Location";
 import PlayerLanePower from "./PlayerLanePower";

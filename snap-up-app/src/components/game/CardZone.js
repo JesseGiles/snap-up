@@ -1,16 +1,10 @@
-import React, { useRef, useEffect, useState } from "react";
+import React from "react";
 import { useDrop } from "react-dnd";
-import CardEmpty from "./CardEmpty.js";
 import CardShow from "./CardShow.js";
 import { ItemTypes } from "./ItemTypes.js";
-import cardBack from "../../assets/snapup_cardback.png";
 import "../../component-styles/flip-transition.css";
 
-import { CSSTransition } from "react-transition-group";
-
 export default function CardZone(props) {
-  
-  const [showFront, setShowFront] = useState(true); //move down
   
   const generateCards = () => {
     let cardsInZone = props.cardsInZone;
@@ -20,7 +14,6 @@ export default function CardZone(props) {
         
         cardsDisplayed.push(
           <div key={i}>
-            <CSSTransition in={showFront} timeout={300} classNames="flip">
               <CardShow
                 key={cardsInZone[i].id}
                 id={cardsInZone[i].id}
@@ -33,13 +26,9 @@ export default function CardZone(props) {
                 cardPosition={cardsInZone[i].cardPosition}
                 deck={cardsInZone[i].deck}
                 locationBonus={cardsInZone[i].locationBonus}
-
               />
-            </CSSTransition>
           </div>
         );
-      } else {
-        // cardsDisplayed.push(<CardEmpty key={i} />);
       }
     }
     return cardsDisplayed;

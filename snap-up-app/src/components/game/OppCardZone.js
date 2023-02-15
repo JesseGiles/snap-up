@@ -8,7 +8,6 @@ export default function OppCardZone(props) {
   
   let oppCards = props.cardsInZone;
 
-
   const generateCards = () => {
     let cardsInZone = oppCards;
 
@@ -30,7 +29,6 @@ export default function OppCardZone(props) {
             description={cardsInZone[i].description}
             cardPosition={cardsInZone[i].cardPosition}
             deck={cardsInZone[i].deck}
-            
           />
           </CSSTransition>
           </div>  

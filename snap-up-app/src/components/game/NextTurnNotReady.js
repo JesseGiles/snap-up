@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from "react";
-import Button from "react-bootstrap/Button";
+import React from "react";
 import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function NextTurnNotReady(props) {
-  
-  
 
   if (props.gameOverState === true ) {
     return
   }
+
   return (
     <>
       {/* <Button variant="primary" onClick={handleShow}>

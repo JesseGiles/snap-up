@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { addUpPower } from "../../helpers/game-helpers";
-import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function GameOver(props) {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-
+  
   const gameOverState = props.gameOverState;
   const isGameOver = gameOverState.isGameOver;
 
@@ -64,11 +61,11 @@ function GameOver(props) {
 
   const winnerOrLoser = () => {
     if (playerWins > oppWins) {
-      return <img src={winner} height="200px"  />;
+      return <img src={winner} height="200px" alt="winner img"  />;
     } else if (oppWins > playerWins) {
-      return <img src={loser} height="200px"  />;
+      return <img src={loser} height="200px" alt="loser img" />;
     } else {
-      return <img src={tie} height="200px"  />;
+      return <img src={tie} height="200px" alt="tie img"  />;
     }
   };
 
@@ -76,7 +73,6 @@ function GameOver(props) {
     <>
       <Modal
         show={isGameOver}
-        onHide={handleClose}
         backdrop="static"
         keyboard={false}
         className="game-over-modal"
@@ -85,10 +81,8 @@ function GameOver(props) {
           <Modal.Title>{gameStatus()}</Modal.Title>
         </Modal.Header>
         <Modal.Body>{winnerOrLoser()}</Modal.Body>
-        <Modal.Footer className="game-over-footer">
-          <Button variant="outline-dark" onClick={startNewGame}>
+        <Modal.Footer className="game-over-footer fw-bold" onClick={startNewGame}>
             Back to Home
-          </Button>
         </Modal.Footer>
       </Modal>
     </>

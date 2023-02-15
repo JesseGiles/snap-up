@@ -1,12 +1,12 @@
-import React, { useRef } from "react";
+import React from "react";
 import Deck from "./Deck";
 import Hand from "./Hand";
 import Energy from "./Energy";
 import Turn from "./Turn";
-//also import scss file once you style things
+
 
 export default function PlayerZone(props) {
-  // receives deck (unused), energy, hand, onClick, player (unused), setState, state, and turn as props
+
 
   return (
     <div className="player-zone">

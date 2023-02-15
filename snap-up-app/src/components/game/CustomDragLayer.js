@@ -1,10 +1,9 @@
 import React from "react";
 import { useDragLayer } from "react-dnd";
-
 import CardPreview from "./CardPreview";
 
 const CustomDragLayer = () => {
-  const { item, isDragging, currentClientOffset, initialSourceClientOffset } =
+  const { item, isDragging, currentClientOffset } =
     useDragLayer((monitor) => ({
       item: monitor.getItem(),
       isDragging: monitor.isDragging(),
