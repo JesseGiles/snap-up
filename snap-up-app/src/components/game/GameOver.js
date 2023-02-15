@@ -17,9 +17,9 @@ function GameOver(props) {
   };
 
   const winner =
-    "https://thumbs.dreamstime.com/b/banner-text-winner-bright-design-vector-illustration-174468593.jpg";
+    "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExODY3MmMwMDU5YTZmMWUzZjE0MTU1N2VmMGM1MDY3NmU0ZjY0OTFiNiZjdD1z/fYxHYBB1k7aQwjGhSc/giphy.gif";
   const loser =
-    "https://img.freepik.com/premium-vector/loser-word-comic-book-pop-art-vector-illustration_703393-247.jpg";
+  "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDVkZDNhMzdjYWJiMGY5MGJlMTMzNDEzODg0NDBjMmQ4ZWYwNzZiYyZjdD1z/8SM09J36uWOPUjYywB/giphy.gif";
   const tie = "https://sd.keepcalms.com/i/keep-calm-it-s-a-tie-game.png";
 
   //calculate winners
@@ -84,13 +84,14 @@ function GameOver(props) {
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
+        className="game-over-modal"
       >
-        <Modal.Header closeButton>
+        <Modal.Header className="game-over-header">
           <Modal.Title>Game Over!</Modal.Title>
         </Modal.Header>
         <Modal.Body>{winnerOrLoser()}</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={startNewGame}>
+        <Modal.Footer className="game-over-footer">
+          <Button variant="outline-dark" onClick={startNewGame}>
             Back to Deck Selection
           </Button>
         </Modal.Footer>

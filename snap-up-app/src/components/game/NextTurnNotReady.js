@@ -14,7 +14,7 @@ function NextTurnNotReady(props) {
 
       <Modal show={props.waitingForNextTurn} backdrop="static" keyboard={false}>
         <Modal.Header ></Modal.Header>
-        <Modal.Body>Waiting for {props.opponent} to end their turn...</Modal.Body>
+        <Modal.Body className="waiting-modal">Waiting for {props.opponent} to end their turn...</Modal.Body>
         <Modal.Footer></Modal.Footer>
       </Modal>
     </>
