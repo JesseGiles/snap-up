@@ -72,7 +72,7 @@ function PlayerForm(props) {
             key={image.id}
             src={image.src}
             alt={image.label}
-            className="rounded-circle bg-info"
+            className="rounded-circle bg-success"
             style={{
               height: "100px",
               cursor: "pointer",
@@ -92,7 +92,7 @@ function PlayerForm(props) {
             key={image.id}
             src={image.src}
             alt={image.label}
-            className="bg-info"
+            className="bg-success"
             style={{
               height: "110px",
               cursor: "pointer",
@@ -113,7 +113,7 @@ function PlayerForm(props) {
             key={image.id}
             src={image.src}
             alt={image.label}
-            className="bg-info"
+            className="bg-success"
             style={{
               height: "110px",
               cursor: "pointer",
