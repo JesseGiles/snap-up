@@ -10,7 +10,7 @@ const sailorMoonDeck = {
       power: 0,
       img: "/cardImages/sailor/tuxedo_mask.jpg",
       ability: ["drawCards", 2],
-      description: "Draw two cards",
+      description: "Draw two cards on your next turn.",
       cardPosition: "hand",
       deck: "sailor-moon",
       locationBonus: false,

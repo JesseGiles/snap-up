@@ -4,6 +4,8 @@ import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function NextTurnNotReady(props) {
+  
+  
   return (
     <>
       {/* <Button variant="primary" onClick={handleShow}>
@@ -11,8 +13,8 @@ function NextTurnNotReady(props) {
       </Button> */}
 
       <Modal show={props.waitingForNextTurn} backdrop="static" keyboard={false}>
-        <Modal.Header closeButton></Modal.Header>
-        <Modal.Body>Waiting for opponent to end their turn..</Modal.Body>
+        <Modal.Header ></Modal.Header>
+        <Modal.Body>Waiting for {props.opponent} to end their turn...</Modal.Body>
         <Modal.Footer></Modal.Footer>
       </Modal>
     </>

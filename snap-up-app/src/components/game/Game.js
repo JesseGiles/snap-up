@@ -94,14 +94,14 @@ function Game(props) {
 
   return (
     <div className="game">
-      <NextTurnNotReady waitingForNextTurn={state.waitingForNextTurn} />
+      <NextTurnNotReady waitingForNextTurn={state.waitingForNextTurn} opponent={props.opponentName} />
       <GameOver socket={props.socket} gameOverState={gameState} />
       <DndProvider backend={HTML5Backend}>
         <CustomDragLayer />
         <div className="battlefield">
           <div className="player-avatar">
             <Avatar avatar={props.avatarImage} />
-            <h2 className="player-name">{props.playerName}</h2>
+            <h4 className="player-name">{props.playerName}</h4>
           </div>
           <Lane
             position="leftCardZone"
@@ -148,7 +148,7 @@ function Game(props) {
           />
           <div className="opp-avatar">
             <Avatar avatar={props.opponentAvatar} />
-            <h2 className="opp-name">{props.opponentName}</h2>
+            <h4 className="opp-name">{props.opponentName}</h4>
           </div>
         </div>
         <PlayerZone

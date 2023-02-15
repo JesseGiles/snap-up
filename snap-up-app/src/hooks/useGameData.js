@@ -215,7 +215,12 @@ const useGameData = (socket, playerName) => {
       case 6:
         startDeckOne = decks.animalCrossingDeck;
         break;
-
+      case 7:
+        startDeckOne = decks.friendsDeck;
+        break;
+      case 8:
+        startDeckOne = decks.fireflyDeck;
+        break;
       default:
         alert("ERROR! NO VALID DECK");
     }
@@ -237,6 +242,12 @@ const useGameData = (socket, playerName) => {
         break;
       case 6:
         startDeckTwo = decks.animalCrossingDeck;
+        break;
+      case 7:
+        startDeckTwo = decks.friendsDeck;
+        break;
+      case 8:
+        startDeckTwo = decks.fireflyDeck;
         break;
       default:
         alert("ERROR! NO VALID DECK");

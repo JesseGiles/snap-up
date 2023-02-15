@@ -39,7 +39,7 @@
   
   background-color: transparent;
   pointer-events: none;
-  height: 0;
+  /* height: 0; */
   --cost:#1AE9E9;
   --power: #A25664;
   z-index: 25;
@@ -49,9 +49,8 @@
 .card-show-preview-container {
   z-index: 40;
   background-color: #510b09;
-  transform: translate(-50%, -100%);
-  position: absolute;
-
+  transform: translate(-70%, -5em);
+  position: sticky
   
 }
 
@@ -59,9 +58,9 @@
   font-family: 'Fira Sans', sans-serif;
   background-color: var(--bg);
   background-image: var(--bg-img);
-  height: 18em;
-  width: 12em;
-  border: .4em solid var(--border);
+  height: 14em;
+  width: 10em;
+  border: .25em solid var(--border);
   color: black;
   position: fixed;
   display: flex;
@@ -93,7 +92,6 @@
 }
 
 .card-preview-cost-container {
-  
   position: relative;
   
 }
@@ -101,8 +99,8 @@
 .card-preview-cost-shape {
   width: 0;
   height: 0;
-  border-top: 4em solid var(--cost);
-  border-left: 4em solid transparent;
+  border-top: 3.3em solid var(--cost);
+  border-left: 2em solid transparent;
   position: absolute;
   right: 0
   
@@ -110,7 +108,7 @@
 
 .card-preview-cost {
   z-index: 11;
-  right: .5em;
+  right: .2em;
   position: absolute;
   font-weight: bolder;
   -webkit-text-stroke: 1px #ffffff;
@@ -120,14 +118,14 @@
 }
 
 .card-preview-img {
-  width: 8em;
-  height: 8em;
+  width: 6em;
+  height: 6em;
   border: .2em solid var(--img-border);
   border-radius: 5%;
   position: absolute;
   top: 35%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -45%);
   object-fit: contain;
 }
 
@@ -136,9 +134,10 @@
   line-height: normal;
   display: flex;
   position: absolute;
-  height: 5em;
-  width: 10.5em;
-  top: 77%;
+  height: 4em;
+  font-size: smaller;
+  width: 10em;
+  top: 74%;
   left: 50%;
   transform: translate(-50%, -50%);
   
@@ -147,15 +146,15 @@
 
 .card-preview-power {
   background-color: var(--power);
-  width: 2em;
-  height: 2em;
-  border: .2em solid var(--border);
+  width: 1.5em;
+  height: 1.5em;
+  border: .15em solid var(--border);
   border-radius: 50%;
   text-align: center;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, 240%);
+  transform: translate(-50%, 250%);
   display: flex;
   justify-content: center;
   align-items: center;

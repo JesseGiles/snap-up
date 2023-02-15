@@ -2,7 +2,7 @@ import React from "react";
 
 export default function PlayerLanePower(props) {
   const totalPower = props.totalPower;
-  const winning = props.isPlayerWinningLane;
+  const winning = props.isOppWinningLane;
 
   return (
     <div

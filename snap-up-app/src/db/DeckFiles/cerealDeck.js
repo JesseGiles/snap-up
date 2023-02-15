@@ -5,7 +5,7 @@ const cerealDeck = {
   cards: [
     {
       id: 25,
-      name: "Snap Crackle Pop",
+      name: "Snap Crackle",
       cost: 5,
       power: 2,
       img: "/cardImages/cereal/snapcrackle.gif",

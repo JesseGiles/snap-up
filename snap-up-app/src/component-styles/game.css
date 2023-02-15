@@ -35,7 +35,7 @@
   --lane-border: rgb(97, 218, 255);
 }
 
-.golden-girls-richmond {
+.golden-girls-bedroom {
   --lane-bg-color: rgb(244, 225, 16, 0.5);
   --lane-bg-img: url("https://w0.peakpx.com/wallpaper/540/323/HD-wallpaper-florida-palms-fan-gold-golden-girls-leaf-leaves-palm-palm-tree-pattern-the-golden-girls.jpg");
   --lane-border: rgb(244, 225, 16);
@@ -56,6 +56,9 @@
   background-position: center;
   background-repeat: no-repeat;
   --lane-border: darkgreen;
+  --location-bg-color: pink;
+  --location-border-color: pink;
+  
 }
 
 .sailor-moon-crystaltokyo {
@@ -74,11 +77,29 @@
 
 }
 
+.friends-centralperk {
+  --lane-bg-color: rgb(166, 126, 63);
+  --lane-bg-img: url("https://w0.peakpx.com/wallpaper/252/571/HD-wallpaper-central-perk-friends-home.jpg");
+  --lane-border: rgb(166, 126, 63);  
+  background-size: cover;
+  background-position: center;
+
+}
+
+.firefly-serenity {
+  --lane-bg-color: navy;
+  --lane-bg-img: url("https://w0.peakpx.com/wallpaper/857/290/HD-wallpaper-firefly-firefly-serenity.jpg");
+  --lane-border: navy;  
+  background-size: cover;
+  background-position: center;
+
+}
+
 .game {
   /* background: rgb(26,233,233); */
   /* background: url("https://www.transparenttextures.com/patterns/bright-squares.png"), radial-gradient(circle, rgba(26,233,233,1) 0%, rgba(162,86,100,1) 100%); */
   font-family: 'Fira Sans', sans-serif;
-  height:100vh;
+  min-height:100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -86,6 +107,7 @@
   color: white;
   padding-left: 3em;
   padding-right: 3em;
+  
 }
 
 .battlefield {
@@ -98,15 +120,15 @@
 .player-zone {
   display: flex;
   flex-direction: row;
-  width: 76em;
+  width: 65em;
   ;
 }
 /* add or subtract to width of player zone to change the amount of cards in hand before wrapping. */
 
 .hand {
   border: .3em dotted #ffffff;
-  min-width: 50em;
-  min-height: 12em;
+  min-width: 30em;
+  min-height: 10em;
 }
 
 .opp-card-zone {
@@ -116,16 +138,14 @@
   display: flex;
   flex-wrap: wrap;
   border-radius: 3em;
-  height: 24em;
-  width: 18em;
+  height: 18em;
+  width: 15em;
   
   
 }
 
 .drop-card-zone {
   border-radius: 3em;
-  
-  
   
 }
 
@@ -142,17 +162,17 @@
   flex-direction: column;
   align-items: center;
   border: 3px solid var(--lane-border);
-  border-radius: 3em;
+  border-radius: 2em;
   background-color: var(--lane-bg-color);
   background-image: var(--lane-bg-img);
-  width: 20em;
+  width: 15em;
   margin: .5em;
   opacity: .9;
 }
 
 .player-lane-power {
-  height: 3em;
-  width: 3em;
+  height: 1.5em;
+  width: 1.5em;
   background-color: goldenrod;
   text-align: center;
   font-weight: bolder;
@@ -162,13 +182,17 @@
   justify-content: center;
   border-style: outset;
   border-color: cornsilk;
+  -webkit-text-stroke: 1px #ffffff;
+  font-size: x-large;
+  text-shadow: 1px 1px 2px black;
+  
 }
 
 .location {
-  height: 2.5em;
+  height: 2em;
   margin: .5em;
-  background-color: #A25664;
-  border: .25em outset #A25664;
+  background-color: var(--location-bg-color);
+  border: .25em outset var(--location-border-color);
   border-radius: 1em;
   margin: .5em;
   line-height: unset;
@@ -177,8 +201,8 @@
 
 .deck {
   display: flex;
-  height: 10em;
-  width: 7.5em;
+  height: 8em;
+  width: 6em;
   margin: 1em;
   cursor: pointer;
   justify-self: left;
@@ -192,29 +216,29 @@
 }
 
 .current-energy {
-  background-color: #1AE9E9;
-  -webkit-text-stroke: 1px #ffffff;
-  color:#ffffff;
-  font-size: xx-large;
-  text-shadow: 3px 3px 2px black;
   height: 2em;
   width: 2em;
-  margin: 1em;
+  background-color: #1AE9E9;
   text-align: center;
-  border-radius: 5%;
   font-weight: bolder;
+  border-radius: 5%;
   display: flex;
   align-items: center; 
   justify-content: center;
   border-style: outset;
   border-color: cyan;
+  -webkit-text-stroke: 1px #ffffff;
+  color:#ffffff;
+  font-size: x-large;
+  text-shadow: 3px 3px 2px black;
+  margin: 1em;
 }
 
 .current-turn {
   background-color: rgb(59, 214, 35);
   -webkit-text-stroke: 1px #ffffff;
   color:#ffffff;
-  font-size: xx-large;
+  font-size: x-large;
   text-shadow: 3px 3px 2px black;
   height: 2em;
   width: 2em;
@@ -230,18 +254,13 @@
   line-height: normal;
 }
 
-.player-data-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  width: 60em;
-}
+
 
 .avatar img {
   border-radius: 50%;
   border-style: groove;
-  height: 6em;
-  width: 6em;
+  height: 5em;
+  width: 5em;
   object-fit: contain;
 }
 
@@ -254,7 +273,7 @@
 
 .player-avatar {
   display: flex;
-  
+  align-items: end;
   flex-direction: column-reverse;
   margin-bottom: 4em;
 }

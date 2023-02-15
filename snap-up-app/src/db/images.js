@@ -16,7 +16,7 @@ const avatarImages = [
   },
   {
     id: 4,
-    label: "Golden Girls",
+    label: "Sophia Petrillo",
     src: "cardImages/goldengirls/sophia_petrillo.jpg",
   },
   {
@@ -31,8 +31,18 @@ const avatarImages = [
   },
   {
     id: 7,
-    label: "Animal Crossing",
+    label: "Tom Nook",
     src: "cardImages/animalcrossing/Tom_Nook.png",
+  },
+  {
+    id: 8,
+    label: "Ross",
+    src: "https://static.wikia.nocookie.net/friends/images/0/0b/RossGeller.jpg"
+  },
+  {
+    id: 9,
+    label: "Mal",
+    src: "https://upload.wikimedia.org/wikipedia/en/1/13/MalReynoldsFirefly.JPG"
   },
 
   // ... add more avatar images here
@@ -56,7 +66,7 @@ const deckImages = [
   },
   {
     id: 4,
-    label: "Golden Girls",
+    label: "Sophia Petrillo",
     src: "cardImages/goldengirls/sophia_petrillo.jpg",
   },
   {
@@ -68,6 +78,16 @@ const deckImages = [
     id: 6,
     label: "Animal Crossing",
     src: "cardImages/animalcrossing/Tom_Nook.png",
+  },
+  {
+    id: 7,
+    label: "Friends",
+    src: "https://static.wikia.nocookie.net/friends/images/0/0b/RossGeller.jpg"
+  },
+  {
+    id: 8,
+    label: "Firefly",
+    src: "https://upload.wikimedia.org/wikipedia/en/1/13/MalReynoldsFirefly.JPG"
   },
   // ... add more deck images here
 ];

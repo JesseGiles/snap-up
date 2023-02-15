@@ -16,16 +16,18 @@
   --img-border: #f2d0a9;
   --bg-img: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
   --font-color: #ffffff;
+  font-weight: bold;
   text-shadow: 1px 1px 1px rgb(0, 0, 0);
 }
 
 .sailor-moon {
   --border:  #f1e3d3;
-  --bg: #995dbe;
-  --img-border: #f2d0a9;
-  --font-color: #ffffff;
-  text-shadow: 1px 1px 1px rgb(0, 0, 0);
+  --bg: #b94ba1;
+  --img-border: rgb(255, 245, 100);
   --bg-img: url("https://www.transparenttextures.com/patterns/black-thread-light.png");
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgb(0, 0, 0);
+  --font-color: #ffffff;
 }
 
 .goldengirls {
@@ -53,7 +55,25 @@
   
 }
 
+.friends {
+  --border: rgb(68, 77, 78);
+  --bg: transparent;
+  --img-border: rgb(166, 126, 63);
+  --bg-img: url("https://previews.123rf.com/images/bbourdages/bbourdages1002/bbourdages100200044/6371370-grunge-old-brick-background-used-for-text-and-wallpaper.jpg");
+  --font-color: #ffffff;
+  text-shadow: 1px 1px 1px rgb(0, 0, 0);
+  
+}
 
+.firefly {
+  --border:  #454b52;
+  --bg: transparent;
+  --img-border: #1f1101;
+  --bg-img: url("https://media.istockphoto.com/id/504110140/vector/night-sky-stars-in-night-sky.jpg?s=612x612&w=0&k=20&c=Y0ew48Fn2IiMDN640MGMgayVDru7Q-DLI_iCPpF6JDg=");
+  --font-color: #ffffff;
+  text-shadow: 1px 1px 1px rgb(0, 0, 0);
+  
+}
 
 /* end of deck styles */
 
@@ -76,11 +96,12 @@
   font-family: 'Fira Sans', sans-serif;
   background-color: var(--bg);
   background-image: var(--bg-img);
-  height: 10em;
-  width: 7.5em;
-  border: .25em solid var(--border);
+  height: 8em;
+  width: 6em;
+  border: .20em solid var(--border);
   color: black;
   z-index: 10;
+  
   position: relative;
   border-radius: 5% 0% 5% 5%;
   -webkit-backface-visibility: hidden;
@@ -91,8 +112,8 @@
 
 .card-back {
   display: flex;
-  height: 10em;
-  width: 7.5em;
+  height: 8em;
+  width: 6em;
   border: .25em solid #900000;
   border-radius: 0% 5% 5% 5%;
   transform: rotateY(180deg);
@@ -121,6 +142,7 @@
   font-style: italic;
   margin-top: 3px;
   letter-spacing: -1px;
+  font-size: smaller;
   margin-left: 2px;
   color: var(--font-color);
 }
@@ -134,8 +156,8 @@
 .card-cost-shape {
   width: 0;
   height: 0;
-  border-top: 2em solid var(--cost);
-  border-left: 2em solid transparent;
+  border-top: 1.8em solid var(--cost);
+  border-left: 1.3em solid transparent;
   position: absolute;
   right: 0
   
@@ -145,6 +167,7 @@
 .card-cost {
   z-index: 9;
   right: .2em;
+  top: -.1em;
   position: absolute;
   font-weight: bolder;
   -webkit-text-stroke: 1px #ffffff;
@@ -154,12 +177,12 @@
 }
 
 .card-main-img {
-  width: 6em;
-  height: 6em;
+  width: 5em;
+  height: 5em;
   border: .2em solid var(--img-border);
   border-radius: 5%;
   position: absolute;
-  top: 50%;
+  top: 53%;
   left: 50%;
   transform: translate(-50%, -50%);
   object-fit: contain;
@@ -175,7 +198,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, 230%);
+  transform: translate(-50%, 190%);
   display: flex;
   justify-content: center;
   align-items: center;

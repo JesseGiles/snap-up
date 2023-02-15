@@ -10,7 +10,7 @@ const pusheenDeck = {
       power: 1,
       img: "/cardImages/pusheen/pip.jpeg",
       ability: ['playCardFromDeck', 1],
-      description: "A random card is placed in this location from your deck for next turn.",
+      description: "On your next turn, place a card from your deck into this location",
       cardPosition: "hand",
       deck: "pusheen",
       locationBonus: false
@@ -22,7 +22,7 @@ const pusheenDeck = {
       power: 3,
       img: "/cardImages/pusheen/stormy.jpeg",
       ability: ['playCardFromDeck', 1],
-      description: "A random card is placed in this location from your deck for next turn.",
+      description: "A random card is placed in this location from your deck for next turn",
       cardPosition: "hand",
       deck: "pusheen",
       locationBonus: false
@@ -30,11 +30,11 @@ const pusheenDeck = {
     {
       id: 9,
       name: "Pusheen",
-      cost: 1,
+      cost: 3,
       power: 5,
       img: "/cardImages/pusheen/pusheen.jpeg",
-      ability: ['playCardFromDeck', 1],
-      description: "A random card is placed in this location from your deck for next turn.",
+      ability: ['drawCards', 2],
+      description: "Draw two cards on your next turn.",
       cardPosition: "hand",
       deck: "pusheen",
       locationBonus: false
@@ -42,7 +42,7 @@ const pusheenDeck = {
     {
       id: 10,
       name: "Dragonsheen",
-      cost: 1,
+      cost: 3,
       power: 7,
       img: "/cardImages/pusheen/dragonsheen.gif",
       ability: ['addPower', 4],
@@ -54,7 +54,7 @@ const pusheenDeck = {
     {
       id: 11,
       name: "Sloth",
-      cost: 1,
+      cost: 5,
       power: 15,
       img: "/cardImages/pusheen/sloth.jpeg",
       ability: ['addPower', 5],
@@ -66,7 +66,7 @@ const pusheenDeck = {
     {
       id: 12,
       name: "Pusheenicorn",
-      cost: 1,
+      cost: 6,
       power: 12,
       img: "/cardImages/pusheen/super_pusheenicorn.jpeg",
       ability: ['addPower', 6],
