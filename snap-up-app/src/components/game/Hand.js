@@ -11,7 +11,6 @@ export default function Hand(props) {
     () => ({
       accept: ItemTypes.CARDSHOW,
       drop: (item, monitor) => {
-        console.log("the position:", item.props.cardPosition);
         props.moveCardBetween(item.props, item.props.cardPosition, "hand");
         // props.cardsInZone.push(item.props)
       },

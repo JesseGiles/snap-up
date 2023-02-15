@@ -6,6 +6,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function NextTurnNotReady(props) {
   
   
+
+  if (props.gameOverState === true ) {
+    return
+  }
   return (
     <>
       {/* <Button variant="primary" onClick={handleShow}>

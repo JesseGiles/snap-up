@@ -1,15 +1,12 @@
 import { useState, useEffect } from "react";
 import { shuffle, enterBattlefield } from "../helpers/selectors.js";
-import { useNavigate } from "react-router-dom";
 import decks from "../db/decks.js";
-import abilities from "../db/abilities.js";
 
 const _ = require("lodash");
 
 const useGameData = (socket, playerName) => {
-  console.log("socket at line 13 usegamedata: ", socket);
+  
 
-  const navigate = useNavigate();
   const [state, setState] = useState({
     deck: [],
     hand: [],
@@ -56,17 +53,15 @@ const useGameData = (socket, playerName) => {
       rightCardZone: state.rightCardZone,
     });
 
-    // console.log("useGameData, line 55: opponent ready:", state.opponentReady, "player ready:", state.playerReady);
-    // if (state.opponentReady && state.playerReady) {
     if (state.turn < 6) {
       // map through each of the cardzone arrays and set cardPosition = 'fixed'
       const newLeftCardZone = [...state.leftCardZone];
       const newMiddleCardZone = [...state.middleCardZone];
       const newRightCardZone = [...state.rightCardZone];
       const newPlayerAbilityQueue = [];
-
+      
       newLeftCardZone.map((card) => {
-        console.log("left card is:", card);
+        
         card.cardPosition = "fixed";
         if (card.ability !== null) {
           newPlayerAbilityQueue.push({
@@ -78,7 +73,7 @@ const useGameData = (socket, playerName) => {
         }
       });
       newMiddleCardZone.map((card) => {
-        console.log("middle card is:", card);
+        
         card.cardPosition = "fixed";
         if (card.ability !== null) {
           newPlayerAbilityQueue.push({
@@ -90,7 +85,7 @@ const useGameData = (socket, playerName) => {
         }
       });
       newRightCardZone.map((card) => {
-        console.log("right card is:", card);
+        
         card.cardPosition = "fixed";
         if (card.ability !== null) {
           newPlayerAbilityQueue.push({
@@ -101,7 +96,6 @@ const useGameData = (socket, playerName) => {
           card.ability = null;
         }
       });
-      // console.log("ABILITY QUEUE:", newPlayerAbilityQueue);
 
       setState((prev) => ({
         ...prev,
@@ -117,7 +111,7 @@ const useGameData = (socket, playerName) => {
       }));
 
       if (state.deck.length > 0) {
-        console.log("You still have cards in your deck");
+        
         const newDeck = [...state.deck];
         const draw = [...state.hand];
         draw.push(newDeck.pop());
@@ -129,16 +123,16 @@ const useGameData = (socket, playerName) => {
         }));
       }
     } else if (state.turn >= 0) {
-      console.log("GAME OVER!", state);
+      
       const newLeftCardZone = [...state.leftCardZone];
       const newMiddleCardZone = [...state.middleCardZone];
       const newRightCardZone = [...state.rightCardZone];
       const newPlayerAbilityQueue = [];
 
       newLeftCardZone.map((card) => {
-        console.log("left card is:", card);
+        
         card.cardPosition = "fixed";
-        if (card.ability !== null) {
+        if (card.ability !== null && card.ability[0] !== 'playCardFromDeck')  {
           newPlayerAbilityQueue.push({
             lane: "left",
             cardName: card.name,
@@ -148,9 +142,9 @@ const useGameData = (socket, playerName) => {
         }
       });
       newMiddleCardZone.map((card) => {
-        console.log("middle card is:", card);
+        
         card.cardPosition = "fixed";
-        if (card.ability !== null) {
+        if (card.ability !== null && card.ability[0] !== 'playCardFromDeck') {
           newPlayerAbilityQueue.push({
             lane: "middle",
             cardName: card.name,
@@ -160,9 +154,9 @@ const useGameData = (socket, playerName) => {
         }
       });
       newRightCardZone.map((card) => {
-        console.log("right card is:", card);
+        
         card.cardPosition = "fixed";
-        if (card.ability !== null) {
+        if (card.ability !== null && card.ability[0] !== 'playCardFromDeck') {
           newPlayerAbilityQueue.push({
             lane: "right",
             cardName: card.name,
@@ -171,17 +165,15 @@ const useGameData = (socket, playerName) => {
           card.ability = null;
         }
       });
-      // console.log("ABILITY QUEUE:", newPlayerAbilityQueue);
+      
 
       setState((prev) => ({
         ...prev,
         leftCardZone: newLeftCardZone,
         middleCardZone: newMiddleCardZone,
         rightCardZone: newRightCardZone,
-        turn: prev.turn + 1,
-        energy: prev.turn + 1,
         playerReady: false,
-        opponentReady: false,
+        opponentReady: true,
         playerAbilityQueue: newPlayerAbilityQueue,
         isGameOver: true,
       }));
@@ -189,10 +181,6 @@ const useGameData = (socket, playerName) => {
   }
 
   function getInitialHand(state, setState, deckOne, deckTwo, socket, player) {
-    // console.log("Deck ONE:", deckOne);
-    // console.log("Deck TWO:", deckTwo);
-    // console.log("Decks import in usegamedata: ", decks);
-    // console.log("Decks", decks.horrorDeck);
 
     let startDeckOne;
     let startDeckTwo;
@@ -253,7 +241,6 @@ const useGameData = (socket, playerName) => {
         alert("ERROR! NO VALID DECK");
     }
 
-    //console.log("state before we shuffle a deck", state);
     const newDeck = shuffle(
       _.cloneDeep(startDeckOne.cards.concat(startDeckTwo.cards))
     );
@@ -269,10 +256,7 @@ const useGameData = (socket, playerName) => {
       energy: 0,
     }));
     setTimeout(() => {
-      //console.log("SETTIMEOUT CALLED");
       draw.push(newDeck.pop());
-
-      //console.log("SETTIMEOUT draw and newDeck:", draw, newDeck);
       setState((prev) => ({
         ...prev,
         hand: draw,
@@ -283,15 +267,12 @@ const useGameData = (socket, playerName) => {
     }, 2000);
 
     socket.on("opponentReady", (data) => {
-      //console.log("line 198: socket opponent ready DATA IS:", data);
-      //console.log("line 199: player IS:", player);
       if (data.player !== player) {
         setState((prev) => ({ ...prev, opponentReady: true }));
       }
     });
 
     socket.on("turnInfo", (data) => {
-      console.log("TurnInfo data received from server is:", data);
 
       let opponent = {};
       if (data[0].player === player) {
@@ -341,10 +322,6 @@ const useGameData = (socket, playerName) => {
         }
       });
 
-      console.log(
-        "oppAbilityQueue in turnInfo before setting state",
-        newOppAbilityQueue, "this is the opp left card zone", oppLeftCardZone
-      );
 
       setState((prev) => ({
         ...prev,
@@ -357,7 +334,6 @@ const useGameData = (socket, playerName) => {
   }
 
   function resolvePlayerAbilitiesQueue(queue) {
-    console.log("entered function PlayerresolveAbilityQueue:", queue);
     let deckCopy = [...state.deck];
     let handCopy = [...state.hand];
     let leftCopy = [...state.leftCardZone];
@@ -388,7 +364,6 @@ const useGameData = (socket, playerName) => {
         targetArr = rightCopy;
         arrName = "rightCopy";
       }
-      console.log("ABILITY is:", ability);
 
       if (ability.cardAbility[0] === "addPower") {
         updatedArr = enterBattlefield(
@@ -408,7 +383,7 @@ const useGameData = (socket, playerName) => {
       }
 
       if (ability.cardAbility[0] === "drawCards") {
-        console.log();
+       
         newHandAndDeck = enterBattlefield(
           ability.cardAbility[0],
           ability.cardAbility[1],
@@ -470,7 +445,6 @@ const useGameData = (socket, playerName) => {
   }
 
   function resolveOppAbilitiesQueue(queue) {
-    console.log("entered function OppresolveAbilityQueue:", queue);
     let leftCopy = [...state.oppLeftCardZone];
     let middleCopy = [...state.oppMiddleCardZone];
     let rightCopy = [...state.oppRightCardZone];
@@ -490,7 +464,6 @@ const useGameData = (socket, playerName) => {
         targetArr = rightCopy;
         arrName = "rightCopy";
       }
-      console.log("ABILITY is:", ability);
       if (ability.cardAbility[0] === "addPower") {
         updatedArr = enterBattlefield(
           ability.cardAbility[0],
@@ -522,11 +495,8 @@ const useGameData = (socket, playerName) => {
 
   const buffOppCardsIfMatching = function(laneName, location) {
     let oppLaneName = "opp" + capitalizeFirstLetter(laneName)
-    console.log('Opp Lane Name to buff', oppLaneName)
     let oppCards = [...state[oppLaneName]]
-    console.log('Buff OppCards array', oppCards)
     for ( let card of oppCards) {
-      console.log("card: ", card.deck, " location: ", location.deck)
       if(card.locationBonus === false && card.deck === location.deck) {
        
             card.power += 1
@@ -539,12 +509,9 @@ const useGameData = (socket, playerName) => {
   }
 
   const buffCardsIfMatching = function(laneName, location) {
-    console.log('lane Name:', laneName, "location:", location )
     let playerCards = [...state[laneName]]
-    console.log("PlayerCards", playerCards)
     for ( let card of playerCards) {
       if(card.locationBonus === false && card.deck === location.deck) {
-        console.log("Found matching card: ", card, " for location: ", location)
             card.power += 1
             card.locationBonus = true
       }
@@ -556,10 +523,8 @@ const useGameData = (socket, playerName) => {
 
   //MOVE ALL OF ME LATER
   function reduceEnergyOnDrop(energy, cost) {
-    console.log("initial energyondrop: ", energy);
-
+  
     energy -= cost;
-    console.log("energy after reduce:", energy);
     return energy;
   }
 
@@ -575,16 +540,13 @@ const useGameData = (socket, playerName) => {
     let currEnergy = state.energy;
     let newEnergy;
     let cardObj = { ...card };
-    console.log("CARDOBJ", cardObj);
-    console.log("card position before:", cardObj.cardPosition);
-    console.log("TargetZone:", targetZone);
+    
     cardObj["cardPosition"] = targetZone;
     if (srcZone !== targetZone) {
       targetArr.push(cardObj);
-      console.log("TargetArr with new card", targetArr);
-      console.log("srcArr before filter", srcArr);
+      
       srcArr = srcArr.filter((cardToRemove) => cardToRemove.id !== card.id);
-      console.log("srcArr after filter", srcArr);
+      
     }
 
     //changes logic based on wher you are dropping

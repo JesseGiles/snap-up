@@ -5,7 +5,6 @@ const friendlyCardsAddPower = (num, laneArray) => {
   for (let card of newArr) {
     card.power += num;
   }
-  console.log("friendlyCardsAddPower set state with: ", newArr);
   return newArr;
 };
 
@@ -28,7 +27,7 @@ const addEnergy = (numEnergy, energy) => {
 }
 
 const playCardFromDeck = (numCards, laneArray, deck) => {
-  console.log("LaneArray is:", laneArray)
+  
   const newDeck = deck
   let newArr = laneArray
   while (numCards > 0 && newDeck.length > 0 && newArr.length < 4){
@@ -41,7 +40,6 @@ const playCardFromDeck = (numCards, laneArray, deck) => {
 const shuffleHandIntoDeck = (numCards, deck, hand) => {
   const newDeck = shuffle(deck.concat(hand));
   const newHand = [];
-  console.log("shuffleHandIntoDeck, newDeck:", newDeck, "newHand:", newHand);
   for (let i = 0; i < (numCards + 1); i++) {
     if (newDeck.length > 0) {
       newHand.push(newDeck.pop());
@@ -50,14 +48,6 @@ const shuffleHandIntoDeck = (numCards, deck, hand) => {
   return [newDeck, newHand];
 }
 
-// const enemyCardsLosePower = (numPower, laneArray, state) => {
-//   let newArr = [...laneArray];
-//   for (let card of newArr) 
-//     card.power -= numPower;
-//   }
-//   console.log(" set state with: ", newArr);
-//   return newArr;
-// };
 
 const abilities = {
   'addPower': {

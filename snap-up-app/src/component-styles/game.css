@@ -276,6 +276,10 @@
   margin-bottom: 4em;
 }
 
+.modal-backdrop.in {
+  opacity: .7!important;
+}
+
 .modal-content {
   background: transparent!important;
   align-items: center;

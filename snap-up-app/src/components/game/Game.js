@@ -11,8 +11,6 @@ import useGameData from "../../hooks/useGameData";
 import CustomDragLayer from "./CustomDragLayer";
 
 function Game(props) {
-  console.log("props recieved by game:", props);
-
   const {
     state,
     setState,
@@ -49,30 +47,15 @@ function Game(props) {
 
   //runs the player's ability queue at the end of the turn
   useEffect(() => {
-    console.log("trying to use playerqueue useEffect");
     if (state.playerAbilityQueue.length > 0) {
-      console.log(
-        "ability queue player prior to resolve:",
-        state.playerAbilityQueue
-      );
       resolvePlayerAbilitiesQueue(state.playerAbilityQueue);
-      console.log(
-        "useeffect resolve abilites player que: ",
-        state.playerAbilityQueue
-      );
     }
   }, [state.playerAbilityQueue]);
 
   //runs the opp's ability queue at the end of the turn
   useEffect(() => {
-    console.log("trying to use oppqueue useEffect");
     if (state.oppAbilityQueue.length > 0) {
-      console.log("ability queue opp prior to resolve:", state.oppAbilityQueue);
       resolveOppAbilitiesQueue(state.oppAbilityQueue);
-      console.log(
-        "useeffect resolve abilites opp que: ",
-        state.oppAbilityQueue
-      );
     }
   }, [state.oppAbilityQueue]);
 
@@ -89,12 +72,9 @@ function Game(props) {
     setGameState({ ...state });
   }, [state]);
 
-  //checks to ensure copy of state is also updated
-  console.log("state on gameRerender: ", state);
-
   return (
     <div className="game">
-      <NextTurnNotReady waitingForNextTurn={state.waitingForNextTurn} opponent={props.opponentName} />
+      <NextTurnNotReady waitingForNextTurn={state.waitingForNextTurn} opponent={props.opponentName} gameOverState={state.isGameOver}/>
       <GameOver socket={props.socket} gameOverState={gameState} />
       <DndProvider backend={HTML5Backend}>
         <CustomDragLayer />

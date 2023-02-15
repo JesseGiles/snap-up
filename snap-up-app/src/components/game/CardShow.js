@@ -16,7 +16,6 @@ export default function CardShow(props) {
       item: { props },
       end: (item, monitor) => {
         monitor.getDropResult();
-        console.log("getdropresult: ", monitor.getDropResult());
       },
       collect: (monitor, props) => ({
         isDragging: monitor.isDragging(),
@@ -29,7 +28,7 @@ export default function CardShow(props) {
   }, []);
 
   let canDrag = null;
-  // console.log("position of ", props.name, " is ", props.cardPosition);
+  
   if (props.cardPosition === "hand" && props.energy >= props.cost) {
     canDrag = drag;
   }

@@ -15,7 +15,7 @@ function PlayerForm(props) {
       alert(
         "That room is in use by two players, redirecting to home. Please try again with another room id."
       );
-      navigate("/");
+      window.location = "/";
     });
 
     if (

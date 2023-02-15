@@ -79,14 +79,10 @@ socketIO.on("connection", (socket) => {
     } else {
       socket.emit("room full");
     }
-    console.log(
-      "list of the current room after",
-      socketIO._nsps.get("/").adapter.rooms.get(roomNum).size
-    );
 
     if (pairedUsers.length === 2) {
       users = users.filter((user) => {
-        console.log("user is", user, "pairedUsers are ", pairedUsers);
+        
         if (user.player !== pairedUsers[0].player) {
           if (user.player !== pairedUsers[1].player) {
             return true;
@@ -106,10 +102,7 @@ socketIO.on("connection", (socket) => {
     });
 
     socket.on("nextTurn", (data) => {
-      //Listens and logs the message to the console
-      console.log("This was received from opp for nextTurn:", data);
-      // console.log("All connected users: ", data);
-      // socketIO.emit("messageResponse", data);
+      
 
       turnInfo.push(data);
       console.log("All information received:", turnInfo);
@@ -117,9 +110,7 @@ socketIO.on("connection", (socket) => {
         socketIO.to(roomNum).emit("turnInfo", turnInfo);
         // clear the turnInfo
         turnInfo = [];
-      } else {
-        console.log("Waiting for opponent to finish their turn...");
-      }
+      } 
     });
 
     socket.on("leave room", (data) => {
@@ -128,21 +119,17 @@ socketIO.on("connection", (socket) => {
     });
   });
 
-  // socket.on("oppAbilities", (data) => {
-  //   console.log("oppAbilities received at server: ", data);
-  // });
+ 
 
   socket.on("disconnect", () => {
     console.log("🔥: A user disconnected");
     users = users.filter((user) => user.socketID !== socket.id);
-    // console.log(users);
-    //Sends the list of users to the client
-    // socketIO.emit("newUserResponse", users);
+    
     socket.disconnect();
   });
 });
 
 http.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
-  console.log("Hello, World");
+ 
 });

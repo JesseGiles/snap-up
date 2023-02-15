@@ -23,10 +23,7 @@ function shuffle(array) {
 //consider the rest params (...args)
 const enterBattlefield = (functionRef, ...args) => {
   
-  console.log("what is functionref?", functionRef);
   let callback = abilities[functionRef].action
-  console.log("this is enterbattlefield the ability callback:", callback)
-  console.log("enterBattlefield triggered with args:", ...args)
   return callback(...args);
 }
 

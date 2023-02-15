@@ -2,8 +2,6 @@ import React from "react";
 import "../../component-styles/card-preview.css";
 
 export default function CardPreview(props) {
-  // console.log("ALL PROPS", props)
-  // console.log("CARDPREVIEW PROPS:", props.item);
   if (props.item === undefined) {
     return;
   }
