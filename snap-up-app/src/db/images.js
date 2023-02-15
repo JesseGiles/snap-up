@@ -37,12 +37,12 @@ const avatarImages = [
   {
     id: 8,
     label: "Ross",
-    src: "https://static.wikia.nocookie.net/friends/images/0/0b/RossGeller.jpg"
+    src: "cardImages/friends/ross.webp"
   },
   {
     id: 9,
     label: "Mal",
-    src: "https://upload.wikimedia.org/wikipedia/en/1/13/MalReynoldsFirefly.JPG"
+    src: "cardImages/firefly/mal.jpg"
   },
 
   // ... add more avatar images here
@@ -82,12 +82,12 @@ const deckImages = [
   {
     id: 7,
     label: "Friends",
-    src: "https://static.wikia.nocookie.net/friends/images/0/0b/RossGeller.jpg"
+    src: "cardImages/friends/ross.webp"
   },
   {
     id: 8,
     label: "Firefly",
-    src: "https://upload.wikimedia.org/wikipedia/en/1/13/MalReynoldsFirefly.JPG"
+    src: "cardImages/firefly/mal.jpg"
   },
   // ... add more deck images here
 ];

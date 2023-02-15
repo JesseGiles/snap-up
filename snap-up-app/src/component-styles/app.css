@@ -10,3 +10,21 @@
   justify-content: center;
   color: white;
 }
+.app .bg-info {
+  border-radius: 0.2em;
+}
+
+.card {
+  flex-direction: row;
+  align-items: center;
+  max-height: 20vh;
+}
+.card-title {
+  font-weight: bold;
+}
+.card img {
+  max-width: 18vh;
+  max-height: 18vh;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: calc(0.25rem - 1px);
+}

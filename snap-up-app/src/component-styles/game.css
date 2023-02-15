@@ -120,7 +120,7 @@
 .player-zone {
   display: flex;
   flex-direction: row;
-  width: 65em;
+  width: 60em;
   ;
 }
 /* add or subtract to width of player zone to change the amount of cards in hand before wrapping. */

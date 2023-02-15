@@ -51,7 +51,7 @@ function PlayerForm(props) {
     <form>
       <div className="p-2 m-2">
         <input
-          class="form-control form-control-lg"
+          className="form-control form-control-lg"
           type="text"
           placeholder="Enter your name here"
           onChange={(event) => props.setPlayerName(event.target.value)}
@@ -59,7 +59,7 @@ function PlayerForm(props) {
       </div>
       <div className="p-2 m-2">
         <input
-          class="form-control form-control-lg"
+          className="form-control form-control-lg"
           type="text"
           placeholder="Enter a room name here"
           onChange={(event) => props.setRoom(event.target.value)}
@@ -94,7 +94,7 @@ function PlayerForm(props) {
             alt={image.label}
             className="bg-info"
             style={{
-              height: "150px",
+              height: "110px",
               cursor: "pointer",
               border:
                 deckOneSelected === image.id ? "5px solid Chartreuse" : "",
@@ -115,7 +115,7 @@ function PlayerForm(props) {
             alt={image.label}
             className="bg-info"
             style={{
-              height: "150px",
+              height: "110px",
               cursor: "pointer",
               border:
                 deckTwoSelected === image.id ? "5px solid Chartreuse" : "",
