@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PlayerForm from "./PlayerForm";
 import Connection from "./Connection";
+import Splash from "./game/Splash";
 import Home from "./Home";
 // import { avatarImages, deckImages } from "../db/images";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -26,7 +27,8 @@ function PlayerInfo(props) {
     <BrowserRouter>
       <div>
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          <Route path="/" element={<Splash />}></Route>
+          <Route path="/home" element={<Home />}></Route>
           <Route
             path="/playerform"
             element={
