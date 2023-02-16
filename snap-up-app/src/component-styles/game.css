@@ -100,13 +100,13 @@
   /* background: url("https://www.transparenttextures.com/patterns/bright-squares.png"), radial-gradient(circle, rgba(26,233,233,1) 0%, rgba(162,86,100,1) 100%); */
   font-family: 'Fira Sans', sans-serif;
   min-height:100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: white;
-  padding-left: 3em;
-  padding-right: 3em;
+  
   
 }
 
@@ -120,7 +120,7 @@
 .player-zone {
   display: flex;
   flex-direction: row;
-  width: 60em;
+  width: 57em;
   ;
 }
 /* add or subtract to width of player zone to change the amount of cards in hand before wrapping. */
