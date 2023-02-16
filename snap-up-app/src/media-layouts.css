@@ -1,0 +1,88 @@
+@media only screen and (min-width: 300px) {
+
+  .deck-form-container {
+    transform: scale(.5);
+  }
+  
+  .game {
+    transform: scale(.4);
+  }
+}
+
+@media only screen and (min-width: 400px) {
+
+  .deck-form-container {
+    transform: scale(.5);
+  }
+  
+  .game {
+    transform: scale(.45);
+  }
+}
+
+@media only screen and (min-width: 700px) and (min-height: 600px) {
+
+  .deck-form-container {
+    transform: scale(.8);
+  }
+  
+  .game {
+    transform: scale(.65);
+  }
+}
+
+@media only screen and (min-width: 800px) and (min-height: 768px) {
+
+  .game {
+    transform: scale(.85);
+  }
+
+  .deck-form-container {
+    transform: scale(.85);
+  }
+}
+
+@media only screen and (min-width: 900px) and (min-height: 799px) {
+
+  .game {
+    transform: scale(.9);
+  }
+  
+  
+}
+
+@media only screen and (min-height: 900px) {
+  .game {
+    transform: scale(1);
+  }
+}
+
+@media only screen and (min-height: 1050px) {
+  
+  .game {
+    transform: scale(1.15);
+  }
+
+  .deck-form-container {
+    transform: scale(1.4);
+  }
+}
+
+@media only screen and (min-height: 1200px) {
+  
+  .game {
+    transform: scale(1.3);
+  }
+
+  .deck-form-container {
+    transform: scale(1.5);
+  }
+}
+
+@media only screen and (min-height: 2160px) {
+  
+  .game {
+    transform: scale(2);
+  }
+}
+

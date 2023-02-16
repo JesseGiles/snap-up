@@ -48,7 +48,7 @@ function PlayerForm(props) {
   };
   // change TextField to use value={playerName} when not testing
   return (
-    <form>
+    <form className="deck-form-container">
       <div className="p-2 m-2">
         <input
           className="form-control form-control-lg"

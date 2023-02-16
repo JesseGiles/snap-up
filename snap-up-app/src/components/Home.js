@@ -16,7 +16,7 @@ export default function Home() {
   };
 
   return (
-    <div className="container row mx-auto justify-content-center">
+    <div className="container row mx-auto justify-content-center home-container">
       <h1 className="d-flex justify-content-center mt-4 bg-info text-white">
         Welcome to Snap Up!
       </h1>
