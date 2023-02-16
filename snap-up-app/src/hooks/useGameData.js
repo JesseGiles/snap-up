@@ -176,6 +176,7 @@ const useGameData = (socket, playerName) => {
         playerAbilityQueue: newPlayerAbilityQueue,
         isGameOver: true,
       }));
+
     }
   }
 
@@ -263,7 +264,7 @@ const useGameData = (socket, playerName) => {
         turn: 1,
         energy: 1,
       }));
-    }, 2000);
+    }, 1000);
 
     socket.on("opponentReady", (data) => {
       if (data.player !== player) {

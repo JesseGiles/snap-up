@@ -90,8 +90,6 @@
   
 }
 
-
-
 .card-main {
   font-family: 'Fira Sans', sans-serif;
   background-color: var(--bg);
@@ -101,7 +99,6 @@
   border: .20em solid var(--border);
   color: black;
   z-index: 10;
-  
   position: relative;
   border-radius: 5% 0% 5% 5%;
   -webkit-backface-visibility: hidden;

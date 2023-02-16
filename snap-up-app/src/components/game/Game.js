@@ -96,6 +96,7 @@ function Game(props) {
             setState={setState}
             playerAbilityQueue={gameState.playerAbilityQueue}
             oppAbilityQueue={gameState.oppAbilityQueue}
+            
           />
           <Lane
             position="middleCardZone"
@@ -110,6 +111,7 @@ function Game(props) {
             setState={setState}
             playerAbilityQueue={gameState.playerAbilityQueue}
             oppAbilityQueue={gameState.oppAbilityQueue}
+            
           />
           <Lane
             position="rightCardZone"
@@ -124,6 +126,7 @@ function Game(props) {
             setState={setState}
             playerAbilityQueue={gameState.playerAbilityQueue}
             oppAbilityQueue={gameState.oppAbilityQueue}
+            
             
           />
           <div className="opp-avatar">
