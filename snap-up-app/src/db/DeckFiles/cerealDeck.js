@@ -7,7 +7,7 @@ const cerealDeck = {
       id: 25,
       name: "Snap Crackle",
       cost: 5,
-      power: 2,
+      power: 5,
       img: "/cardImages/cereal/snapcrackle.gif",
       ability: ["playCardFromDeck", 2],
       description:
@@ -19,8 +19,8 @@ const cerealDeck = {
     {
       id: 26,
       name: "Tricks",
-      cost: 2,
-      power: 3,
+      cost: 1,
+      power: 2,
       img: "/cardImages/cereal/trix.gif",
       ability: ["addEnergy", 2],
       description: "Add two bonus energy on your next turn.",
@@ -31,8 +31,8 @@ const cerealDeck = {
     {
       id: 27,
       name: "Toucan Sam",
-      cost: 3,
-      power: 7,
+      cost: 1,
+      power: 3,
       img: "/cardImages/cereal/ToucanSam2.png",
       ability: ["drawCards", 1],
       description: "Draw an extra card on your next turn.",
@@ -44,7 +44,7 @@ const cerealDeck = {
       id: 28,
       name: "Lucky",
       cost: 4,
-      power: 4,
+      power: 5,
       img: "/cardImages/cereal/Lucky2.png",
       ability: ["addPower", 2],
       description: "Give all friendly cards in this location +2 power.",
@@ -55,8 +55,8 @@ const cerealDeck = {
     {
       id: 29,
       name: "Cpt Crunch",
-      cost: 3,
-      power: 5,
+      cost: 1,
+      power: 2,
       img: "/cardImages/cereal/CptCrunch2.png",
       ability: ["shuffleHandIntoDeck", 3],
       description:

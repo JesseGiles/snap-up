@@ -18,8 +18,8 @@ const sailorMoonDeck = {
     {
       id: 14,
       name: "Sailor Mercury",
-      cost: 2,
-      power: 3,
+      cost: 1,
+      power: 1,
       img: "/cardImages/sailor/sailor_mercury.jpg",
       ability: ["playCardFromDeck", 1],
       description:
@@ -31,11 +31,11 @@ const sailorMoonDeck = {
     {
       id: 15,
       name: "Sailor Mars",
-      cost: 2,
-      power: 5,
+      cost: 1,
+      power: 2,
       img: "/cardImages/sailor/sailor_mars.jpg",
       ability: ["addEnergy", 3],
-      description: "Add additional 3 energy to your next turn.",
+      description: "Add additional three energy to your next turn.",
       cardPosition: "hand",
       deck: "sailor-moon",
       locationBonus: false,

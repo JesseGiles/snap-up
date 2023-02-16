@@ -18,7 +18,7 @@ const horrorDeck = {
     {
       id: 2,
       name: "Freddy",
-      cost: 2,
+      cost: 1,
       power: 3,
       img: "/cardImages/horror/freddy.png",
       ability: ["shuffleHandIntoDeck", 2],
@@ -31,11 +31,11 @@ const horrorDeck = {
     {
       id: 3,
       name: "Leatherface",
-      cost: 3,
-      power: 5,
+      cost: 1,
+      power: 1,
       img: "/cardImages/horror/leatherface.png",
       ability: ["addEnergy", 3],
-      description: "Add 3 bonus energy on your next turn.",
+      description: "Add three bonus energy on your next turn.",
       cardPosition: "hand",
       deck: "horror",
       locationBonus: false,
@@ -43,7 +43,7 @@ const horrorDeck = {
     {
       id: 4,
       name: "Pinhead",
-      cost: 4,
+      cost: 3,
       power: 7,
       img: "/cardImages/horror/pinhead.png",
       ability: ["addPower", 2],
@@ -55,7 +55,7 @@ const horrorDeck = {
     {
       id: 5,
       name: "Michael Myers",
-      cost: 5,
+      cost: 4,
       power: 10,
       img: "/cardImages/horror/mmyers.gif",
       ability: ["playCardFromDeck", 1],
