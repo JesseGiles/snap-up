@@ -1,6 +1,6 @@
 # Snap-Up
 
-Combining inspirations from the popular board game _Smash Up_, and the mobile game _Marvel Snap_, **_Snap-Up_** is a **React**-based, two-player, online digital card battle game with a Multiverse approach. Whew.
+Combining inspirations from the popular board game _Smash Up_, and the mobile game _Marvel Snap_, **_Snap-Up_** is a **React**-based, two-player, online digital card battle game with a Multiverse theme. Whew.
 
 Players are able to generate a **'play' deck** of cards to use (for a given match) by selecting from 2 of our pre-existing themed decks; the **'play' deck** will be a combination of cards from the 2 selected themed decks, shuffled randomly. This mix-n-match deck approach provides replayability and allows for varied strategy without needing to implement an entire card-by-card deck building approach, which is outside of the scope for this project.
 
