@@ -14,11 +14,11 @@ const locations = [
 
   { name: "Pusheen's Pool Party", deck: "pusheen", style: "pusheen-pool" },
   // { name: "Pusheenimals Parade", deck: "pusheen", style: "pusheen-zoo" },
-  // {
+  {
     name: "Blanche's Bedroom",
     deck: "goldengirls",
     style: "golden-girls-bedroom",
-  // },
+  },
   // {
   //   name: "Shady Pines",
   //   deck: "goldengirls",
