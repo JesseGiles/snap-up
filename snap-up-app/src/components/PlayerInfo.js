@@ -24,7 +24,7 @@ function PlayerInfo(props) {
 
   return (
     <BrowserRouter>
-      <div>
+      
         <Routes>
           <Route path="/" element={<Splash />}></Route>
           <Route path="/home" element={<Home />}></Route>
@@ -67,7 +67,6 @@ function PlayerInfo(props) {
             }
           ></Route>
         </Routes>
-      </div>
     </BrowserRouter>
   );
 }

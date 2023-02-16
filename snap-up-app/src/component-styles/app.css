@@ -28,3 +28,14 @@
   border-top-right-radius: 0;
   border-bottom-left-radius: calc(0.25rem - 1px);
 }
+
+.splash-screen {
+  background-image: url("/../snap-up-app/public/splashtitle.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh
+      
+  
+}

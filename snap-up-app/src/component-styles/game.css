@@ -316,6 +316,7 @@
   border-radius: 2em!important;
   border: transparent!important;
   box-shadow: 0px 0px 5px #333, inset 0px 0px 5px #333;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
 }
 
 .game-over-footer {
@@ -325,7 +326,10 @@
   border-radius: 2em!important;
   box-shadow: 0px 0px 5px #333, inset 0px 0px 5px #333;
   color: white!important;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
 }
-
+.game-over-footer:hover {
+  background-color: #31c0c0!important;
+}
 
 

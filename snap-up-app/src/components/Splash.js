@@ -8,12 +8,12 @@ export default function Splash() {
   const redirectingUser = () => {
     setTimeout(() => {
       navigate("/home");
-    }, 4000);
+    }, 3000);
   };
 
   return (
-    <div>
-      <img src={"splashtitle.png"}></img>
+    <div className="splash-screen">
+      
       {redirectingUser()}
     </div>
   );
