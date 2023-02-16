@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import CardShow from "./CardShow.js";
 import "../../component-styles/flip-transition.css";
-import { CSSTransition } from "react-transition-group";
+
 
 export default function OppCardZone(props) {
 

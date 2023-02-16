@@ -1,4 +1,4 @@
-import abilities from "../abilities.js";
+
 
 const sailorMoonDeck = {
   name: "Sailor Moon Deck",

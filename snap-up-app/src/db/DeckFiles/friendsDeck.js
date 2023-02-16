@@ -1,4 +1,4 @@
-import abilities from "../abilities.js";
+
 
 const friendsDeck = {
   name: "Friends Deck",

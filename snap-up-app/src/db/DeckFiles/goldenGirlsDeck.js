@@ -1,4 +1,4 @@
-import abilities from "../abilities.js";
+
 
 const goldenGirlsDeck = {
   name: "Golden Girls Deck",

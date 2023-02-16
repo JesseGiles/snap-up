@@ -1,4 +1,4 @@
-import abilities from "../abilities.js";
+
 
 const fireflyDeck = {
   name: "Firefly Deck",

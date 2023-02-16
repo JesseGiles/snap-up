@@ -1,4 +1,3 @@
-import abilities from "../abilities.js";
 
 const animalCrossingDeck = {
   name: "Animal Crossing Deck",

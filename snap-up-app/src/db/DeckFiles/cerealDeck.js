@@ -1,4 +1,4 @@
-import abilities from "../abilities.js";
+
 
 const cerealDeck = {
   name: "Cereal Deck",

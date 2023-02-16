@@ -71,6 +71,7 @@ const useGameData = (socket, playerName) => {
           });
           card.ability = null;
         }
+        return card
       });
       newMiddleCardZone.map((card) => {
         
@@ -83,6 +84,7 @@ const useGameData = (socket, playerName) => {
           });
           card.ability = null;
         }
+        return card
       });
       newRightCardZone.map((card) => {
         
@@ -95,6 +97,7 @@ const useGameData = (socket, playerName) => {
           });
           card.ability = null;
         }
+        return card
       });
 
       setState((prev) => ({
@@ -140,6 +143,7 @@ const useGameData = (socket, playerName) => {
           });
           card.ability = null;
         }
+        return card
       });
       newMiddleCardZone.map((card) => {
         
@@ -152,6 +156,7 @@ const useGameData = (socket, playerName) => {
           });
           card.ability = null;
         }
+        return card
       });
       newRightCardZone.map((card) => {
         
@@ -164,6 +169,7 @@ const useGameData = (socket, playerName) => {
           });
           card.ability = null;
         }
+        return card
       });
       
       setState((prev) => ({
@@ -297,6 +303,7 @@ const useGameData = (socket, playerName) => {
           });
           card.ability = null;
         }
+        return card
       });
       oppMiddleCardZone.map((card) => {
         card.cardPosition = "fixed";
@@ -308,6 +315,7 @@ const useGameData = (socket, playerName) => {
           });
           card.ability = null;
         }
+        return card
       });
       oppRightCardZone.map((card) => {
         card.cardPosition = "fixed";
@@ -319,6 +327,7 @@ const useGameData = (socket, playerName) => {
           });
           card.ability = null;
         }
+        return card
       });
 
 
