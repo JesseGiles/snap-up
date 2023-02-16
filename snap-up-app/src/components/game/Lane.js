@@ -47,7 +47,7 @@ export default function Lane(props) {
 
   return (
     <div className={`lane ${props.location.style}`}>
-      <OppCardZone position={props.position} cardsInZone={props.oppZoneCards} />
+      <OppCardZone playerAbilityQueue={props.playerAbilityQueue} position={props.position} cardsInZone={props.oppZoneCards} />
       <OppLanePower
         totalPower={addUpPower(props.oppZoneCards)}
         isOppWinningLane={isOppWinningLane(

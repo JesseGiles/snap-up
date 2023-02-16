@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getEmptyImage } from "react-dnd-html5-backend";
 import { useDrag } from "react-dnd";
 import { ItemTypes } from "./ItemTypes.js";
+import { CSSTransition } from "react-transition-group";
 import CardPreview from "./CardPreview";
 import "../../component-styles/card.css";
 import cardBack from "../../assets/snapup_cardback.png";
@@ -9,6 +10,22 @@ import cardBack from "../../assets/snapup_cardback.png";
 //turn this into a folder full of components for card modes.
 export default function CardShow(props) {
   const [showPreview, setShowPreview] = useState(false);
+  const [showBack, setShowBack] = useState(false)
+  const [showFront, setShowFront] = useState(false)
+  
+  useEffect(() => {
+    if (props.showBack === true) {
+      
+      setShowFront(false)
+      setTimeout( () => {
+        setShowFront(true)
+        console.log('set show front should be true:', showFront)
+      }
+        ,1500)
+      
+    }
+  }, [props.playerAbilityQueue]);
+  
 
   const [collected, drag, dragPreview] = useDrag(
     () => ({
@@ -26,6 +43,14 @@ export default function CardShow(props) {
   useEffect(() => {
     dragPreview(getEmptyImage());
   }, []);
+  
+  useEffect(() => {
+    if (props.showBack === true){
+      setShowBack(true)
+    }  
+  }, []);
+
+
 
   let canDrag = null;
   
@@ -56,7 +81,8 @@ export default function CardShow(props) {
         <div className="card-show-preview-container" ref={null}>
           <CardPreview
             style={{ pointerEvents: "auto" }}
-            onContextMenu={() => setShowPreview(false)}
+            onContextMenu={() => {setShowPreview(false)
+            setShowBack(false)}}
             onClick={() => setShowPreview(false)}
             item={{
               id: cardObj.id,
@@ -70,7 +96,7 @@ export default function CardShow(props) {
           />
         </div>
         <div
-          className={`card-show ${cardObj.deck}`}
+          className={`card-show ${cardObj.deck} `}
           onContextMenu={() => setShowPreview(true)}
         >
           <div
@@ -103,10 +129,13 @@ export default function CardShow(props) {
   } else {
     return (
       //only return card-show
-
+      <CSSTransition in={showFront} timeout={300} classNames="flip">
       <div
         className={`card-show ${cardObj.deck}`}
         onContextMenu={() => setShowPreview(true)}
+        style={{
+          transform: showBack ? "rotateY(180deg)" : "transform: rotateY(0deg)",
+        }}
       >
         <div
           onClick={props.onClick}
@@ -135,6 +164,7 @@ export default function CardShow(props) {
           onClick={props.onClick}
         />
       </div>
+      </CSSTransition>
     );
   }
 }
