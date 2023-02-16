@@ -14,11 +14,17 @@ This app was built as the final project during the **_Lighthouse Labs Web Develo
 
 ## Screenshots
 
-!["Screenshot 1 text"](link to follow)
+!["Splash Screen"](https://github.com/JesseGiles/snap-up/blob/master/docs/splash-page.PNG?raw=true)
 
-!["Screenshot 2 text"](link to follow)
+!["Home Page"](https://github.com/JesseGiles/snap-up/blob/master/docs/home-screen.PNG?raw=true)
 
-!["Screenshot 3 text"](link to follow)
+!["Select Screen"](https://github.com/JesseGiles/snap-up/blob/master/docs/selection-screen.PNG?raw=true)
+
+!["Game View"](https://github.com/JesseGiles/snap-up/blob/master/docs/game-view.PNG?raw=true)
+
+!["Card Preview"](https://github.com/JesseGiles/snap-up/blob/master/docs/card-preview.png?raw=true)
+
+!["Game Over"](https://github.com/JesseGiles/snap-up/blob/master/docs/game-over.PNG?raw=true)
 
 ## Setup
 
