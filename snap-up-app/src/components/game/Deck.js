@@ -10,6 +10,7 @@ export default function Deck(props) {
       src={cardBack}
       alt="Card Back"
       onClick={() => props.onClick(props.setState, props.socket, props.player)}
+      draggable="false"
     />
   );
 }

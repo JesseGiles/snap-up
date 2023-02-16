@@ -4,5 +4,5 @@ import React from "react";
 
 export default function Location(props) {
 
-  return <div className={`location ${props.location.style}`}>{props.location.name}</div>;
+  return <div className={`location fw-bold ${props.location.style}`}>{props.location.name}</div>;
 }

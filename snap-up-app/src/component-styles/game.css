@@ -56,8 +56,7 @@
   background-position: center;
   background-repeat: no-repeat;
   --lane-border: darkgreen;
-  --location-bg-color: pink;
-  --location-border-color: pink;
+  
   
 }
 
@@ -193,11 +192,15 @@
 .location {
   height: 2em;
   margin: .5em;
-  background-color: var(--location-bg-color);
-  border: .25em outset var(--location-border-color);
+  padding: .5em;
+  background-color: #A25664;
+  /* border: .25em solid grey; */
   border-radius: 1em;
   margin: .5em;
-  line-height: unset;
+  line-height: normal;
+  box-shadow: 0px 0px 5px #4d2830, inset 0px 0px 5px #4d2830;
+  text-shadow: 1px 1px 2px black;
+  
 }
 
 
@@ -218,12 +221,12 @@
 }
 
 .current-energy {
-  height: 2em;
-  width: 2em;
+  height: 2.5em;
+  width: 2.5em;
   background-color: #1AE9E9;
   text-align: center;
   font-weight: bolder;
-  border-radius: 5%;
+  border-radius: 25%;
   display: flex;
   align-items: center; 
   justify-content: center;
@@ -232,27 +235,28 @@
   -webkit-text-stroke: 1px #ffffff;
   color:#ffffff;
   font-size: x-large;
-  text-shadow: 3px 3px 2px black;
-  margin: 1em;
+  text-shadow: 2px 2px 2px black;
+  margin: .5em;
+  line-height: normal;
 }
 
 .current-turn {
+  height: 2.5em;
+  width: 2.5em;
   background-color: rgb(59, 214, 35);
-  -webkit-text-stroke: 1px #ffffff;
-  color:#ffffff;
-  font-size: x-large;
-  text-shadow: 3px 3px 2px black;
-  height: 2em;
-  width: 2em;
-  margin: 1em;
   text-align: center;
-  border-radius: 5%;
   font-weight: bolder;
+  border-radius: 25%;
   display: flex;
   align-items: center; 
   justify-content: center;
   border-style: outset;
   border-color: chartreuse;
+  -webkit-text-stroke: 1px #ffffff;
+  color:#ffffff;
+  font-size: x-large;
+  text-shadow: 2px 2px 2px black;
+  margin: .5em;
   line-height: normal;
 }
 

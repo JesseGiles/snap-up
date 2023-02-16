@@ -43,6 +43,8 @@
   --img-border: #539aff;
   --bg-img: url("https://www.transparenttextures.com/patterns/candyhole.png");
   --font-color: #ffffff;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgb(0, 0, 0);
 }
 
 .animal-crossing {
@@ -52,27 +54,28 @@
   --bg-img: url("/../snap-up-app/public/cardImages/animalcrossing/ACbackground.png");
   --font-color: #ffffff;
   text-shadow: 1px 1px 1px rgb(0, 0, 0);
-  
+  font-weight: bold;
 }
 
 .friends {
   --border: rgb(68, 77, 78);
-  --bg: transparent;
-  --img-border: rgb(166, 126, 63);
-  --bg-img: url("https://previews.123rf.com/images/bbourdages/bbourdages1002/bbourdages100200044/6371370-grunge-old-brick-background-used-for-text-and-wallpaper.jpg");
+  --bg: rgb(75, 123, 137);
+  --img-border: rgb(43, 109, 145);
+  --bg-img: url("https://www.transparenttextures.com/patterns/circles.png");
   --font-color: #ffffff;
   text-shadow: 1px 1px 1px rgb(0, 0, 0);
+  font-weight: bold;
   
 }
 
 .firefly {
   --border:  #454b52;
   --bg: transparent;
-  --img-border: #1f1101;
-  --bg-img: url("https://media.istockphoto.com/id/504110140/vector/night-sky-stars-in-night-sky.jpg?s=612x612&w=0&k=20&c=Y0ew48Fn2IiMDN640MGMgayVDru7Q-DLI_iCPpF6JDg=");
+  --img-border: #2c0839;
+  --bg-img: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d8437b5c-1fb4-40c2-8d5c-37540815aff4/d19inun-877fc11d-250c-4497-b990-bb235151d1fd.jpg/v1/fill/w_600,h_450,q_75,strp/space_texture_by_extince_d19inun-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDUwIiwicGF0aCI6IlwvZlwvZDg0MzdiNWMtMWZiNC00MGMyLThkNWMtMzc1NDA4MTVhZmY0XC9kMTlpbnVuLTg3N2ZjMTFkLTI1MGMtNDQ5Ny1iOTkwLWJiMjM1MTUxZDFmZC5qcGciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.-6QF6o9YZIH6VL5hVSKP8veWxp0cW_xFEyXYNmiPYTM");
   --font-color: #ffffff;
   text-shadow: 1px 1px 1px rgb(0, 0, 0);
-  
+  font-weight: bold;
 }
 
 /* end of deck styles */
@@ -163,13 +166,13 @@
 
 .card-cost {
   z-index: 9;
-  right: .2em;
-  top: -.1em;
+  right: .1em;
+  
   position: absolute;
   font-weight: bolder;
   -webkit-text-stroke: 1px #ffffff;
   color:#ffffff;
-  text-shadow: 2px 2px 2px black;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(0, 0, 0), 0 0 0.2em rgb(0, 0, 0);
 
 }
 
