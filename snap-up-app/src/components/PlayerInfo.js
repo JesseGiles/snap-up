@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import PlayerForm from "./PlayerForm";
 import Connection from "./Connection";
-import Splash from "./game/Splash";
+import Splash from "./Splash";
 import Home from "./Home";
-// import { avatarImages, deckImages } from "../db/images";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import socketIO from "socket.io-client";
 const socket = socketIO.connect("https://snap-up-app.up.railway.app/");

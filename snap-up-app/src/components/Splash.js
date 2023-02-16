@@ -8,7 +8,7 @@ export default function Splash() {
   const redirectingUser = () => {
     setTimeout(() => {
       navigate("/home");
-    }, 6000);
+    }, 4000);
   };
 
   return (
