@@ -12,7 +12,7 @@ The concept of the game is to try and "win" at least 2 of the lanes by having a 
 
 This app was built as the final project during the **_Lighthouse Labs Web Development Bootcamp_**. The front-end was built entirely with React, with additional libraries **React-Router-Dom**, **React-Transition-Group**, and **React-DND**, with **React-Bootstrap** and custom CSS for styling.
 
-Our back-end stack is **Express** along with **Socket.IO** to allow for multiplayer capability and real-time connectivity. **_Snap-Up_** is deployed on Railway (https://snap-up-app.up.railway.app/),try out for yourself or with a friend!
+Our back-end stack is **Express** along with **Socket.IO** to allow for multiplayer capability and real-time connectivity. **_Snap-Up_** is deployed on Railway (https://snap-up-app.up.railway.app/), try it out for yourself or with a friend!
 
 **_Get Snapping!_**
 
