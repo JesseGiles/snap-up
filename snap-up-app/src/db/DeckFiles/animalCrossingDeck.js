@@ -6,9 +6,9 @@ const animalCrossingDeck = {
       id: 43,
       name: "Rover",
       cost: 1,
-      power: 2,
+      power: 3,
       img: "/cardImages/animalcrossing/Rover.png",
-      ability: ["addEnergy", 1],
+      ability: ["addEnergy", 2],
       description: "Add one bonus energy on your next turn.",
       cardPosition: "hand",
       deck: "animal-crossing",
@@ -17,7 +17,7 @@ const animalCrossingDeck = {
     {
       id: 44,
       name: "Redd",
-      cost: 2,
+      cost: 1,
       power: 5,
       img: "/cardImages/animalcrossing/Redd.png",
       ability: ["drawCards", 1],
@@ -29,8 +29,8 @@ const animalCrossingDeck = {
     {
       id: 45,
       name: "Tom Nook",
-      cost: 3,
-      power: 7,
+      cost: 1,
+      power: 5,
       img: "/cardImages/animalcrossing/Tom_Nook.png",
       ability: ["addPower", 1],
       description: "Give all friendly cards in this location +1 power.",
@@ -54,8 +54,8 @@ const animalCrossingDeck = {
     {
       id: 47,
       name: "Blathers",
-      cost: 4,
-      power: 10,
+      cost: 2,
+      power: 5,
       img: "/cardImages/animalcrossing/Blathers.png",
       ability: ["playCardFromDeck", 1],
       description:
